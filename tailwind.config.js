@@ -10,7 +10,6 @@ export default {
 			contents: {max: '1920px'},
 		},
 
-    
 		extend: {
 			colors: {
         // 임의로 설정해놓은 값. 수정 (지영)
