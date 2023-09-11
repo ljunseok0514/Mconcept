@@ -1,7 +1,7 @@
 /* 사용자 정의 구성 ---------------------------------------------------------------- */
 
 // 1. 포켓호스트 URL을 작성합니다.
-export const PB_URL = 'https://little-manchester.pockethost.io/';
+export const PB_URL = 'https://little-manchester.pockethost.io';
 
 // 2. 업로드 할 콜렉션(collection) 이름을 작성합니다.
 export const PB_COLLECTION = 'products';
@@ -17,6 +17,6 @@ export const UPLOAD_DIR = 'uploads';
 //    - 필드 타입(문자, 숫자, 파일 등)을 고려해 설정하세요.
 //    - 파일 필드의 경우 업로드 폴더 안에 있는 파일 이름이 정확해야 합니다.
 export const uploadDataList = [
-  // 예시 데이터
-  { name: 'baboseki', [IMAGE_KEY]: ['react.png','hero.jpg'], brand: 'babo' }
+	// 예시 데이
+	{name: 'junsoek2', brand: '9강9조', [IMAGE_KEY]: ['hero.jpg', 'mesh-back-pack.png']},
 ];
