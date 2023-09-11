@@ -1,5 +1,4 @@
 import Category from './views/Category';
-import FooterBar from './layout/FooterBar';
 import Login from './components/Login';
 import Header from './layout/Header';
 
@@ -16,7 +15,6 @@ function App() {
 			<Login />
 			<Category />
 			<Detail/>
-			<FooterBar />
 		</>
 	);
 }
