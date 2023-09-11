@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import PocketBase from 'pocketbase';
-import {IMAGE_KEY, PB_COLLECTION, PB_URL, UPLOAD_DIR} from '../config.mjs';
+import {IMAGE_KEY, PB_COLLECTION, PB_URL, UPLOAD_DIR, IMAGE_KEY2} from '../config.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,7 +18,7 @@ export async function fileUpload(fileInfo) {
 		let fileName = '';
 
 		for (const [key, value] of Object.entries(fileInfo)) {
-			if (key === IMAGE_KEY) {
+			if (key === IMAGE_KEY || key === IMAGE_KEY2) {
 				// value가 배열인지 확인합니다.
 				if (Array.isArray(value)) {
 					// value가 배열일 경우 각각의 파일 이름에 대해 Blob 객체를 생성하고 formData에 추가합니다.
@@ -35,7 +35,7 @@ export async function fileUpload(fileInfo) {
 			}
 		}
 
-		await pb.Ïcollection(PB_COLLECTION).create(formData);
+		await pb.collection(PB_COLLECTION).create(formData);
 		console.log(`-----------------------------------------`);
 		console.log(`${fileName} 업로드 완료!`);
 		console.log(`-----------------------------------------`);
