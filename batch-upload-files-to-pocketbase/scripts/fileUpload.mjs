@@ -35,7 +35,7 @@ export async function fileUpload(fileInfo) {
 			}
 		}
 
-		await pb.collection(PB_COLLECTION).create(formData);
+		await pb.Ïcollection(PB_COLLECTION).create(formData);
 		console.log(`-----------------------------------------`);
 		console.log(`${fileName} 업로드 완료!`);
 		console.log(`-----------------------------------------`);
