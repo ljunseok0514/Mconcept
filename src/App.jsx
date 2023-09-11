@@ -7,6 +7,7 @@ import Header from './layout/Header';
  * */
 
 import Detail from './views/Detail';
+import Footer from './layout/Footer';
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 			<Login />
 			<Category />
 			<Detail/>
+			<Footer />
 		</>
 	);
 }
