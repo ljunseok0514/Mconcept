@@ -16,6 +16,7 @@ export async function fileUpload(fileInfo) {
 	try {
 		const formData = new FormData();
 		let fileName = '';
+
 		for (const [key, value] of Object.entries(fileInfo)) {
 			if (key === IMAGE_KEY) {
 				// value가 배열인지 확인합니다.

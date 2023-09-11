@@ -1,7 +1,7 @@
 /* 사용자 정의 구성 ---------------------------------------------------------------- */
 
 // 1. 포켓호스트 URL을 작성합니다.
-export const PB_URL = 'https://little-manchester.pockethost.io/';
+export const PB_URL = 'https://little-manchester.pockethost.io';
 
 // 2. 업로드 할 콜렉션(collection) 이름을 작성합니다.
 export const PB_COLLECTION = 'products';
