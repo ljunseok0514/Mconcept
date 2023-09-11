@@ -1,5 +1,5 @@
 import Nav from '@/components/Nav';
-import banner from '../assets/images/Header_Login_Header_add.png';
+import banner from '../assets/images/header/Header_Login_Header_add.png';
 
 import GlobalSearch from '@/components/GlobalSearch';
 
