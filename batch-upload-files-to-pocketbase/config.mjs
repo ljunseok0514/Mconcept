@@ -17,10 +17,6 @@ export const UPLOAD_DIR = 'uploads';
 //    - 필드 타입(문자, 숫자, 파일 등)을 고려해 설정하세요.
 //    - 파일 필드의 경우 업로드 폴더 안에 있는 파일 이름이 정확해야 합니다.
 export const uploadDataList = [
-  // 예시 데이터
-  { 
-    name: 'heroasdf', 
-    [IMAGE_KEY]: ['hero.jpg','react.png','mesh-back-pack.png'],
-    brand: '나이키',
-  },
+	// 예시 데이
+	{name: 'junsoek2', brand: '9강9조', [IMAGE_KEY]: ['hero.jpg', 'mesh-back-pack.png']},
 ];
