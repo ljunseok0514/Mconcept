@@ -6,8 +6,8 @@ export default {
 			// 반응형 스크린 사이즈
 			mobile: {min: '320px', max: '767px'},
 			tablet: {min: '768px', max: '1279px'},
-			desktop: {min: '1920px'},
-			contents: {max: '1920px'},
+			desktop: {min:'1279px', max: '1920px'},
+			contents: {min:'1279px', max: '1920px'},
 		},
     
 		extend: {
