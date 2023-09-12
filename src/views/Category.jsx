@@ -29,6 +29,7 @@ function Category() {
 						<a href="/Men/001003">코트</a>
 					</dd>
 				</dl>
+				
 			</section>
 
 			<section className="w-4/5">
