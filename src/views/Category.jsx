@@ -4,9 +4,53 @@ import React from 'react';
  *  Category Page
  * */
 
-const products = ['', 'CUSTOMELLOW', 'marlane stripe double breasted suit jacket_CWFBW23205NYX', '470,000', '470,00', '10%', '뉴시즌'];
+const products = [
+	{
+		photo: ['thumbnail_1.jpg', 'thumbnail_2.png'],
+		details: ['details_1.jpg', 'details_2.png'],
+		brand: 'CUSTOMELLOW',
+		description: 'marlane stripe double breasted suit jacket_CWFBW23205NYX',
+		name: '이름',
+		color: '색상',
+		size: '라지',
+		material: '소재',
+		country: '원산지',
+		category: '아우터',
 
-const listItems = products.map((products) => <dl>{products}</dl>);
+		field: 1,
+		star: 5,
+		quantity: 500,
+		review: 500,
+		price: 470000,
+		discount: 10,
+
+		//@ label
+		// 뉴시즌
+		newSeason: true,
+		// 셀럽착용
+		celebrity: true,
+		// 쿠폰
+		coupon: true,
+		// 단독 판매
+		only: true,
+	},
+];
+
+const listItems = products.map((products) => (
+	<dl>
+		<dd>
+			<a href="/">
+				<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+			</a>
+		</dd>
+		<dd className="pb-2 text-base font-semibold">{products.brand}</dd>
+		<dd className="pb-6 text-sm font-normal text-secondary">{products.description}</dd>
+		<dd className="inline-block font-bold text-grey-800">{products.price}</dd>
+		<dd className="ml-2 inline-block text-right text-xs font-medium text-grey-200  line-through">{products.price}</dd>
+		<dd className="float-right inline-block font-bold text-tertiary">{products.discount}%</dd>
+		<dd className="mt-4 w-[40px] bg-tertiary px-1 py-[1px] text-center text-xs font-medium text-white">뉴시즌</dd>
+	</dl>
+));
 
 function Category() {
 	return (
@@ -185,34 +229,19 @@ function Category() {
 					</div>
 				</div>
 
-				{/* <div className="grid grid-cols-6 grid-rows-2 gap-4">
-					<dl className="overflow-hidden text-ellipsis">
-						<dd>
-							<a href="/">
-								<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-							</a>
-						</dd>
-						{listItems}
-					</dl>
-				</div> */}
-
-				<div className="grid grid-cols-6 grid-rows-2 gap-4">
-					<button className="hidden" type="button" name="heart">
-						heart icon
-					</button>
-					<dl className="overflow-hidden text-ellipsis">
-						<dd>
-							<a href="/">
-								<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-							</a>
-						</dd>
-						<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
-						<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
-						<dd className="inline-block font-bold text-grey-800">470,000</dd>
-						<dd className="ml-2 inline-block text-right text-xs font-medium text-grey-200  line-through">470,000</dd>
-						<dd className="float-right inline-block font-bold text-tertiary">10%</dd>
-						<dd className="mt-4 w-[40px] bg-tertiary px-1 py-[1px] text-center text-xs font-medium text-white">뉴시즌</dd>
-					</dl>
+				<div className="products grid grid-cols-6 grid-rows-2 gap-4 pb-10">
+					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
+					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
+					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
+					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
+					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
+					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
+					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
+					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
+					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
+					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
+					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
+					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
 				</div>
 
 				<ul className="mb-6 flex flex-row justify-center font-bold">
