@@ -227,10 +227,10 @@ function Category() {
 						</ul>
 					</div>
 				</div>
-				
+
 				{/* products list items */}
 				<div className="products grid grid-cols-6 grid-rows-2 gap-4 pb-10">
-					{[...Array(12)].map((_, index) => (
+					{Array.from({length: 12}).forEach((_, index) => (
 						<dl key={index} className="overflow-hidden text-ellipsis">
 							{listItems}
 						</dl>
