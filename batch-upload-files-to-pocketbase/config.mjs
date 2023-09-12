@@ -17,39 +17,40 @@ export const UPLOAD_DIR = 'uploads';
 //    - 저장할 콜렉션에 해당 필드가 존재해야 합니다.
 //    - 필드 타입(문자, 숫자, 파일 등)을 고려해 설정하세요.
 //    - 파일 필드의 경우 업로드 폴더 안에 있는 파일 이름이 정확해야 합니다.
+
 export const uploadDataList = [
 	// 예시 데이터
 	{
-		photo:['thumbnail_1.jpg', 'thumbnail_2.png'],	
+		photo: ['thumbnail_1.jpg', 'thumbnail_2.png'],
 		details: ['details_1.jpg', 'details_2.png'],
-		brand:'브랜드',
-		description:'설명',
-		name:'이름',
-		color:'색상',
-		size:'라지',
-		material:'소재',
-		country:'원산지',
-		category:'아우터',
+		brand: '브랜드',
+		description: '설명',
+		name: '이름',
+		color: '색상',
+		size: '라지',
+		material: '소재',
+		country: '원산지',
+		category: '아우터',
 
-		field:2,
-		star:5,
-		quantity:500,
-		review:500,
-		price:5000000,
-		discount:1,
+		field: 2,
+		star: 5,
+		quantity: 500,
+		review: 500,
+		price: 5000000,
+		discount: 1,
 
 		//@ label
 		// 뉴시즌
-		newSeason:true,
+		newSeason: true,
 		// 셀럽착용
-		celebrity:true,
+		celebrity: true,
 		// 쿠폰
-		coupon:true,
+		coupon: true,
 		// 단독 판매
-		only:true, 
+		only: true,
 
-		a:'',
-		b:'',
-		c:'',
-	}
+		a: '',
+		b: '',
+		c: '',
+	},
 ];
