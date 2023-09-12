@@ -99,7 +99,7 @@ function Category() {
 					</div>
 				</div>
 
-				<div className="grid grid-cols-6 grid-rows-4 gap-4">
+				<div className="grid grid-cols-6 grid-rows-2 gap-4">
 					<dl>
 						<dd>
 							<button className="hidden" type="button" name="heart" onclick="/">
@@ -126,7 +126,7 @@ function Category() {
 							<button className="hidden" type="button" name="heart" onclick="/">
 								heart icon
 							</button>
-							<dt className="... overflow-hidden text-ellipsis">
+							<dt className="overflow-hidden text-ellipsis">
 								<a href="/">
 									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
 									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
@@ -141,7 +141,7 @@ function Category() {
 							<button className="hidden" type="button" name="heart" onclick="/">
 								heart icon
 							</button>
-							<dt className="... overflow-hidden text-ellipsis">
+							<dt className="overflow-hidden text-ellipsis">
 								<a href="/">
 									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
 									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
@@ -156,7 +156,7 @@ function Category() {
 							<button className="hidden" type="button" name="heart" onclick="/">
 								heart icon
 							</button>
-							<dt className="... overflow-hidden text-ellipsis">
+							<dt className="overflow-hidden text-ellipsis">
 								<a href="/">
 									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
 									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
@@ -171,7 +171,7 @@ function Category() {
 							<button className="hidden" type="button" name="heart" onclick="/">
 								heart icon
 							</button>
-							<dt className="... overflow-hidden text-ellipsis">
+							<dt className="overflow-hidden text-ellipsis">
 								<a href="/">
 									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
 									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
@@ -186,7 +186,7 @@ function Category() {
 							<button className="hidden" type="button" name="heart" onclick="/">
 								heart icon
 							</button>
-							<dt className="... overflow-hidden text-ellipsis">
+							<dt className="overflow-hidden text-ellipsis">
 								<a href="/">
 									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
 									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
@@ -201,7 +201,7 @@ function Category() {
 							<button className="hidden" type="button" name="heart" onclick="/">
 								heart icon
 							</button>
-							<dt className="... overflow-hidden text-ellipsis">
+							<dt className="overflow-hidden text-ellipsis">
 								<a href="/">
 									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
 									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
@@ -216,7 +216,7 @@ function Category() {
 							<button className="hidden" type="button" name="heart" onclick="/">
 								heart icon
 							</button>
-							<dt className="... overflow-hidden text-ellipsis">
+							<dt className="overflow-hidden text-ellipsis">
 								<a href="/">
 									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
 									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
@@ -231,7 +231,7 @@ function Category() {
 							<button className="hidden" type="button" name="heart" onclick="/">
 								heart icon
 							</button>
-							<dt className="... overflow-hidden text-ellipsis">
+							<dt className="overflow-hidden text-ellipsis">
 								<a href="/">
 									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
 									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
@@ -246,7 +246,7 @@ function Category() {
 							<button className="hidden" type="button" name="heart" onclick="/">
 								heart icon
 							</button>
-							<dt className="... overflow-hidden text-ellipsis">
+							<dt className="overflow-hidden text-ellipsis">
 								<a href="/">
 									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
 									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
@@ -261,7 +261,7 @@ function Category() {
 							<button className="hidden" type="button" name="heart" onclick="/">
 								heart icon
 							</button>
-							<dt className="... overflow-hidden text-ellipsis">
+							<dt className="overflow-hidden text-ellipsis">
 								<a href="/">
 									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
 									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
@@ -276,7 +276,7 @@ function Category() {
 							<button className="hidden" type="button" name="heart" onclick="/">
 								heart icon
 							</button>
-							<dt className="... overflow-hidden text-ellipsis">
+							<dt className="overflow-hidden text-ellipsis">
 								<a href="/">
 									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
 									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>

@@ -5,7 +5,7 @@
 function Footer() {
 	return (
 		<>
-			<footer>
+			<footer className="mb-6">
 				<div className="bg-grey-500 text-base font-normal text-white">
 					<div className="mt-18 m-auto w-[1920px] leading-[58px]">
 						<ul className="flex items-center justify-center gap-11">
