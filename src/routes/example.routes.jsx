@@ -13,7 +13,6 @@ const router = createBrowserRouter(
 			<Route index element={<Home />} />
 			<Route path="/login" element={<Login />} />
 		</Route>,
-		// 경로 설정 하는 부분
 	),
 );
 
