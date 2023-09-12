@@ -103,11 +103,11 @@ function Category() {
 						heart icon
 					</button>
 					<dl className="overflow-hidden text-ellipsis">
-						<dt>
+						<dd>
 							<a href="/">
 								<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
 							</a>
-						</dt>
+						</dd>
 						<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
 						<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
 						<dd className="inline-block font-bold text-grey-800">470,000</dd>
@@ -283,11 +283,12 @@ function Category() {
 							</dt>
 						</dd>
 					</dl> */}
-
-					<ul className="b-0 block">
-						<li>1</li>
-					</ul>
 				</div>
+
+				<ul className="text-center">
+					<li>1</li>
+				</ul>
+
 			</section>
 		</main>
 	);
