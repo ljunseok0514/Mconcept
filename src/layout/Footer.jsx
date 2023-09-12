@@ -5,10 +5,10 @@
 function Footer() {
 	return (
 		<>
-			<footer>
-				<div className="mb-6 bg-grey-500 text-base font-normal text-white">
-					<div className="mt-18 m-auto w-[1920px] leading-[58px]">
-						<ul className="flex items-center justify-center gap-11">
+			<footer className="mb-6">
+				<div className="flex justify-center bg-grey-500 text-base text-white font-normal">
+					<div className="mt-18 w-[1920px] leading-[58px]">
+						<ul className="w-[1240px] mx-auto grid grid-cols-8 text-center">
 							<li>
 								<a href="/" target="_blank">
 									회사소개

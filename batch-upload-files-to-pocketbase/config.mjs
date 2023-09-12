@@ -31,7 +31,7 @@ export const uploadDataList = [
 		country:'원산지',
 		category:'아우터',
 
-		field:2,
+		field:1,
 		star:5,
 		quantity:500,
 		review:500,
