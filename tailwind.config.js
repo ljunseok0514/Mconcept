@@ -32,6 +32,7 @@ export default {
         sm: ['0.75rem'], // 12px
         base: ['0.875rem'], // 14px
         lg: ['1rem'], // 16px
+        mlg: ['1.125rem'], // 18px
         xl: ['1.375rem'], // 22x
         '2xl': ['1.625rem'], // 26px
         '3xl': ['2.25rem'], // 36px
