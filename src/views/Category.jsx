@@ -16,20 +16,19 @@ function Category() {
 					<dd className="text-tertiary underline decoration-1">
 						<a href="/Men/0010">VIEW ALL OUTER</a>
 					</dd>
-					<dd class="">
+					<dd>
 						<a href="/Men/001001">자켓</a>
 					</dd>
-					<dd class="">
+					<dd>
 						<a href="/Men/001004">점퍼</a>
 					</dd>
-					<dd class="">
+					<dd>
 						<a href="/Men/001002">패딩</a>
 					</dd>
-					<dd class="">
+					<dd>
 						<a href="/Men/001003">코트</a>
 					</dd>
 				</dl>
-				
 			</section>
 
 			<section className="w-4/5">
@@ -44,7 +43,7 @@ function Category() {
 					</ul>
 				</nav>
 
-				<div className=" grid grid-cols-2 border-l-grey-200 bg-slate-50 px-6 py-4 text-lg font-semibold">
+				<div className="grid grid-cols-2 border-l-grey-200 bg-slate-50 px-6 py-4 text-lg font-semibold">
 					<h4 className="">
 						FILTER<button type="button"></button>
 					</h4>
@@ -68,11 +67,11 @@ function Category() {
 				</div>
 
 				<div className="border-t-2 border-black py-4 text-left">
-					<span className="text-sm text-black font-light">
+					<span className="text-sm font-light text-black">
 						<em className="text-mlg not-italic">196</em> 개의 상품
 					</span>
 
-					<div className="inline-block h-9 overflow-hidden p-1 float-right">
+					<div className="float-right inline-block h-9 overflow-hidden p-1">
 						<button className="border border-grey-300 px-4 py-1 text-base text-grey-400" type="button">
 							신상품순 ▼
 						</button>
@@ -100,30 +99,28 @@ function Category() {
 				</div>
 
 				<div className="grid grid-cols-6 grid-rows-2 gap-4">
-					<dl>
-						<dd>
-							<button className="hidden" type="button" name="heart" onclick="/">
-								heart icon
-							</button>
-							<dt className="overflow-hidden text-ellipsis">
-								<a href="/">
-									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
-									<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
-									<dd className="inline-block font-medium  text-grey-800">470,000</dd>
-									<dd className="ml-2 inline-block text-right text-xs font-medium text-grey-200  line-through">470,000</dd>
-									<dd className="float-right inline-block text-tertiary">10%</dd>
-									<dd className="mt-4 w-[40px] bg-tertiary px-1 py-[1px] text-xs font-medium text-white">
-										<span>뉴시즌</span>
-									</dd>
-								</a>
-							</dt>
+					<button className="hidden" type="button" name="heart">
+						heart icon
+					</button>
+					<dl className="overflow-hidden text-ellipsis">
+						<dt>
+							<a href="/">
+								<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+							</a>
+						</dt>
+						<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
+						<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
+						<dd className="inline-block font-bold text-grey-800">470,000</dd>
+						<dd className="ml-2 inline-block text-right text-xs font-medium text-grey-200  line-through">470,000</dd>
+						<dd className="float-right inline-block font-bold text-tertiary">10%</dd>
+						<dd className="mt-4 w-[40px] bg-tertiary px-1 py-[1px] text-center text-xs font-medium text-white">
+							<span>뉴시즌</span>
 						</dd>
 					</dl>
 
-					<dl>
+					{/* <dl>
 						<dd>
-							<button className="hidden" type="button" name="heart" onclick="/">
+							<button className="hidden" type="button" name="heart">
 								heart icon
 							</button>
 							<dt className="overflow-hidden text-ellipsis">
@@ -138,7 +135,7 @@ function Category() {
 					</dl>
 					<dl>
 						<dd>
-							<button className="hidden" type="button" name="heart" onclick="/">
+							<button className="hidden" type="button" name="heart">
 								heart icon
 							</button>
 							<dt className="overflow-hidden text-ellipsis">
@@ -153,7 +150,7 @@ function Category() {
 					</dl>
 					<dl>
 						<dd>
-							<button className="hidden" type="button" name="heart" onclick="/">
+							<button className="hidden" type="button" name="heart">
 								heart icon
 							</button>
 							<dt className="overflow-hidden text-ellipsis">
@@ -168,7 +165,7 @@ function Category() {
 					</dl>
 					<dl>
 						<dd>
-							<button className="hidden" type="button" name="heart" onclick="/">
+							<button className="hidden" type="button" name="heart">
 								heart icon
 							</button>
 							<dt className="overflow-hidden text-ellipsis">
@@ -183,7 +180,7 @@ function Category() {
 					</dl>
 					<dl>
 						<dd>
-							<button className="hidden" type="button" name="heart" onclick="/">
+							<button className="hidden" type="button" name="heart">
 								heart icon
 							</button>
 							<dt className="overflow-hidden text-ellipsis">
@@ -198,7 +195,7 @@ function Category() {
 					</dl>
 					<dl>
 						<dd>
-							<button className="hidden" type="button" name="heart" onclick="/">
+							<button className="hidden" type="button" name="heart">
 								heart icon
 							</button>
 							<dt className="overflow-hidden text-ellipsis">
@@ -213,7 +210,7 @@ function Category() {
 					</dl>
 					<dl>
 						<dd>
-							<button className="hidden" type="button" name="heart" onclick="/">
+							<button className="hidden" type="button" name="heart">
 								heart icon
 							</button>
 							<dt className="overflow-hidden text-ellipsis">
@@ -228,7 +225,7 @@ function Category() {
 					</dl>
 					<dl>
 						<dd>
-							<button className="hidden" type="button" name="heart" onclick="/">
+							<button className="hidden" type="button" name="heart">
 								heart icon
 							</button>
 							<dt className="overflow-hidden text-ellipsis">
@@ -243,7 +240,7 @@ function Category() {
 					</dl>
 					<dl>
 						<dd>
-							<button className="hidden" type="button" name="heart" onclick="/">
+							<button className="hidden" type="button" name="heart">
 								heart icon
 							</button>
 							<dt className="overflow-hidden text-ellipsis">
@@ -258,7 +255,7 @@ function Category() {
 					</dl>
 					<dl>
 						<dd>
-							<button className="hidden" type="button" name="heart" onclick="/">
+							<button className="hidden" type="button" name="heart">
 								heart icon
 							</button>
 							<dt className="overflow-hidden text-ellipsis">
@@ -273,7 +270,7 @@ function Category() {
 					</dl>
 					<dl>
 						<dd>
-							<button className="hidden" type="button" name="heart" onclick="/">
+							<button className="hidden" type="button" name="heart">
 								heart icon
 							</button>
 							<dt className="overflow-hidden text-ellipsis">
@@ -285,13 +282,12 @@ function Category() {
 								</a>
 							</dt>
 						</dd>
-					</dl>
+					</dl> */}
+
+					<ul className="b-0 block">
+						<li>1</li>
+					</ul>
 				</div>
-			</section>
-			<section>
-				<ul>
-					<li>1</li>
-				</ul>
 			</section>
 		</main>
 	);

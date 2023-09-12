@@ -5,8 +5,8 @@
 function Footer() {
 	return (
 		<>
-			<footer className="mb-6">
-				<div className="bg-grey-500 text-base font-normal text-white">
+			<footer>
+				<div className="mb-6 bg-grey-500 text-base font-normal text-white">
 					<div className="mt-18 m-auto w-[1920px] leading-[58px]">
 						<ul className="flex items-center justify-center gap-11">
 							<li>
@@ -30,7 +30,7 @@ function Footer() {
 								</a>
 							</li>
 							<li>
-								<a href="/" target="_blank" class="bold">
+								<a href="/" target="_blank">
 									개인정보처리방침
 								</a>
 							</li>
@@ -45,7 +45,7 @@ function Footer() {
 								</a>
 							</li>
 							<li>
-								<a href="/" target="_blank" class="en">
+								<a href="/" target="_blank">
 									GLOBAL
 								</a>
 							</li>
@@ -69,7 +69,7 @@ function Footer() {
 					</div>
 
 					<div className="border-gery-300 border-l-[1px] pl-10">
-						<dd>
+						<dl>
 							<dt className="text-sm font-medium">소비자피해보상보험</dt>
 							<dd className="inline">
 								고객님은 안전거래를 위해 현금 결제 시, Wconcept 에서 가입한
@@ -81,7 +81,7 @@ function Footer() {
 									서비스 가입사실 확인
 								</a>
 							</dd>
-						</dd>
+						</dl>
 					</div>
 				</div>
 			</footer>
