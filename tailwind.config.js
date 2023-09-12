@@ -6,8 +6,8 @@ export default {
 			// 반응형 스크린 사이즈
 			mobile: {min: '320px', max: '767px'},
 			tablet: {min: '768px', max: '1279px'},
-			desktop: {min: '1920px'},
-			contents: {max: '1920px'},
+			desktop: {min:'1279px', max: '1920px'},
+			contents: {min:'1279px', max: '1920px'},
 		},
     
 		extend: {
@@ -32,6 +32,7 @@ export default {
         sm: ['0.75rem'], // 12px
         base: ['0.875rem'], // 14px
         lg: ['1rem'], // 16px
+        mlg: ['1.125rem'], // 18px
         xl: ['1.375rem'], // 22x
         '2xl': ['1.625rem'], // 26px
         '3xl': ['2.25rem'], // 36px

@@ -11,7 +11,8 @@ function App() {
 			<Login />
 			<Mainpage />
 			<Category />
-			<Detail/>
+			{/* <Detail/> */}
+			<Footer />
 		</>
 	);
 }

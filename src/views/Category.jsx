@@ -3,7 +3,7 @@
  * */
 function Category() {
 	return (
-		<main className="m-auto mt-4 flex h-[1200px] max-w-[1980px] px-2">
+		<main className="m-auto mt-6 flex h-[1200px] max-w-[1980px] px-2">
 			<section className="mr-6 w-1/5">
 				<h3 className="border-b border-black py-4 text-2xl font-black tracking-widest">
 					<span className="block text-lg font-semibold tracking-tight">MEN</span>APPAREL
@@ -13,7 +13,7 @@ function Category() {
 						<a href="/Men/001">아우터</a>
 						<button type="button" name="button"></button>
 					</dt>
-					<dd className="underline decoration-1 text-tertiary">
+					<dd className="text-tertiary underline decoration-1">
 						<a href="/Men/0010">VIEW ALL OUTER</a>
 					</dd>
 					<dd class="">
@@ -29,6 +29,7 @@ function Category() {
 						<a href="/Men/001003">코트</a>
 					</dd>
 				</dl>
+				
 			</section>
 
 			<section className="w-4/5">
@@ -43,11 +44,11 @@ function Category() {
 					</ul>
 				</nav>
 
-				<div className="flex border-t border-l-grey-200 bg-slate-50 px-6 py-4 font-semibold">
-					<h4 className="basis-1/2">
+				<div className=" grid grid-cols-2 border-l-grey-200 bg-slate-50 px-6 py-4 text-lg font-semibold">
+					<h4 className="">
 						FILTER<button type="button"></button>
 					</h4>
-					<ul className="flex gap-16">
+					<ul className="grid grid-cols-6 gap-20">
 						<li>
 							<button type="button">BRAND</button>
 						</li>
@@ -67,12 +68,14 @@ function Category() {
 				</div>
 
 				<div className="border-t-2 border-black py-4 text-left">
-					<span className="float-left">
-						<em id="filterCnt">196</em> 개의 상품
+					<span className="text-sm text-black font-light">
+						<em className="text-mlg not-italic">196</em> 개의 상품
 					</span>
 
-					<div className="h-8 overflow-hidden p-1 text-right">
-						<button type="button">신상품순 ▼</button>
+					<div className="inline-block h-9 overflow-hidden p-1 float-right">
+						<button className="border border-grey-300 px-4 py-1 text-base text-grey-400" type="button">
+							신상품순 ▼
+						</button>
 						<ul>
 							<li>
 								<a href="/">신상품순</a>
@@ -97,211 +100,198 @@ function Category() {
 				</div>
 
 				<div className="grid grid-cols-6 grid-rows-4 gap-4">
-					<dl class="product">
-						<div>
-							<dd>
-								<button type="button" name="heart" onclick="/">
-									heart
-								</button>
-								<dt>
-									<a href="/">
-										<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-										<dd>CUSTOMELLOW</dd>
-										<dd>marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
-										<dd>470,000</dd>
-									</a>
-								</dt>
-							</dd>
-						</div>
+					<dl>
+						<dd>
+							<button className="hidden" type="button" name="heart" onclick="/">
+								heart icon
+							</button>
+							<dt className="overflow-hidden text-ellipsis">
+								<a href="/">
+									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
+									<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
+									<dd className="inline-block font-medium  text-grey-800">470,000</dd>
+									<dd className="ml-2 inline-block text-right text-xs font-medium text-grey-200  line-through">470,000</dd>
+									<dd className="float-right inline-block text-tertiary">10%</dd>
+									<dd className="mt-4 w-[40px] bg-tertiary px-1 py-[1px] text-xs font-medium text-white">
+										<span>뉴시즌</span>
+									</dd>
+								</a>
+							</dt>
+						</dd>
 					</dl>
-					<dl class="product">
-						<div>
-							<dd>
-								<button type="button" name="heart" onclick="/">
-									heart
-								</button>
-								<dt>
-									<a href="/">
-										<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-										<dd>CUSTOMELLOW</dd>
-										<dd>marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
-										<dd>470,000</dd>
-									</a>
-								</dt>
-							</dd>
-						</div>
+
+					<dl>
+						<dd>
+							<button className="hidden" type="button" name="heart" onclick="/">
+								heart icon
+							</button>
+							<dt className="... overflow-hidden text-ellipsis">
+								<a href="/">
+									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
+									<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
+									<dd className="font-medium  text-grey-800">470,000</dd>
+								</a>
+							</dt>
+						</dd>
 					</dl>
-					<dl class="product">
-						<div>
-							<dd>
-								<button type="button" name="heart" onclick="/">
-									heart
-								</button>
-								<dt>
-									<a href="/">
-										<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-										<dd>CUSTOMELLOW</dd>
-										<dd>marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
-										<dd>470,000</dd>
-									</a>
-								</dt>
-							</dd>
-						</div>
+					<dl>
+						<dd>
+							<button className="hidden" type="button" name="heart" onclick="/">
+								heart icon
+							</button>
+							<dt className="... overflow-hidden text-ellipsis">
+								<a href="/">
+									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
+									<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
+									<dd className="font-medium  text-grey-800">470,000</dd>
+								</a>
+							</dt>
+						</dd>
 					</dl>
-					<dl class="product">
-						<div>
-							<dd>
-								<button type="button" name="heart" onclick="/">
-									heart
-								</button>
-								<dt>
-									<a href="/">
-										<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-										<dd>CUSTOMELLOW</dd>
-										<dd>marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
-										<dd>470,000</dd>
-									</a>
-								</dt>
-							</dd>
-						</div>
+					<dl>
+						<dd>
+							<button className="hidden" type="button" name="heart" onclick="/">
+								heart icon
+							</button>
+							<dt className="... overflow-hidden text-ellipsis">
+								<a href="/">
+									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
+									<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
+									<dd className="font-medium  text-grey-800">470,000</dd>
+								</a>
+							</dt>
+						</dd>
 					</dl>
-					<dl class="product">
-						<div>
-							<dd>
-								<button type="button" name="heart" onclick="/">
-									heart
-								</button>
-								<dt>
-									<a href="/">
-										<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-										<dd>CUSTOMELLOW</dd>
-										<dd>marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
-										<dd>470,000</dd>
-									</a>
-								</dt>
-							</dd>
-						</div>
+					<dl>
+						<dd>
+							<button className="hidden" type="button" name="heart" onclick="/">
+								heart icon
+							</button>
+							<dt className="... overflow-hidden text-ellipsis">
+								<a href="/">
+									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
+									<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
+									<dd className="font-medium  text-grey-800">470,000</dd>
+								</a>
+							</dt>
+						</dd>
 					</dl>
-					<dl class="product">
-						<div>
-							<dd>
-								<button type="button" name="heart" onclick="/">
-									heart
-								</button>
-								<dt>
-									<a href="/">
-										<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-										<dd>CUSTOMELLOW</dd>
-										<dd>marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
-										<dd>470,000</dd>
-									</a>
-								</dt>
-							</dd>
-						</div>
+					<dl>
+						<dd>
+							<button className="hidden" type="button" name="heart" onclick="/">
+								heart icon
+							</button>
+							<dt className="... overflow-hidden text-ellipsis">
+								<a href="/">
+									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
+									<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
+									<dd className="font-medium  text-grey-800">470,000</dd>
+								</a>
+							</dt>
+						</dd>
 					</dl>
-					<dl class="product">
-						<div>
-							<dd>
-								<button type="button" name="heart" onclick="/">
-									heart
-								</button>
-								<dt>
-									<a href="/">
-										<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-										<dd>CUSTOMELLOW</dd>
-										<dd>marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
-										<dd>470,000</dd>
-									</a>
-								</dt>
-							</dd>
-						</div>
+					<dl>
+						<dd>
+							<button className="hidden" type="button" name="heart" onclick="/">
+								heart icon
+							</button>
+							<dt className="... overflow-hidden text-ellipsis">
+								<a href="/">
+									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
+									<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
+									<dd className="font-medium  text-grey-800">470,000</dd>
+								</a>
+							</dt>
+						</dd>
 					</dl>
-					<dl class="product">
-						<div>
-							<dd>
-								<button type="button" name="heart" onclick="/">
-									heart
-								</button>
-								<dt>
-									<a href="/">
-										<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-										<dd>CUSTOMELLOW</dd>
-										<dd>marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
-										<dd>470,000</dd>
-									</a>
-								</dt>
-							</dd>
-						</div>
+					<dl>
+						<dd>
+							<button className="hidden" type="button" name="heart" onclick="/">
+								heart icon
+							</button>
+							<dt className="... overflow-hidden text-ellipsis">
+								<a href="/">
+									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
+									<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
+									<dd className="font-medium  text-grey-800">470,000</dd>
+								</a>
+							</dt>
+						</dd>
 					</dl>
-					<dl class="product">
-						<div>
-							<dd>
-								<button type="button" name="heart" onclick="/">
-									heart
-								</button>
-								<dt>
-									<a href="/">
-										<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-										<dd>CUSTOMELLOW</dd>
-										<dd>marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
-										<dd>470,000</dd>
-									</a>
-								</dt>
-							</dd>
-						</div>
+					<dl>
+						<dd>
+							<button className="hidden" type="button" name="heart" onclick="/">
+								heart icon
+							</button>
+							<dt className="... overflow-hidden text-ellipsis">
+								<a href="/">
+									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
+									<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
+									<dd className="font-medium  text-grey-800">470,000</dd>
+								</a>
+							</dt>
+						</dd>
 					</dl>
-					<dl class="product">
-						<div>
-							<dd>
-								<button type="button" name="heart" onclick="/">
-									heart
-								</button>
-								<dt>
-									<a href="/">
-										<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-										<dd>CUSTOMELLOW</dd>
-										<dd>marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
-										<dd>470,000</dd>
-									</a>
-								</dt>
-							</dd>
-						</div>
+					<dl>
+						<dd>
+							<button className="hidden" type="button" name="heart" onclick="/">
+								heart icon
+							</button>
+							<dt className="... overflow-hidden text-ellipsis">
+								<a href="/">
+									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
+									<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
+									<dd className="font-medium  text-grey-800">470,000</dd>
+								</a>
+							</dt>
+						</dd>
 					</dl>
-					<dl class="product">
-						<div>
-							<dd>
-								<button type="button" name="heart" onclick="/">
-									heart
-								</button>
-								<dt>
-									<a href="/">
-										<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-										<dd>CUSTOMELLOW</dd>
-										<dd>marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
-										<dd>470,000</dd>
-									</a>
-								</dt>
-							</dd>
-						</div>
+					<dl>
+						<dd>
+							<button className="hidden" type="button" name="heart" onclick="/">
+								heart icon
+							</button>
+							<dt className="... overflow-hidden text-ellipsis">
+								<a href="/">
+									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
+									<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
+									<dd className="font-medium  text-grey-800">470,000</dd>
+								</a>
+							</dt>
+						</dd>
 					</dl>
-					<dl class="product">
-						<div>
-							<dd>
-								<button type="button" name="heart" onclick="/">
-									heart
-								</button>
-								<dt>
-									<a href="/">
-										<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-										<dd>CUSTOMELLOW</dd>
-										<dd>marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
-										<dd>470,000</dd>
-									</a>
-								</dt>
-							</dd>
-						</div>
+					<dl>
+						<dd>
+							<button className="hidden" type="button" name="heart" onclick="/">
+								heart icon
+							</button>
+							<dt className="... overflow-hidden text-ellipsis">
+								<a href="/">
+									<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+									<dd className="pb-2 text-base font-semibold">CUSTOMELLOW</dd>
+									<dd className="pb-6 text-sm font-normal text-secondary">marlane stripe double breasted suit jacket_CWFBW23205NYX</dd>
+									<dd className="font-medium  text-grey-800">470,000</dd>
+								</a>
+							</dt>
+						</dd>
 					</dl>
 				</div>
+			</section>
+			<section>
+				<ul>
+					<li>1</li>
+				</ul>
 			</section>
 		</main>
 	);
