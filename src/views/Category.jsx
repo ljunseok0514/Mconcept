@@ -6,6 +6,7 @@ import React from 'react';
 
 const products = [
 	{
+		id: [0],
 		photo: ['thumbnail_1.jpg', 'thumbnail_2.png'],
 		details: ['details_1.jpg', 'details_2.png'],
 		brand: 'CUSTOMELLOW',
@@ -37,7 +38,7 @@ const products = [
 ];
 
 const listItems = products.map((products) => (
-	<dl>
+	<dl key={products.id}>
 		<dd>
 			<a href="/">
 				<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
@@ -229,6 +230,7 @@ function Category() {
 					</div>
 				</div>
 
+				{/* products list items */}
 				<div className="products grid grid-cols-6 grid-rows-2 gap-4 pb-10">
 					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
 					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
