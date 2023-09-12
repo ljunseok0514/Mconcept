@@ -11,11 +11,11 @@ const pb = new PocketBase(PB_URL);
 pb.autoCancellation(false);
 
 export async function fileUpload(fileInfo) {
-	const UPLOAD_PATH = path.resolve(__dirname, `../${UPLOAD_DIR}`);
+    const UPLOAD_PATH = path.resolve(__dirname, `../${UPLOAD_DIR}`);
 
-	try {
-		const formData = new FormData();
-		let fileName = '';
+    try {
+        const formData = new FormData();
+        let fileName = '';
 
 		for (const [key, value] of Object.entries(fileInfo)) {
 			if (key === IMAGE_KEY || key === IMAGE_KEY2) {
