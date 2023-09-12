@@ -171,7 +171,6 @@ function Category() {
 						</li>
 					</ul>
 				</nav>
-
 				<div className="grid basis-1/2 grid-cols-2 border-l-grey-200 bg-slate-50 px-6 py-4 text-lg font-semibold">
 					<h4>
 						FILTER<button type="button"></button>
@@ -191,7 +190,6 @@ function Category() {
 						</li>
 					</ul>
 				</div>
-
 				<div className="border-t-2 border-black py-4 text-left">
 					<span className="text-sm font-light text-black">
 						<em className="a11y text-mlg font-normal not-italic">196</em> 개의 상품
@@ -229,21 +227,14 @@ function Category() {
 						</ul>
 					</div>
 				</div>
-
+				
 				{/* products list items */}
 				<div className="products grid grid-cols-6 grid-rows-2 gap-4 pb-10">
-					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
-					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
-					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
-					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
-					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
-					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
-					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
-					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
-					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
-					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
-					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
-					<dl className="overflow-hidden text-ellipsis">{listItems}</dl>
+					{[...Array(12)].map((_, index) => (
+						<dl key={index} className="overflow-hidden text-ellipsis">
+							{listItems}
+						</dl>
+					))}
 				</div>
 
 				<ul className="mb-6 flex flex-row justify-center font-bold">
