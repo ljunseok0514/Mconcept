@@ -7,11 +7,11 @@ import Mainpage from './views/Mainpage';
 function App() {
 	return (
 		<>
-			{/* <Header />
+			<Header />
 			<Login />
-			<Category />
-			<Detail/> */}
 			<Mainpage />
+			<Category />
+			<Detail/>
 		</>
 	);
 }
