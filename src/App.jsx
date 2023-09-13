@@ -7,12 +7,12 @@ import Mainpage from './views/Mainpage';
 function App() {
 	return (
 		<>
-			<Header />
+			{/* <Header />
 			<Login />
 			<Mainpage />
-			<Category />
-			{/* <Detail/> */}
-			<Footer />
+			<Category /> */}
+			<Detail />
+			{/* <Footer /> */}
 		</>
 	);
 }
