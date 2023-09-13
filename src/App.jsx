@@ -8,8 +8,8 @@ import Footer from './layout/Footer';
 function App() {
 	return (
 		<>
-			{/* <Header />
-			<Login /> */}
+			{/* <Header /> */}
+			{/* <Login /> */}
 			<Mainpage />
 			{/* <Category /> */}
 			{/* <Detail/> */}
