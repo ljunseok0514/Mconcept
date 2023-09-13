@@ -1,9 +1,5 @@
 import React from 'react';
 
-/**
- *  Category Page
- * */
-
 const products = [
 	{
 		id: [0],
@@ -52,6 +48,10 @@ const listItems = products.map((products) => (
 		<dd className="mt-4 w-[40px] bg-tertiary px-1 py-[1px] text-center text-xs font-medium text-white">뉴시즌</dd>
 	</dl>
 ));
+
+/**
+ *  Category Page
+ * */
 
 function Category() {
 	return (
