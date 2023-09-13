@@ -20,36 +20,201 @@ export const UPLOAD_DIR = 'uploads';
 export const uploadDataList = [
 	// 예시 데이터
 	{
-		photo:['thumbnail_1.jpg', 'thumbnail_2.png'],	
-		details: ['details_1.jpg', 'details_2.png'],
-		brand:'브랜드',
-		description:'설명',
-		name:'이름',
-		color:'색상',
-		size:'라지',
-		material:'소재',
-		country:'원산지',
-		category:'아우터',
+		photo: ['outer_1_thumbnail.png', 'outer_1_thumbnail.png'],
+		details: ['outer_1_thumbnail.png', 'outer_1_thumbnail.png'],
+		brand: 'UNALLOYED',
+		description: 'VELOUR CORDUROY BLOUSON / BURGUNDY',
+		name: '이름',
+		color: 'PURPLE',
+		size: '라지',
+		material: '소재',
+		country: '원산지',
+		category: '아우터',
 
-		field:1,
-		star:5,
-		quantity:500,
-		review:500,
-		price:5000000,
-		discount:1,
+		field: 1,
+		star: 5,
+		quantity: 500,
+		review: 500,
+		price: 259000,
+		discount: 1,
 
 		//@ label
 		// 뉴시즌
-		newSeason:true,
+		newSeason: true,
 		// 셀럽착용
-		celebrity:true,
+		celebrity: false,
 		// 쿠폰
-		coupon:true,
+		coupon: false,
 		// 단독 판매
-		only:true, 
+		only: false,
 
-		a:'',
-		b:'',
-		c:'',
-	}
+		a: '',
+		b: '',
+		c: '',
+	},
+	{
+		photo: ['outer_2_thumbnail.png', 'outer_2_thumbnail.png'],
+		details: ['outer_2_thumbnail.png', 'outer_2_thumbnail.png'],
+		brand: 'UNALLOYED',
+		description: 'STAR ZIP-UP HOODIE / PURPLE',
+		name: '이름',
+		color: 'PURPLE',
+		size: '라지',
+		material: '소재',
+		country: '원산지',
+		category: '아우터',
+
+		field: 1,
+		star: 5,
+		quantity: 500,
+		review: 500,
+		price: 148000,
+		discount: 1,
+
+		//@ label
+		// 뉴시즌
+		newSeason: true,
+		// 셀럽착용
+		celebrity: false,
+		// 쿠폰
+		coupon: false,
+		// 단독 판매
+		only: false,
+
+		a: '',
+		b: '',
+		c: '',
+	},
+	{
+		photo: ['outer_3_thumbnail.png', 'outer_3_thumbnail.png'],
+		details: ['outer_3_thumbnail.png', 'outer_3_thumbnail.png'],
+		brand: 'UNALLOYED',
+		description: 'PIGMENT MA-1 JUMPER / CHARCOAL',
+		name: '이름',
+		color: 'BURGUNDY',
+		size: '라지',
+		material: '소재',
+		country: '원산지',
+		category: '아우터',
+
+		field: 1,
+		star: 5,
+		quantity: 500,
+		review: 500,
+		price: 348000,
+		discount: 1,
+
+		//@ label
+		// 뉴시즌
+		newSeason: true,
+		// 셀럽착용
+		celebrity: false,
+		// 쿠폰
+		coupon: false,
+		// 단독 판매
+		only: false,
+
+		a: '',
+		b: '',
+		c: '',
+	},
+	{
+		photo: ['outer_4_thumbnail.png', 'outer_4_thumbnail.png'],
+		details: ['outer_4_thumbnail.png', 'outer_4_thumbnail.png'],
+		brand: 'UNALLOYED',
+		description: 'SYMBOL CHECK JACKET / NAVY&ORANGE',
+		name: '이름',
+		color: 'NAVY&ORANGE',
+		size: '라지',
+		material: '소재',
+		country: '원산지',
+		category: '아우터',
+
+		field: 1,
+		star: 5,
+		quantity: 500,
+		review: 500,
+		price: 289000,
+		discount: 1,
+
+		//@ label
+		// 뉴시즌
+		newSeason: true,
+		// 셀럽착용
+		celebrity: false,
+		// 쿠폰
+		coupon: false,
+		// 단독 판매
+		only: false,
+
+		a: '',
+		b: '',
+		c: '',
+	},
+	{
+		photo: ['outer_5_thumbnail.png', 'outer_5_thumbnail.png'],
+		details: ['outer_5_thumbnail.png', 'outer_5_thumbnail.png'],
+		brand: 'UNALLOYED',
+		description: 'SYMBOL CHECK JACKET / BROWN&GREEN',
+		name: '이름',
+		color: 'NAVY&GREEN',
+		size: '라지',
+		material: '소재',
+		country: '원산지',
+		category: '아우터',
+
+		field: 1,
+		star: 5,
+		quantity: 500,
+		review: 500,
+		price: 289000,
+		discount: 1,
+
+		//@ label
+		// 뉴시즌
+		newSeason: true,
+		// 셀럽착용
+		celebrity: false,
+		// 쿠폰
+		coupon: false,
+		// 단독 판매
+		only: false,
+
+		a: '',
+		b: '',
+		c: '',
+	},
+	{
+		photo: ['outer_6_thumbnail.png', 'outer_6_thumbnail.png'],
+		details: ['outer_6_thumbnail.png', 'outer_6_thumbnail.png'],
+		brand: 'UNALLOYED',
+		description: 'DOCKING KNIT JACKET / BLACK',
+		name: '이름',
+		color: 'NAVY&BLACK',
+		size: '라지',
+		material: '소재',
+		country: '원산지',
+		category: '아우터',
+
+		field: 1,
+		star: 5,
+		quantity: 500,
+		review: 500,
+		price: 328000,
+		discount: 1,
+
+		//@ label
+		// 뉴시즌
+		newSeason: true,
+		// 셀럽착용
+		celebrity: false,
+		// 쿠폰
+		coupon: false,
+		// 단독 판매
+		only: false,
+
+		a: '',
+		b: '',
+		c: '',
+	},
 ];
