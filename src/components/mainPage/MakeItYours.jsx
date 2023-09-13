@@ -1,8 +1,40 @@
 import dummy from '@/assets/images/mainPage/dummy.png';
+import pb from '@/api/pocketbase';
+import { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+
+async function fetchLocals() {
+  const response = await fetch(`${getPocketHostURL('products')}`);
+  return await response.json();
+}
 
 function MakeItYours() {
+
+	// // Tanstack Query
+  // const { data, error } = useQuery(['locals'], fetchLocals, {
+  //   retry: 2,
+  // });
+
+	// const selectIndex = useLocalStore((state) => state.selectIndex);
+  // const isSelect = selectIndex !== null;
+
+  // // 오류가 발생한 경우 화면
+  // if (error) {
+  //   return (
+  //     <div role="alert">
+  //       <h2>{error.type}</h2>
+  //       <p>{error.message}</p>
+  //     </div>
+  //   );
+  // }
+
 	return (
 		<>
+			{/* {
+				dataList?.items?.map((item) => <li key={item.id}>{item.name}</li>)
+			} */}
+
+
 			<section>
 				<h2 className="mb-8 text-center text-[54px] font-thin">MAKE IT YOURS</h2>
 				<ul className="flex justify-between">
