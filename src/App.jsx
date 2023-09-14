@@ -4,8 +4,8 @@ import Category from './views/Category';
 import Login from './components/Login';
 import Header from './layout/Header';
 import Detail from './views/Detail';
-import Mainpage from './views/Mainpage';
 import Footer from './layout/Footer';
+// import Mainpage from './views/Mainpage';
 
 // 쿼리 클라이언트 객체 생성
 const queryClient = new QueryClient({
@@ -33,7 +33,7 @@ function App() {
 				<ReactQueryDevtools />
 			</QueryClientProvider>
 		</>
-	);
+);
 }
 
 export default App;

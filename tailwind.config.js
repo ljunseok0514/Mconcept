@@ -48,7 +48,13 @@ export default {
         '2xl': '1rem',
         '3xl': '1.0625rem',
       },
-			backgroundImage: {},
+			backgroundImage: {
+        'sprite01': "url('https://static.wconcept.co.kr/web/images/common/spr-common.png')",
+        'sprite02': "url('https://static.wconcept.co.kr/web/images/common/spr-product.png')",
+      },
+      backgroundPosition: {
+
+      }
 		},
 	},
 	plugins: [],
