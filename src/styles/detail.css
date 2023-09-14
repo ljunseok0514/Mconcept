@@ -1,0 +1,39 @@
+.imgHover:hover {
+	opacity: 0.7;
+}
+
+/* .detailTabBtn {
+	border: 1px solid #999;
+} */
+
+.detailTabBtnOn {
+	border: 2px #000 solid;
+	border-bottom: 0;
+}
+
+.detailTabBtn01 {
+	border: 1px solid #999;
+	border-bottom: 2px solid black;
+	border-right: 0;
+}
+
+.detailTabBtn02 {
+	border: 1px solid #999;
+	border-bottom: 2px solid black;
+	border-right: 0;
+}
+
+.detailTabBtn03 {
+	border: 1px solid #999;
+	border-bottom: 2px solid black;
+	border-right: 0;
+}
+
+.detailTabBtn04 {
+	border: 1px solid #999;
+	border-bottom: 2px solid black;
+}
+
+.removeLine {
+	border-left: 0;
+}
