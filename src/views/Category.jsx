@@ -1,6 +1,6 @@
 import pb from '@/api/pocketbase';
 import {getProductsImage} from '@/utils/getProductsImage';
-import { NavLink, useNavigate } from 'react-router-dom';
+// import { NavLink, useNavigate } from 'react-router-dom';
 import {useEffect, useState} from 'react';
 
 // const products = [
@@ -86,11 +86,29 @@ import {useEffect, useState} from 'react';
 // 	</dl>
 // ));
 
+function Category() {
+	const [data, setData] = useState([]);
+
+	useEffect(() => {
+		pb.autoCancellation(false);
+		async function getProducts() {
+			try {
+				const readRecordList = await pb.collection('products').getFullList();
+				setData(readRecordList);
+			} catch (error) {
+				console.log(error);
+				throw new Error('error');
+			}
+		}
+		getProducts();
+	}, []);
+
+	console.log(data);
+
 /**
  *  Category Page
  * */
 
-function Category() {
 	return (
 		<main className="m-auto mt-6 flex max-w-[1980px] px-2">
 			<section className="mr-6 w-1/5">
@@ -242,6 +260,7 @@ function Category() {
 								}}
 							></span>
 						</button>
+
 						<ul className="hidden">
 							<li>
 								<a href="/">신상품순</a>
@@ -262,6 +281,7 @@ function Category() {
 								<a href="/">리뷰순</a>
 							</li>
 						</ul>
+
 					</div>
 				</div>
 				
@@ -273,18 +293,16 @@ function Category() {
 						</dl>
 					))} */}
 
-{data ? (
+						{data ? (
 							data?.map((item) => {
 								return (
-									<SwiperSlide key={item.id}>
+									<div key={item.id}>
 									<button></button>
-										<a href="#">
-											<div className="img">
-												
-												<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id}/>
+									<a href="#">
+											<figure>
+												<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} />
+											</figure>
 
-												
-											</div>
 											<div className="text">
 												<dl>
 													<dt aria-label="제목"></dt>
@@ -294,15 +312,23 @@ function Category() {
 													<dt aria-label="이름"></dt>
 													<dd>{item.name}</dd>
 													<dt aria-label="가격"></dt>
-													<dd>{item.price}</dd>
+													{
+														item.discount === 0 
+														? null
+														: <dd>{item.price}</dd>
+													}
 													<dt aria-label="할인율"></dt>
-													<dd>{item.discount * 100}</dd>
+													{
+														parseInt(item.discount * 100) 
+														? <dd>{Math.floor(item.discount * 100)}%</dd>
+														: null
+													}
 													<dt aria-label="할인가격"></dt>
-													<dd>{item.price * (1 - item.discount)}</dd>
+													<dd>{Math.floor((item.price * (1 - item.discount))/10)*10}</dd>
 												</dl>
 											</div>
 										</a>
-									</SwiperSlide>
+									</div>
 								);
 							})
 						) : (
@@ -319,5 +345,6 @@ function Category() {
 		</main>
 	);
 }
+
 
 export default Category;
