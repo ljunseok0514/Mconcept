@@ -76,7 +76,7 @@ function Nav() {
 						</li>
 					</ul>
 				</div>
-				<div className="catagory_btn">
+				{/* <div className="catagory_btn">
 					<a
 						className="absolute top-[0px] block w-[176px] overflow-hidden border-[1px] border-solid border-[#e9e9e9] pl-[14px] text-left text-[14px] leading-[46px] after:absolute after:right-[17px] after:top-[50%] after:mt-[-6px] after:block after:h-[12px] after:w-[12px] after:bg-[url('../../public/header/icon_catArrowOpen.svg')] after:bg-auto after:bg-center after:bg-no-repeat after:content-['']"
 						href="/"
@@ -102,7 +102,7 @@ function Nav() {
 									>
 										women
 									</a>
-									{/* <CategoryWomen /> */}
+									<CategoryWomen />
 								</div>
 								<div className="category_beauty flex w-[1232px] flex-wrap content-start pl-[170px]">
 									<a
@@ -111,7 +111,7 @@ function Nav() {
 									>
 										beauty
 									</a>
-									{/* <CategoryBeauty /> */}
+									<CategoryBeauty />
 								</div>
 								<div className="category_beauty flex w-[1232px] flex-wrap content-start pl-[170px]">
 									<a
@@ -120,12 +120,12 @@ function Nav() {
 									>
 										life
 									</a>
-									{/* <CategoryLife /> */}
+									<CategoryLife />
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		</nav>
 	);
