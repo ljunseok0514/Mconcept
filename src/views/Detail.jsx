@@ -27,27 +27,27 @@ import intro from '../assets/images/detail/2022FW_intro.jpg';
 import color from '../assets/images/detail/MJHD7622_01_pack_mj.jpg';
 import detail01 from '../assets/images/detail/MJHD7622_navy_jn.jpg';
 import detail02 from '../assets/images/detail/MJHD7622_info_jn.jpg';
-import detail03 from '../assets/images/detail/MJHD7622_02_pack_mj.jpg';
-import detail04 from '../assets/images/detail/MJHD7622_03_pack_mj.jpg';
-import detail05 from '../assets/images/detail/MJHD7622_04_pack_mj.jpg';
-import detail06 from '../assets/images/detail/MJHD7622_05_pack_mj.jpg';
-import detail07 from '../assets/images/detail/MJHD7622_06_pack_mj.jpg';
-import detail08 from '../assets/images/detail/MJHD7622_07_pack_mj.jpg';
-import detail09 from '../assets/images/detail/MJHD7622_08_pack_mj.jpg';
-import detail10 from '../assets/images/detail/MJHD7622_09_pack_mj.jpg';
-import detail11 from '../assets/images/detail/MJHD7622_10_pack_mj.jpg';
-import detail12 from '../assets/images/detail/MJHD7622_11_pack_mj.jpg';
-import detail13 from '../assets/images/detail/MJHD7622_12_pack_mj.jpg';
-import detail14 from '../assets/images/detail/MJHD7622_13_pack_mj.jpg';
-import detail15 from '../assets/images/detail/MJHD7622_14_pack_mj.jpg';
-import detail16 from '../assets/images/detail/MJHD7622_15_pack_mj.jpg';
-import detail17 from '../assets/images/detail/MJHD7622_16_pack_mj.jpg';
-import detail18 from '../assets/images/detail/MJHD7622_17_pack_mj.jpg';
-import detail19 from '../assets/images/detail/MJHD7622_18_pack_mj.jpg';
-import detail20 from '../assets/images/detail/MJHD7622_19_pack_mj.jpg';
-import detail21 from '../assets/images/detail/MJHD7622_color_jn.jpg';
-import detail22 from '../assets/images/detail/MJHD7622_size_jn.jpg';
-import detail23 from '../assets/images/detail/cleaning_notice.jpg';
+// import detail03 from '../assets/images/detail/MJHD7622_02_pack_mj.jpg';
+// import detail04 from '../assets/images/detail/MJHD7622_03_pack_mj.jpg';
+// import detail05 from '../assets/images/detail/MJHD7622_04_pack_mj.jpg';
+// import detail06 from '../assets/images/detail/MJHD7622_05_pack_mj.jpg';
+// import detail07 from '../assets/images/detail/MJHD7622_06_pack_mj.jpg';
+// import detail08 from '../assets/images/detail/MJHD7622_07_pack_mj.jpg';
+// import detail09 from '../assets/images/detail/MJHD7622_08_pack_mj.jpg';
+// import detail10 from '../assets/images/detail/MJHD7622_09_pack_mj.jpg';
+// import detail11 from '../assets/images/detail/MJHD7622_10_pack_mj.jpg';
+// import detail12 from '../assets/images/detail/MJHD7622_11_pack_mj.jpg';
+// import detail13 from '../assets/images/detail/MJHD7622_12_pack_mj.jpg';
+// import detail14 from '../assets/images/detail/MJHD7622_13_pack_mj.jpg';
+// import detail15 from '../assets/images/detail/MJHD7622_14_pack_mj.jpg';
+// import detail16 from '../assets/images/detail/MJHD7622_15_pack_mj.jpg';
+// import detail17 from '../assets/images/detail/MJHD7622_16_pack_mj.jpg';
+// import detail18 from '../assets/images/detail/MJHD7622_17_pack_mj.jpg';
+// import detail19 from '../assets/images/detail/MJHD7622_18_pack_mj.jpg';
+// import detail20 from '../assets/images/detail/MJHD7622_19_pack_mj.jpg';
+// import detail21 from '../assets/images/detail/MJHD7622_color_jn.jpg';
+// import detail22 from '../assets/images/detail/MJHD7622_size_jn.jpg';
+// import detail23 from '../assets/images/detail/cleaning_notice.jpg';
 import list01_1 from '../assets/images/detail/list01/image_1.png';
 import list01_2 from '../assets/images/detail/list01/image_2.png';
 import list01_3 from '../assets/images/detail/list01/image_3.png';
@@ -70,6 +70,15 @@ import more07 from '../assets/images/detail/more/img_07.png';
 import more08 from '../assets/images/detail/more/img_08.png';
 import icoMoreBrand from '../assets/images/detail/ico_more_brand.png';
 import tooltip from '../assets/images/detail/tooltip.png';
+import review01 from '../assets/images/detail/review/01.jpg';
+import review02 from '../assets/images/detail/review/02.jpg';
+import review03 from '../assets/images/detail/review/03.jpg';
+import review04 from '../assets/images/detail/review/04.jpg';
+import review05 from '../assets/images/detail/review/05.jpg';
+import review06 from '../assets/images/detail/review/06.jpg';
+import review07 from '../assets/images/detail/review/07.jpg';
+import review08 from '../assets/images/detail/review/08.jpg';
+import lock from '../assets/images/detail/lock.png';
 
 function Detail() {
 	const [activeTab, setActiveTab] = useState('DETAIL');
@@ -153,41 +162,52 @@ function Detail() {
 					</div>
 				</div>
 			</section>
-			<section className="mb-20">
+
+			{/* More by WV PROJECT */}
+			<section className="mb-16">
 				<div className="mb-4 flex flex-row">
-					<h6 className="mr-2">More by WV PROJECT</h6>
+					<h6 className="font-mlg mr-2 font-semibold">More by WV PROJECT</h6>
 					<img className="h-[14px] w-[14px] align-middle" src={icoMoreBrand} alt="" />
 				</div>
 				<ul className="flex w-[1240px] flex-row justify-between">
-					<li className="imgHover h-[180px] w-[135px]">
+					<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
 						<img src={more01} alt="" />
+						<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">65,900</span>
 					</li>
-					<li className="imgHover h-[180px] w-[135px]">
+					<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
 						<img src={more02} alt="" />
+						<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">43,900</span>
 					</li>
-					<li className="imgHover h-[180px] w-[135px]">
+					<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
 						<img src={more03} alt="" />
+						<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">41,900</span>
 					</li>
-					<li className="imgHover h-[180px] w-[135px]">
+					<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
 						<img src={more04} alt="" />
+						<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">53,600</span>
 					</li>
-					<li className="imgHover h-[180px] w-[135px]">
+					<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
 						<img src={more05} alt="" />
+						<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">49,500</span>
 					</li>
-					<li className="imgHover h-[180px] w-[135px]">
+					<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
 						<img src={more06} alt="" />
+						<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">41,900</span>
 					</li>
-					<li className="imgHover h-[180px] w-[135px]">
+					<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
 						<img src={more07} alt="" />
+						<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">46,400</span>
 					</li>
-					<li className="imgHover h-[180px] w-[135px]">
+					<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
 						<img src={more08} alt="" />
+						<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">62,900</span>
 					</li>
 				</ul>
 			</section>
 
-			<section id="detail">
-				<div className="detailTabBtn mb-16 mt-[160px] grid grid-cols-4 font-normal text-gray-700">
+			{/* detail */}
+			<section id="detail" className="pt-10">
+				<div className="detailTabBtn mb-16 grid grid-cols-4 font-normal text-gray-700">
 					<a href="#detail" className="detailTabBtnOn py-4 text-center text-mlg">
 						DETAIL
 					</a>
@@ -207,7 +227,7 @@ function Detail() {
 					<img src={color} alt="" />
 					<img src={detail01} alt="" />
 					<img className="pt-20" src={detail02} alt="" />
-					<img className="pt-20" src={detail03} alt="" />
+					{/* <img className="pt-20" src={detail03} alt="" />
 					<img className="pt-20" src={detail04} alt="" />
 					<img className="pt-20" src={detail05} alt="" />
 					<img className="pt-20" src={detail06} alt="" />
@@ -227,177 +247,182 @@ function Detail() {
 					<img className="pt-20" src={detail20} alt="" />
 					<img className="pt-20" src={detail21} alt="" />
 					<img className="pt-20" src={detail22} alt="" />
-					<img className="pt-20" src={detail23} alt="" />
+					<img className="pt-20" src={detail23} alt="" /> */}
 				</div>
 			</section>
 
-			<div className="mb-20">
-				<h6 className="mb-4">You may also like</h6>
+			{/* You may also like */}
+			<section className="mb-[180px]">
+				<div>
+					<h6 className="font-mlg mb-4 font-semibold">You may also like</h6>
+				</div>
 				<div className="flex flex-row justify-between">
 					<ul className="w-[195px]">
-						<li className="mb-2">
+						<li className="mb-5">
 							<img src={list01_1} alt="" />
 						</li>
-						<li className="mb-4">FLUKE</li>
-						<li>플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
-						<li>
-							<span>44,500</span>
-							<span>75,000</span>
-							<span>41&#37;</span>
+						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">Dunst for WOMEN</li>
+						<li className="text-truncate mb-4 ml-1.5 mr-1 text-sm text-secondary">UNISEX LEATHER LOGO ZIP-UP HOODIE MELANGE GREY_UDTS3C108G2</li>
+						<li className=" ml-1.5 mr-1 flex flex-row justify-between">
+							<div>
+								<span className="mr-1 text-lg font-semibold">94,050</span>
+								<span className="text-sm text-grey-300 line-through">99,000</span>
+							</div>
+							<span className="text-lg font-semibold text-tertiary">20&#37;</span>
 						</li>
 					</ul>
 
 					<ul className="w-[195px]">
-						<li className="mb-2">
+						<li className="mb-5">
 							<img src={list01_2} alt="" />
 						</li>
-						<li className="mb-4">FLUKE</li>
-						<li>플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
-						<li>
-							<span>44,500</span>
-							<span>75,000</span>
-							<span>41&#37;</span>
+						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">Dunsta for WOMEN</li>
+						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">UNISEX NEOPRENE ZIP-UP HOODIE BLACK_UDJU3C116BK</li>
+						<li className="relative ml-1.5 mr-1">
+							<span className="mr-1 text-lg font-semibold">122,550</span>
+							<span className="text-sm text-grey-300 line-through">129,000</span>
+							<span className="absolute right-0 text-lg font-semibold text-tertiary">5&#37;</span>
 						</li>
 					</ul>
 
 					<ul className="w-[195px]">
-						<li className="mb-2">
+						<li className="mb-5">
 							<img src={list01_3} alt="" />
 						</li>
-						<li className="mb-4">FLUKE</li>
-						<li>플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
-						<li>
-							<span>44,500</span>
-							<span>75,000</span>
-							<span>41&#37;</span>
+						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">Dunst for WOMEN</li>
+						<li className="text-truncate mb-4 ml-1.5 mr-1 text-sm text-secondary">UNISEX LEATHER LOGO ZIP-UP HOODIE OATMEAL MELANGE_UDTS3C108I1</li>
+						<li className="relative ml-1.5 mr-1">
+							<span className="mr-1 text-lg font-semibold">94,050</span>
+							<span className="text-sm text-grey-300 line-through">99,000</span>
+							<span className="absolute right-0 text-lg font-semibold text-tertiary">5&#37;</span>
 						</li>
 					</ul>
 
 					<ul className="w-[195px]">
-						<li className="mb-2">
+						<li className="mb-5">
 							<img src={list01_4} alt="" />
 						</li>
-						<li className="mb-4">FLUKE</li>
-						<li>플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
-						<li>
-							<span>44,500</span>
-							<span>75,000</span>
-							<span>41&#37;</span>
+						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">INSTANTTFUNK</li>
+						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">스탠다드 로고 후드 - 네이비</li>
+						<li className="relative ml-1.5 mr-1">
+							<span className="mr-1 text-lg font-semibold">98,800</span>
 						</li>
 					</ul>
 
 					<ul className="w-[195px]">
-						<li className="mb-2">
+						<li className="mb-5">
 							<img src={list01_5} alt="" />
 						</li>
-						<li className="mb-4">FLUKE</li>
-						<li>플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
-						<li>
-							<span>44,500</span>
-							<span>75,000</span>
-							<span>41&#37;</span>
+						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">THE ASHLYNN</li>
+						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">BACKPACK PAM HOODIE</li>
+						<li className="relative ml-1.5 mr-1">
+							<span className="mr-1 text-lg font-semibold">129,200</span>
+							<span className="text-sm text-grey-300 line-through">152,000</span>
+							<span className="absolute right-0 text-lg font-semibold text-tertiary">15&#37;</span>
 						</li>
 					</ul>
 
 					<ul className="w-[195px]">
-						<li className="mb-2">
+						<li className="mb-5">
 							<img src={list01_6} alt="" />
 						</li>
-						<li className="mb-4">FLUKE</li>
-						<li>플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
-						<li>
-							<span>44,500</span>
-							<span>75,000</span>
-							<span>41&#37;</span>
+						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">THE ASHLYNN</li>
+						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">BEANIE PAM CROP HOODIE</li>
+						<li className="relative ml-1.5 mr-1">
+							<span className="mr-1 text-lg font-semibold">137,700</span>
+							<span className="text-sm text-grey-300 line-through">162,000</span>
+							<span className="absolute right-0 text-lg font-semibold text-tertiary">15&#37;</span>
 						</li>
 					</ul>
 				</div>
-			</div>
-			<div>
-				<h6 className="mb-4">Pick your beauty items</h6>
+			</section>
+
+			{/* Pick your beauty items */}
+			<section className="mb-[160px]">
+				<h6 className="font-mlg mb-4 font-semibold">Pick your beauty items</h6>
 				<div className="flex flex-row justify-between">
 					<ul className="w-[195px]">
-						<li className="mb-2">
+						<li className="mb-5">
 							<img src={list02_1} alt="" />
 						</li>
-						<li className="mb-4">FLUKE</li>
-						<li>플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
-						<li>
-							<span>44,500</span>
-							<span>75,000</span>
-							<span>41&#37;</span>
+						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">FLUKE</li>
+						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
+						<li className="relative ml-1.5 mr-1">
+							<span className="mr-1 text-lg font-semibold">44,500</span>
+							<span className="text-sm text-grey-300 line-through">75,000</span>
+							<span className="absolute right-0 text-lg font-semibold text-tertiary">41&#37;</span>
 						</li>
 					</ul>
 
 					<ul className="w-[195px]">
-						<li className="mb-2">
+						<li className="mb-5">
 							<img src={list02_2} alt="" />
 						</li>
-						<li className="mb-4">FLUKE</li>
-						<li>플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
-						<li>
-							<span>44,500</span>
-							<span>75,000</span>
-							<span>41&#37;</span>
+						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">FLUKE</li>
+						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
+						<li className="relative ml-1.5 mr-1">
+							<span className="mr-1 text-lg font-semibold">44,500</span>
+							<span className="text-sm text-grey-300 line-through">75,000</span>
+							<span className="absolute right-0 text-lg font-semibold text-tertiary">41&#37;</span>
 						</li>
 					</ul>
 
 					<ul className="w-[195px]">
-						<li className="mb-2">
+						<li className="mb-5">
 							<img src={list02_3} alt="" />
 						</li>
-						<li className="mb-4">FLUKE</li>
-						<li>플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
-						<li>
-							<span>44,500</span>
-							<span>75,000</span>
-							<span>41&#37;</span>
+						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">FLUKE</li>
+						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
+						<li className="relative ml-1.5 mr-1">
+							<span className="mr-1 text-lg font-semibold">44,500</span>
+							<span className="text-sm text-grey-300 line-through">75,000</span>
+							<span className="absolute right-0 text-lg font-semibold text-tertiary">41&#37;</span>
 						</li>
 					</ul>
 
 					<ul className="w-[195px]">
-						<li className="mb-2">
+						<li className="mb-5">
 							<img src={list02_4} alt="" />
 						</li>
-						<li className="mb-4">FLUKE</li>
-						<li>플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
-						<li>
-							<span>44,500</span>
-							<span>75,000</span>
-							<span>41&#37;</span>
+						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">FLUKE</li>
+						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
+						<li className="relative ml-1.5 mr-1">
+							<span className="mr-1 text-lg font-semibold">44,500</span>
+							<span className="text-sm text-grey-300 line-through">75,000</span>
+							<span className="absolute right-0 text-lg font-semibold text-tertiary">41&#37;</span>
 						</li>
 					</ul>
 
 					<ul className="w-[195px]">
-						<li className="mb-2">
+						<li className="mb-5">
 							<img src={list02_5} alt="" />
 						</li>
-						<li className="mb-4">FLUKE</li>
-						<li>플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
-						<li>
-							<span>44,500</span>
-							<span>75,000</span>
-							<span>41&#37;</span>
+						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">FLUKE</li>
+						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
+						<li className="relative ml-1.5 mr-1">
+							<span className="mr-1 text-lg font-semibold">44,500</span>
+							<span className="text-sm text-grey-300 line-through">75,000</span>
+							<span className="absolute right-0 text-lg font-semibold text-tertiary">41&#37;</span>
 						</li>
 					</ul>
 
 					<ul className="w-[195px]">
-						<li className="mb-2">
+						<li className="mb-5">
 							<img src={list02_6} alt="" />
 						</li>
-						<li className="mb-4">FLUKE</li>
-						<li>플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
-						<li>
-							<span>44,500</span>
-							<span>75,000</span>
-							<span>41&#37;</span>
+						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">FLUKE</li>
+						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
+						<li className="relative ml-1.5 mr-1">
+							<span className="mr-1 text-lg font-semibold">44,500</span>
+							<span className="text-sm text-grey-300 line-through">75,000</span>
+							<span className="absolute right-0 text-lg font-semibold text-tertiary">41&#37;</span>
 						</li>
 					</ul>
 				</div>
-			</div>
+			</section>
 
-			<section id="review">
-				<div className="detailTabBtn mb-16 mt-[160px] grid grid-cols-4 font-normal text-gray-700">
+			<section id="review" className="mb-20 pt-10">
+				<div className="detailTabBtn mb-16 grid grid-cols-4 font-normal text-gray-700">
 					<a href="#detail" className="detailTabBtn01 py-4 text-center text-mlg">
 						DETAIL
 					</a>
@@ -412,9 +437,44 @@ function Detail() {
 					</a>
 				</div>
 
+				<div>
+					<ul>
+						<li>상품 만족도 (55)</li>
+						<li>구매하신 분들의 상품에 대한 평점입니다.</li>
+						<li></li>
+					</ul>
+				</div>
+
+				<ul className="mb-16 flex flex-row justify-between">
+					<li>
+						<img src={review01} alt="" style={{width: '148px', height: '148px'}} />
+					</li>
+					<li>
+						<img src={review02} alt="" style={{width: '148px', height: '148px'}} />
+					</li>
+					<li>
+						<img src={review03} alt="" style={{width: '148px', height: '148px'}} />
+					</li>
+					<li>
+						<img src={review04} alt="" style={{width: '148px', height: '148px'}} />
+					</li>
+					<li>
+						<img src={review05} alt="" style={{width: '148px', height: '148px'}} />
+					</li>
+					<li>
+						<img src={review06} alt="" style={{width: '148px', height: '148px'}} />
+					</li>
+					<li>
+						<img src={review07} alt="" style={{width: '148px', height: '148px'}} />
+					</li>
+					<li>
+						<img src={review08} alt="" style={{width: '148px', height: '148px'}} />
+					</li>
+				</ul>
+
 				{/* 리뷰 탭에서 사용하기 */}
 
-				<ul className="flex flex-row">
+				<ul className="mb-6 flex flex-row">
 					<li className="mr-3 text-base text-grey-400">
 						<button onClick={() => handleTabClick('DETAIL')}>
 							<div style={activeTab === 'DETAIL' ? tabStyle : {}}>최신순</div>
@@ -439,10 +499,13 @@ function Detail() {
 						</button>
 					</li>
 				</ul>
+
+				<div className="border-b-2 border-black"></div>
 			</section>
 
-			<section id="question">
-				<div className="detailTabBtn mb-16 mt-[160px] grid grid-cols-4 font-normal text-gray-700">
+			{/* question */}
+			<section id="question" className="mb-20 pt-10">
+				<div className="detailTabBtn mb-16 grid grid-cols-4 font-normal text-gray-700">
 					<a href="#detail" className="detailTabBtn01 py-4 text-center text-mlg">
 						DETAIL
 					</a>
@@ -457,23 +520,98 @@ function Detail() {
 					</a>
 				</div>
 
-				<button className="mb-6 h-[50px] w-[180px] bg-black text-white">상품문의</button>
+				<div className="relative mb-4 block h-[50px]">
+					<button className="absolute right-0 h-[50px] w-[180px] bg-black text-white">상품문의</button>
+				</div>
 
 				<tr className="flex flex-row justify-between border-t-2 border-black p-6">
-					<td className="mr-6 bg-black px-2 py-1 text-xs text-white">답변완료</td>
-					<td className="flex w-[1020px] flex-row bg-red-300">
-						<p>
-							<a href="">사이즈</a>
-							<img src="" alt="" />
+					<td className="mr-6 mt-1 h-[18px] bg-black px-1.5 text-xs text-white">답변완료</td>
+					<td className="relative flex w-[1020px] flex-row">
+						<p className="flex flex-row">
+							<a href="" className="mr-3 text-base">
+								사이즈
+							</a>
+							<img src={lock} alt="" className="h-[18px] w-[15px]" />
 						</p>
-						<span className=" w-[180px] bg-green-300">lh*******@gmail.com</span>
+						<span className="absolute right-0 w-[200px] text-base">lh*******@gmail.com</span>
 					</td>
-					<td>2023. 01. 16</td>
+					<td className="text-base font-normal text-[#666]">2023. 09. 16</td>
+				</tr>
+
+				<tr className="flex flex-row justify-between border-t border-[#d5d5d5] p-6">
+					<td className="mr-6 mt-1 h-[18px] bg-black px-1.5 text-xs text-white">답변완료</td>
+					<td className="relative flex w-[1020px] flex-row">
+						<p className="flex flex-row">
+							<a href="" className="mr-3 text-base">
+								교환 받았는데요
+							</a>
+							<img src={lock} alt="" className="h-[18px] w-[15px]" />
+						</p>
+						<span className="absolute right-0 w-[200px] text-base">de*****@naver.com</span>
+					</td>
+					<td className="text-base font-normal text-[#666]">2023. 09. 02</td>
+				</tr>
+
+				<tr className="flex flex-row justify-between border-t border-[#d5d5d5] p-6">
+					<td className="mr-6 mt-1 h-[18px] bg-black px-1.5 text-xs text-white">답변완료</td>
+					<td className="relative flex w-[1020px] flex-row">
+						<p className="flex flex-row">
+							<a href="" className="mr-3 text-base">
+								문의
+							</a>
+							<img src={lock} alt="" className="h-[18px] w-[15px]" />
+						</p>
+						<span className="absolute right-0 w-[200px] text-base">sy*******@naver.com</span>
+					</td>
+					<td className="text-base font-normal text-[#666]">2023. 08. 23</td>
+				</tr>
+
+				<tr className="flex flex-row justify-between border-t border-[#d5d5d5] p-6">
+					<td className="mr-6 mt-1 h-[18px] bg-black px-1.5 text-xs text-white">답변완료</td>
+					<td className="relative flex w-[1020px] flex-row">
+						<p className="flex flex-row">
+							<a href="" className="mr-3 text-base">
+								배송언제오나요 ㅠㅠ
+							</a>
+							<img src={lock} alt="" className="h-[18px] w-[15px]" />
+						</p>
+						<span className="absolute right-0 w-[200px] text-base">s2*****@daum.com</span>
+					</td>
+					<td className="text-base font-normal text-[#666]">2023. 08. 12</td>
+				</tr>
+
+				<tr className="flex flex-row justify-between border-t border-[#d5d5d5] p-6">
+					<td className="mr-6 mt-1 h-[18px] bg-black px-1.5 text-xs text-white">답변완료</td>
+					<td className="relative flex w-[1020px] flex-row">
+						<p className="flex flex-row">
+							<a href="" className="mr-3 text-base">
+								사이즈
+							</a>
+							<img src={lock} alt="" className="h-[18px] w-[15px]" />
+						</p>
+						<span className="absolute right-0 w-[200px] text-base">de*******@gmail.com</span>
+					</td>
+					<td className="text-base font-normal text-[#666]">2023. 07. 31</td>
+				</tr>
+
+				<tr className="flex flex-row justify-between border-y border-[#d5d5d5] p-6">
+					<td className="mr-6 mt-1 h-[18px] bg-black px-1.5 text-xs text-white">답변완료</td>
+					<td className="relative flex w-[1020px] flex-row">
+						<p className="flex flex-row">
+							<a href="" className="mr-3 text-base">
+								색상 궁금합니다.
+							</a>
+							<img src={lock} alt="" className="h-[18px] w-[15px]" />
+						</p>
+						<span className="absolute right-0 w-[200px] text-base">sy****@gmail.com</span>
+					</td>
+					<td className="text-base font-normal text-[#666]">2023. 07. 16</td>
 				</tr>
 			</section>
 
-			<section id="delivery">
-				<div className="detailTabBtn mb-16 mt-[160px] grid grid-cols-4 font-normal text-gray-700">
+			{/* delivery */}
+			<section id="delivery" className="pt-10">
+				<div className="detailTabBtn mb-16 grid grid-cols-4 font-normal text-gray-700">
 					<a href="#detail" className="detailTabBtn01 py-4 text-center text-mlg">
 						DETAIL
 					</a>
