@@ -1,4 +1,7 @@
 import React from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+
+const navigate = useNavigate();
 
 const products = [
 	{
@@ -238,8 +241,8 @@ function Category() {
 				</div>
 
 				<ul className="mb-6 flex flex-row justify-center font-bold">
-					<li className="px-4">1</li>
-					<li className="font-normal text-grey-300">2</li>
+					<li className="px-4"><a href='#'>1</a></li>
+					<li className="font-normal text-grey-300"><a href='#'>2</a></li>
 				</ul>
 			</section>
 		</main>

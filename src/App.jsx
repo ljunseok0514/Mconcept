@@ -11,9 +11,9 @@ function App() {
 			{/* <Header /> */}
 			{/* <Login /> */}
 			{/* <Mainpage /> */}
-			{/* <Category /> */}
-			<Detail />
-			{/* <Footer /> */}
+			<Category />
+			{/* <Detail /> */}
+			<Footer />
 		</>
 	);
 }
