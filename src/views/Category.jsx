@@ -2,57 +2,75 @@ import pb from '@/api/pocketbase';
 import {getProductsImage} from '@/utils/getProductsImage';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {useEffect, useState} from 'react';
-ß
-const navigate = useNavigate();
 
-const products = [
-	{
-		id: [0],
-		photo: ['thumbnail_1.jpg', 'thumbnail_2.png'],
-		details: ['details_1.jpg', 'details_2.png'],
-		brand: 'CUSTOMELLOW',
-		description: 'marlane stripe double breasted suit jacket_CWFBW23205NYX',
-		name: '이름',
-		color: '색상',
-		size: '라지',
-		material: '소재',
-		country: '원산지',
-		category: '아우터',
+function Category() {
+	const [data, setData] = useState([]);
 
-		field: 1,
-		star: 5,
-		quantity: 500,
-		review: 500,
-		price: 470000,
-		discount: 10,
+	useEffect(() => {
+		pb.autoCancellation(false);
+		async function getProducts() {
+			try {
+				const readRecordList = await pb.collection('products').getFullList();
+				setData(readRecordList);
+			} catch (error) {
+				console.log(error);
+				throw new Error('error');
+			}
+		}
+		getProducts();
+	}, []);
 
-		//@ label
-		// 뉴시즌
-		newSeason: true,
-		// 셀럽착용
-		celebrity: true,
-		// 쿠폰
-		coupon: true,
-		// 단독 판매
-		only: true,
-	},
-];
+	// console.log(data);
 
-const listItems = products.map((products) => (
-	<dl key={products.id}>
-		<dd>
-			<a href="/">
-				<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-			</a>
-		</dd>
-		<dd className="pb-2 text-base font-semibold">{products.brand}</dd>
-		<dd className="pb-6 text-sm font-normal text-secondary">{products.description}</dd>
-		<dd className="inline-block font-bold text-grey-800">{products.price}</dd>
-		<dd className="ml-2 inline-block text-right text-xs font-medium text-grey-200  line-through">{products.price}</dd>
-		<dd className="float-right inline-block font-bold text-tertiary">{products.discount}%</dd>
-		<dd className="mt-4 w-[40px] bg-tertiary px-1 py-[1px] text-center text-xs font-medium text-white">뉴시즌</dd>
-	</dl>
-));
+
+// const products = [
+// 	{
+// 		id: [0],
+// 		photo: ['thumbnail_1.jpg', 'thumbnail_2.png'],
+// 		details: ['details_1.jpg', 'details_2.png'],
+// 		brand: 'CUSTOMELLOW',
+// 		description: 'marlane stripe double breasted suit jacket_CWFBW23205NYX',
+// 		name: '이름',
+// 		color: '색상',
+// 		size: '라지',
+// 		material: '소재',
+// 		country: '원산지',
+// 		category: '아우터',
+
+// 		field: 1,
+// 		star: 5,
+// 		quantity: 500,
+// 		review: 500,
+// 		price: 470000,
+// 		discount: 10,
+
+// 		//@ label
+// 		// 뉴시즌
+// 		newSeason: true,
+// 		// 셀럽착용
+// 		celebrity: true,
+// 		// 쿠폰
+// 		coupon: true,
+// 		// 단독 판매
+// 		only: true,
+// 	},
+// ];
+
+// const listItems = products.map((products) => (
+// 	<dl key={products.id}>
+// 		<dd>
+// 			<a href="/">
+// 				<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
+// 			</a>
+// 		</dd>
+// 		<dd className="pb-2 text-base font-semibold">{products.brand}</dd>
+// 		<dd className="pb-6 text-sm font-normal text-secondary">{products.description}</dd>
+// 		<dd className="inline-block font-bold text-grey-800">{products.price}</dd>
+// 		<dd className="ml-2 inline-block text-right text-xs font-medium text-grey-200  line-through">{products.price}</dd>
+// 		<dd className="float-right inline-block font-bold text-tertiary">{products.discount}%</dd>
+// 		<dd className="mt-4 w-[40px] bg-tertiary px-1 py-[1px] text-center text-xs font-medium text-white">뉴시즌</dd>
+// 	</dl>
+// ));
 
 /**
  *  Category Page
@@ -235,11 +253,46 @@ function Category() {
 				
 				{/* products list items */}
 				<div className="products grid grid-cols-6 grid-rows-2 gap-4 pb-10">
-					{[...Array(12)].map((_, index) => (
+					{/* {[...Array(12)].map((_, index) => (
 						<dl key={index} className="overflow-hidden text-ellipsis">
 							{listItems}
 						</dl>
-					))}
+					))} */}
+					{data ? (
+							data?.map((item) => {
+								return (
+									<div key={item.id}>
+									<button></button>
+										<a href="#">
+											<div className="img">
+												
+												<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id}/>
+
+												
+											</div>
+											<div className="text">
+												<dl>
+													<dt aria-label="제목"></dt>
+													<dd>{item.brand}</dd>
+													<dt aria-label="설명"></dt>
+													<dd>{item.description}</dd>
+													<dt aria-label="이름"></dt>
+													<dd>{item.name}</dd>
+													<dt aria-label="가격"></dt>
+													<dd>{item.price}</dd>
+													<dt aria-label="할인율"></dt>
+													<dd>{item.discount * 100}</dd>
+													<dt aria-label="할인가격"></dt>
+													<dd>{item.price * (1 - item.discount)}</dd>
+												</dl>
+											</div>
+										</a>
+									</div>
+								);
+							})
+						) : (
+							<div>ERROR</div>
+						)}
 				</div>
 
 				<ul className="mb-6 flex flex-row justify-center font-bold">
@@ -251,5 +304,5 @@ function Category() {
 		</main>
 	);
 }
-
+}
 export default Category;
