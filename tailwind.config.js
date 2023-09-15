@@ -54,6 +54,9 @@ export default {
       },
       backgroundPosition: {
 
+      },
+      fontFamily: {
+       pretendard: 'Pretendard'
       }
 		},
 	},

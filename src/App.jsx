@@ -1,3 +1,5 @@
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
 import Category from './views/Category';
 import Login from './views/Login';
 import Header from './layout/Header';
