@@ -26,10 +26,10 @@ function App() {
 			<QueryClientProvider client={queryClient}>
 				{/* <Header /> */}
 				{/* <Login /> */}
-				<Mainpage />
-				{/* <Category /> */}
+				{/* <Mainpage /> */}
+				<Category />
 				{/* <Detail/> */}
-				{/* <Footer /> */}
+				<Footer />
 				<ReactQueryDevtools />
 			</QueryClientProvider>
 		</div>

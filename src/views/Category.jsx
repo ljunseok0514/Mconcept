@@ -1,37 +1,37 @@
 import React from 'react';
 
-const products = [
-	{
-		id: [0],
-		photo: ['thumbnail_1.jpg', 'thumbnail_2.png'],
-		details: ['details_1.jpg', 'details_2.png'],
-		brand: 'CUSTOMELLOW',
-		description: 'marlane stripe double breasted suit jacket_CWFBW23205NYX',
-		name: '이름',
-		color: '색상',
-		size: '라지',
-		material: '소재',
-		country: '원산지',
-		category: '아우터',
+// const products = [
+// 	{
+// 		id: [0],
+// 		photo: ['thumbnail_1.jpg', 'thumbnail_2.png'],
+// 		details: ['details_1.jpg', 'details_2.png'],
+// 		brand: 'CUSTOMELLOW',
+// 		description: 'marlane stripe double breasted suit jacket_CWFBW23205NYX',
+// 		name: '이름',
+// 		color: '색상',
+// 		size: '라지',
+// 		material: '소재',
+// 		country: '원산지',
+// 		category: '아우터',
 
-		field: 1,
-		star: 5,
-		quantity: 500,
-		review: 500,
-		price: 470000,
-		discount: 10,
+// 		field: 1,
+// 		star: 5,
+// 		quantity: 500,
+// 		review: 500,
+// 		price: 470000,
+// 		discount: 10,
 
-		//@ label
-		// 뉴시즌
-		newSeason: true,
-		// 셀럽착용
-		celebrity: true,
-		// 쿠폰
-		coupon: true,
-		// 단독 판매
-		only: true,
-	},
-];
+// 		//@ label
+// 		// 뉴시즌
+// 		newSeason: true,
+// 		// 셀럽착용
+// 		celebrity: true,
+// 		// 쿠폰
+// 		coupon: true,
+// 		// 단독 판매
+// 		only: true,
+// 	},
+// ];
 
 const listItems = products.map((products) => (
 	<dl key={products.id}>
@@ -230,11 +230,47 @@ function Category() {
 				
 				{/* products list items */}
 				<div className="products grid grid-cols-6 grid-rows-2 gap-4 pb-10">
-					{[...Array(12)].map((_, index) => (
+					{/* {[...Array(12)].map((_, index) => (
 						<dl key={index} className="overflow-hidden text-ellipsis">
 							{listItems}
 						</dl>
-					))}
+					))} */}
+
+{data ? (
+							data?.map((item) => {
+								return (
+									<SwiperSlide key={item.id}>
+									<button></button>
+										<a href="#">
+											<div className="img">
+												
+												<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id}/>
+
+												
+											</div>
+											<div className="text">
+												<dl>
+													<dt aria-label="제목"></dt>
+													<dd>{item.brand}</dd>
+													<dt aria-label="설명"></dt>
+													<dd>{item.description}</dd>
+													<dt aria-label="이름"></dt>
+													<dd>{item.name}</dd>
+													<dt aria-label="가격"></dt>
+													<dd>{item.price}</dd>
+													<dt aria-label="할인율"></dt>
+													<dd>{item.discount * 100}</dd>
+													<dt aria-label="할인가격"></dt>
+													<dd>{item.price * (1 - item.discount)}</dd>
+												</dl>
+											</div>
+										</a>
+									</SwiperSlide>
+								);
+							})
+						) : (
+							<div>ERROR</div>
+						)}
 				</div>
 
 				<ul className="mb-6 flex flex-row justify-center font-bold">
