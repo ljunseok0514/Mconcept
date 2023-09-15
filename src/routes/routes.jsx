@@ -2,9 +2,9 @@ import {Route, createBrowserRouter, createRoutesFromElements} from 'react-router
 
 // 컴포넌트 경로
 import Header from '@/layout/Header';
-import Login from '@/views/Login';
-import Mainpage from '@/views/Mainpage';
-import Join from '@/views/Join';
+import Login from '@/pages/Login';
+import Mainpage from '@/pages/Mainpage';
+import Join from '@/pages/Join';
 import RootLayout from '@/layout/RootLayout';
 // 컴포넌트 경로
 
