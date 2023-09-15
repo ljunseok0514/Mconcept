@@ -1,11 +1,11 @@
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
-import Category from './views/Category';
-import Login from './views/Login';
+import Category from './pages/Category';
+import Login from './pages/Login';
 import Header from './layout/Header';
-import Detail from './views/Detail';
+import Detail from './pages/Detail';
 import Footer from './layout/Footer';
-import Join from './views/Join';
+import Join from './pages/Join';
 import {BrowserRouter, Route, RouterProvider} from 'react-router-dom';
 import router from './routes/routes';
 // import Mainpage from './views/Mainpage';
