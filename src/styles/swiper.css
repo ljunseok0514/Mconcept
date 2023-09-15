@@ -146,26 +146,3 @@
 	scale: 0.7;
 	opacity: 0.8;
 }
-
-#preNavi::after,
-#nexNavi::after {
-	color: #dddddd;
-	font-size: 80px;
-}
-
-#preNavi {
-	left: -10px;
-}
-
-.custom-navigation {
-	position: absolute;
-	top: 50%;
-	left: 10px;
-	transform: translateY(-50%);
-}
-
-#preNavi,
-#nextNavi {
-	width: 30px;
-	height: 30px;
-}
