@@ -29,7 +29,7 @@ function App() {
 				{/* <Mainpage /> */}
 				<Category />
 				{/* <Detail/> */}
-				{/* <Footer /> */}
+				<Footer />
 				<ReactQueryDevtools />
 			</QueryClientProvider>
 		</div>

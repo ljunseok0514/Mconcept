@@ -3,24 +3,38 @@ import {getProductsImage} from '@/utils/getProductsImage';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {useEffect, useState} from 'react';
 
-function Category() {
-	const [data, setData] = useState([]);
+// const products = [
+// 	{
+// 		id: [0],
+// 		photo: ['thumbnail_1.jpg', 'thumbnail_2.png'],
+// 		details: ['details_1.jpg', 'details_2.png'],
+// 		brand: 'CUSTOMELLOW',
+// 		description: 'marlane stripe double breasted suit jacket_CWFBW23205NYX',
+// 		name: '이름',
+// 		color: '색상',
+// 		size: '라지',
+// 		material: '소재',
+// 		country: '원산지',
+// 		category: '아우터',
 
-	useEffect(() => {
-		pb.autoCancellation(false);
-		async function getProducts() {
-			try {
-				const readRecordList = await pb.collection('products').getFullList();
-				setData(readRecordList);
-			} catch (error) {
-				console.log(error);
-				throw new Error('error');
-			}
-		}
-		getProducts();
-	}, []);
+// 		field: 1,
+// 		star: 5,
+// 		quantity: 500,
+// 		review: 500,
+// 		price: 470000,
+// 		discount: 10,
 
-	// console.log(data);
+// 		//@ label
+// 		// 뉴시즌
+// 		newSeason: true,
+// 		// 셀럽착용
+// 		celebrity: true,
+// 		// 쿠폰
+// 		coupon: true,
+// 		// 단독 판매
+// 		only: true,
+// 	},
+// ];
 
 
 // const products = [
@@ -258,10 +272,11 @@ function Category() {
 							{listItems}
 						</dl>
 					))} */}
-					{data ? (
+
+{data ? (
 							data?.map((item) => {
 								return (
-									<div key={item.id}>
+									<SwiperSlide key={item.id}>
 									<button></button>
 										<a href="#">
 											<div className="img">
@@ -287,7 +302,7 @@ function Category() {
 												</dl>
 											</div>
 										</a>
-									</div>
+									</SwiperSlide>
 								);
 							})
 						) : (
@@ -304,5 +319,5 @@ function Category() {
 		</main>
 	);
 }
-}
+
 export default Category;
