@@ -79,6 +79,8 @@ import review06 from '../assets/images/detail/review/06.jpg';
 import review07 from '../assets/images/detail/review/07.jpg';
 import review08 from '../assets/images/detail/review/08.jpg';
 import lock from '../assets/images/detail/lock.png';
+import btnNext from '../assets/images/detail/detail_btn_next.png';
+import btnPrev from '../assets/images/detail/detail_btn_Prev.png';
 
 function Detail() {
 	const [activeTab, setActiveTab] = useState('DETAIL');
@@ -92,6 +94,41 @@ function Detail() {
 		cursor: 'pointer',
 	};
 
+	// function ZoomLens() {
+	// const [imageSrc, setImageSrc] = useState('image.jpg');
+	// const [zoomedArea, setZoomedArea] = useState(null);
+
+	// function handleImageClick(event) {
+	//   const { offsetX, offsetY } = event.nativeEvent;
+	//   // 여기서 offsetX와 offsetY는 클릭한 위치의 좌표입니다.
+
+	//   // 확대할 범위 설정
+	//   const zoomFactor = 2;
+	//   const originalWidth = event.target.clientWidth;
+	//   const originalHeight = event.target.clientHeight;
+
+	//   // 확대할 좌상단 점 계산
+	//   const topLeftX = Math.max(0, offsetX - originalWidth / (2 * zoomFactor));
+	//   const topLeftY = Math.max(0, offsetY - originalHeight / (2 * zoomFactor));
+
+	//   // 확대할 우하단 점 계산
+	//   const bottomRightX = Math.min(originalWidth, offsetX + originalWidth / (2 * zoomFactor));
+	//   const bottomRightY = Math.min(originalHeight, offsetY + originalHeight / (2 * zoomFactor));
+
+	//   // 선택한 영역 크롭
+	//   const canvas = document.createElement('canvas');
+	//   canvas.width = bottomRightX - topLeftX;
+	// 	canvas.height= bottomRightY - topLeftY;
+	// 	const context=canvas.getContext("2d");
+	// 	context.drawImage(event.target,topLeftX,topLeftY,bottomRightX-topLeftX,bottomRightY-topLeftY,
+	//                     0,0,bottomRightX-topLeftX,bottomRightY-topLeftY);
+
+	// 	// 크롭된 이미지 데이터 URL 생성
+	// 	const croppedImageURL=canvas.toDataURL();
+
+	// 	// 크롭된 이미지 출력
+	//   setZoomedArea(croppedImageURL);
+	// }
 	return (
 		<div className="relative mx-auto mb-[200px] w-[1240px]">
 			<ul className="mb-7 mt-7 flex flex-row text-sm text-gray-500">
@@ -111,6 +148,10 @@ function Detail() {
 			</ul>
 			<section className="flex-rows mb-10 flex">
 				<div className="mr-[55px]">
+					{/* <div>
+						<img src={thumbnail01} alt="" onClick={handleImageClick} />
+						{zoomedArea && <img src={thumbnail01} alt="=" />}
+					</div> */}
 					<img className="mb-5" src={thumbnail01} alt="" />
 					<ul className="flex w-[140px] flex-row justify-between">
 						<li>
@@ -253,8 +294,21 @@ function Detail() {
 
 			{/* You may also like */}
 			<section className="mb-[180px]">
-				<div>
+				<div className="flex flex-row justify-between">
 					<h6 className="font-mlg mb-4 font-semibold">You may also like</h6>
+					<ul className="flex flex-row justify-center">
+						<li>
+							<button>
+								<img src={btnPrev} alt="" />
+							</button>
+						</li>
+						<li className="mt-[7px] h-[14px] w-[1px] bg-[#b5b5b5]"></li>
+						<li>
+							<button>
+								<img src={btnNext} alt="" />
+							</button>
+						</li>
+					</ul>
 				</div>
 				<div className="flex flex-row justify-between">
 					<ul className="w-[195px]">
@@ -262,13 +316,11 @@ function Detail() {
 							<img src={list01_1} alt="" />
 						</li>
 						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">Dunst for WOMEN</li>
-						<li className="text-truncate mb-4 ml-1.5 mr-1 text-sm text-secondary">UNISEX LEATHER LOGO ZIP-UP HOODIE MELANGE GREY_UDTS3C108G2</li>
-						<li className=" ml-1.5 mr-1 flex flex-row justify-between">
-							<div>
-								<span className="mr-1 text-lg font-semibold">94,050</span>
-								<span className="text-sm text-grey-300 line-through">99,000</span>
-							</div>
-							<span className="text-lg font-semibold text-tertiary">20&#37;</span>
+						<li className="text-truncate mb-4 ml-1.5 mr-1 h-[32px] text-sm text-secondary">UNISEX LEATHER LOGO ZIP-UP HOODIE MELANGE GREY_UDTS3C108G2</li>
+						<li className="relative ml-1.5 mr-1">
+							<span className="mr-1 text-lg font-semibold">94,050</span>
+							<span className="text-sm text-grey-300 line-through">99,000</span>
+							<span className="absolute right-0 text-lg font-semibold text-tertiary">20&#37;</span>
 						</li>
 					</ul>
 
@@ -277,7 +329,7 @@ function Detail() {
 							<img src={list01_2} alt="" />
 						</li>
 						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">Dunsta for WOMEN</li>
-						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">UNISEX NEOPRENE ZIP-UP HOODIE BLACK_UDJU3C116BK</li>
+						<li className="text-truncate mb-4 ml-1.5 mr-1 h-[32px] text-sm text-secondary">UNISEX NEOPRENE ZIP-UP HOODIE BLACK_UDJU3C116BK</li>
 						<li className="relative ml-1.5 mr-1">
 							<span className="mr-1 text-lg font-semibold">122,550</span>
 							<span className="text-sm text-grey-300 line-through">129,000</span>
@@ -290,7 +342,7 @@ function Detail() {
 							<img src={list01_3} alt="" />
 						</li>
 						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">Dunst for WOMEN</li>
-						<li className="text-truncate mb-4 ml-1.5 mr-1 text-sm text-secondary">UNISEX LEATHER LOGO ZIP-UP HOODIE OATMEAL MELANGE_UDTS3C108I1</li>
+						<li className="text-truncate mb-4 ml-1.5 mr-1 h-[32px] text-sm text-secondary">UNISEX LEATHER LOGO ZIP-UP HOODIE OATMEAL MELANGE_UDTS3C108I1</li>
 						<li className="relative ml-1.5 mr-1">
 							<span className="mr-1 text-lg font-semibold">94,050</span>
 							<span className="text-sm text-grey-300 line-through">99,000</span>
@@ -303,7 +355,7 @@ function Detail() {
 							<img src={list01_4} alt="" />
 						</li>
 						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">INSTANTTFUNK</li>
-						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">스탠다드 로고 후드 - 네이비</li>
+						<li className="text-truncate mb-4 ml-1.5 mr-1 h-[32px] text-sm text-secondary">스탠다드 로고 후드 - 네이비</li>
 						<li className="relative ml-1.5 mr-1">
 							<span className="mr-1 text-lg font-semibold">98,800</span>
 						</li>
@@ -314,7 +366,7 @@ function Detail() {
 							<img src={list01_5} alt="" />
 						</li>
 						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">THE ASHLYNN</li>
-						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">BACKPACK PAM HOODIE</li>
+						<li className="text-truncate mb-4 ml-1.5 mr-1 h-[32px] text-sm text-secondary">BACKPACK PAM HOODIE</li>
 						<li className="relative ml-1.5 mr-1">
 							<span className="mr-1 text-lg font-semibold">129,200</span>
 							<span className="text-sm text-grey-300 line-through">152,000</span>
@@ -327,7 +379,7 @@ function Detail() {
 							<img src={list01_6} alt="" />
 						</li>
 						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">THE ASHLYNN</li>
-						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">BEANIE PAM CROP HOODIE</li>
+						<li className="text-truncate mb-4 ml-1.5 mr-1 h-[32px] text-sm text-secondary">BEANIE PAM CROP HOODIE</li>
 						<li className="relative ml-1.5 mr-1">
 							<span className="mr-1 text-lg font-semibold">137,700</span>
 							<span className="text-sm text-grey-300 line-through">162,000</span>
@@ -339,14 +391,29 @@ function Detail() {
 
 			{/* Pick your beauty items */}
 			<section className="mb-[160px]">
-				<h6 className="font-mlg mb-4 font-semibold">Pick your beauty items</h6>
+				<div className="flex flex-row justify-between">
+					<h6 className="font-mlg mb-4 font-semibold">Pick your beauty items</h6>
+					<ul className="flex flex-row justify-center">
+						<li>
+							<button>
+								<img src={btnPrev} alt="" />
+							</button>
+						</li>
+						<li className="mt-[7px] h-[14px] w-[1px] bg-[#b5b5b5]"></li>
+						<li>
+							<button>
+								<img src={btnNext} alt="" />
+							</button>
+						</li>
+					</ul>
+				</div>
 				<div className="flex flex-row justify-between">
 					<ul className="w-[195px]">
 						<li className="mb-5">
 							<img src={list02_1} alt="" />
 						</li>
 						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">FLUKE</li>
-						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
+						<li className="text-truncate mb-4 ml-1.5 mr-1 h-[32px] text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
 						<li className="relative ml-1.5 mr-1">
 							<span className="mr-1 text-lg font-semibold">44,500</span>
 							<span className="text-sm text-grey-300 line-through">75,000</span>
@@ -359,7 +426,7 @@ function Detail() {
 							<img src={list02_2} alt="" />
 						</li>
 						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">FLUKE</li>
-						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
+						<li className="text-truncate mb-4 ml-1.5 mr-1 h-[32px] text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
 						<li className="relative ml-1.5 mr-1">
 							<span className="mr-1 text-lg font-semibold">44,500</span>
 							<span className="text-sm text-grey-300 line-through">75,000</span>
@@ -372,7 +439,7 @@ function Detail() {
 							<img src={list02_3} alt="" />
 						</li>
 						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">FLUKE</li>
-						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
+						<li className="text-truncate mb-4 ml-1.5 mr-1 h-[32px] text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
 						<li className="relative ml-1.5 mr-1">
 							<span className="mr-1 text-lg font-semibold">44,500</span>
 							<span className="text-sm text-grey-300 line-through">75,000</span>
@@ -385,7 +452,7 @@ function Detail() {
 							<img src={list02_4} alt="" />
 						</li>
 						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">FLUKE</li>
-						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
+						<li className="text-truncate mb-4 ml-1.5 mr-1 h-[32px] text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
 						<li className="relative ml-1.5 mr-1">
 							<span className="mr-1 text-lg font-semibold">44,500</span>
 							<span className="text-sm text-grey-300 line-through">75,000</span>
@@ -398,7 +465,7 @@ function Detail() {
 							<img src={list02_5} alt="" />
 						</li>
 						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">FLUKE</li>
-						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
+						<li className="text-truncate mb-4 ml-1.5 mr-1 h-[32px] text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
 						<li className="relative ml-1.5 mr-1">
 							<span className="mr-1 text-lg font-semibold">44,500</span>
 							<span className="text-sm text-grey-300 line-through">75,000</span>
@@ -411,7 +478,7 @@ function Detail() {
 							<img src={list02_6} alt="" />
 						</li>
 						<li className="mb-2 ml-1.5 mr-1 text-base font-semibold">FLUKE</li>
-						<li className="mb-4 ml-1.5 mr-1 text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
+						<li className="text-truncate mb-4 ml-1.5 mr-1 h-[32px] text-sm text-secondary">플루크 미션 후드 티셔츠 FHT2032 &#47; 3colorW</li>
 						<li className="relative ml-1.5 mr-1">
 							<span className="mr-1 text-lg font-semibold">44,500</span>
 							<span className="text-sm text-grey-300 line-through">75,000</span>
