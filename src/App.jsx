@@ -4,19 +4,14 @@ import Header from './layout/Header';
 import Detail from './views/Detail';
 import Footer from './layout/Footer';
 import Join from './views/Join';
+import {BrowserRouter, Route, RouterProvider} from 'react-router-dom';
+import router from './routes/routes';
 // import Mainpage from './views/Mainpage';
 
 function App() {
 	return (
 		<>
-			<Header />
-			{/* <Login /> */}
-			{/* <Mainpage /> */}
-
-			<Join />
-			{/* <Category /> */}
-			{/* <Detail /> */}
-			{/* <Footer /> */}
+			<RouterProvider router={router} />
 		</>
 	);
 }
