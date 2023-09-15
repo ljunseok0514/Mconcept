@@ -1,6 +1,8 @@
-import React from 'react';
+import pb from '@/api/pocketbase';
+import {getProductsImage} from '@/utils/getProductsImage';
 import { NavLink, useNavigate } from 'react-router-dom';
-
+import {useEffect, useState} from 'react';
+ß
 const navigate = useNavigate();
 
 const products = [
@@ -244,6 +246,7 @@ function Category() {
 					<li className="px-4"><a href='#'>1</a></li>
 					<li className="font-normal text-grey-300"><a href='#'>2</a></li>
 				</ul>
+				
 			</section>
 		</main>
 	);
