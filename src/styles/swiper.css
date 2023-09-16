@@ -62,8 +62,8 @@
 } 
 
 .swiper-pagination-bullet {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   background-color: rgb(79, 79, 79);
 }
 
@@ -88,8 +88,8 @@
 .faPlay,
 .faPause {
   color: rgb(79, 79, 79);
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 .faPlay:active,
@@ -115,11 +115,11 @@
 
 .autoplay-progress {
   position: absolute;
-  right: 16px;
-  bottom: 16px;
+  right: 24px;
+  bottom: 14px;
   z-index: 10;
-  width: 48px;
-  height: 48px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -143,6 +143,26 @@
 
 #pnavi:active,
 #nnavi:active {
+  scale:0.7;
+  opacity: 0.8;
+} 
+
+#preNavi::after,
+#nextNavi::after {
+  color: #dddddd;
+  font-size: 80px;
+}
+
+#preNavi {
+  /* left: 30px; */
+}
+
+#nextNavi {
+  /* right: 30px; */
+}
+
+#preNavi:active,
+#nextNavi:active {
   scale:0.7;
   opacity: 0.8;
 } 

@@ -1,9 +1,8 @@
-import logo from '../../public/header/logo.png';
-import search from '../../public/header/icon_search.png';
 import join from '../../public/header/icon_join.png';
 import login from '../../public/header/icon_login.png';
 import my from '../../public/header/icon_my.png';
 import shopping from '../../public/header/icon_shopping.png';
+import logo from '../../public/header/logo.png';
 
 function GlobalSearch() {
 	return (
