@@ -13,53 +13,53 @@
 } */
 
 .swiper {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
 
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: auto;
+	/* Center slide text vertically */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: auto;
 }
 
 .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .swiper {
-  margin-left: auto;
-  margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #pnavi::after,
 #nnavi::after {
-  color: #dddddd;
-  font-size: 80px;
+	color: #dddddd;
+	font-size: 80px;
 }
 
 #pnavi {
-  left: 30px;
+	left: 30px;
 }
 
 #nnavi {
-  right: 30px;
+	right: 30px;
 }
 
 #pnavi:active,
 #nnavi:active {
-  scale:0.7;
-  opacity: 0.8;
-} 
+	scale: 0.7;
+	opacity: 0.8;
+}
 
 .swiper-pagination-bullet {
   width: 14px;
@@ -68,21 +68,21 @@
 }
 
 .swiper-pagination-bullet:active {
-  scale: 1.5;
+	scale: 1.5;
 }
 
 .swiperPause {
-  position: absolute;
-  bottom: 20px;
-  right: 80px;
-  z-index: 10;
+	position: absolute;
+	bottom: 20px;
+	right: 80px;
+	z-index: 10;
 }
 
 .swiperPlay {
-  position: absolute;
-  bottom: 20px;
-  right: 130px;
-  z-index: 10;
+	position: absolute;
+	bottom: 20px;
+	right: 130px;
+	z-index: 10;
 }
 
 .faPlay,
@@ -94,23 +94,23 @@
 
 .faPlay:active,
 .faPause:active {
-  scale: 0.75;
+	scale: 0.75;
 }
 
 .autoplay-progress svg {
-  --progress: 0;
-  position: absolute;
-  left: 0;
-  top: 0px;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  stroke-width: 4px;
-  stroke: rgb(79, 79, 79);
-  fill: none;
-  stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
-  stroke-dasharray: 125.6;
-  transform: rotate(-90deg);
+	--progress: 0;
+	position: absolute;
+	left: 0;
+	top: 0px;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	stroke-width: 4px;
+	stroke: rgb(79, 79, 79);
+	fill: none;
+	stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+	stroke-dasharray: 125.6;
+	transform: rotate(-90deg);
 }
 
 .autoplay-progress {
@@ -129,16 +129,16 @@
 
 #pnavi::after,
 #nnavi::after {
-  color: #dddddd;
-  font-size: 80px;
+	color: #dddddd;
+	font-size: 80px;
 }
 
 #pnavi {
-  left: 30px;
+	left: 30px;
 }
 
 #nnavi {
-  right: 30px;
+	right: 30px;
 }
 
 #pnavi:active,
@@ -151,14 +151,6 @@
 #nextNavi::after {
   color: #dddddd;
   font-size: 80px;
-}
-
-#preNavi {
-  /* left: 30px; */
-}
-
-#nextNavi {
-  /* right: 30px; */
 }
 
 #preNavi:active,

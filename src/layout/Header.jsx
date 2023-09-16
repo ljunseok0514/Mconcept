@@ -6,8 +6,8 @@ import GlobalSearch from '@/components/GlobalSearch';
 function Header() {
 	return (
 		<>
-			<header className="min-w-[1920px] mx-auto">
-				<img src={banner} className="w-[100%] min-w-[1920px]" />
+			<header className="mx-auto min-w-[1920px]">
+				<img src={banner} className="w-[100%]" />
 				<GlobalSearch />
 				<Nav />
 			</header>
