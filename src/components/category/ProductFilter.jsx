@@ -1,4 +1,4 @@
-import ProductCheckBox from '@/components/category/ProductCheck';
+import ProductCheckBox from '@/components/category/ProductCheckBox';
 
 function ProductFilter() {
 	return (
