@@ -30,44 +30,46 @@ function MakeItYours() {
 
 	return (
 		<>
-			<section className='w-[1800px]'>
+			<section className='w-[1800px] mx-auto'>
 				<h2 className="mb-8 text-center text-[54px] font-thin">MAKE IT YOURS</h2>
 				<div className="flex">
 					<Swiper
 						slidesPerView={5}
 						spaceBetween={30}
 						// loop={true}
-						// centeredSlides={true}
 						navigation={{
 							nextEl: '#nextNavi',
 							prevEl: '#prevNavi',
 						}}
 						modules={[Navigation]}
-						className="mySwiper px-14"
+						className="mySwiper"
 					>
 						{data ? (
-							data?.map(({id, photo, name, brand, description, discount, price, main}) => {
+							data?.map((item) => {
 								return (
-									<SwiperSlide key={id}>
-										<button></button>
+									<SwiperSlide key={item.id}>
+									<button></button>
 										<a href="#">
 											<div className="img">
-												<img src={getProductsImage(data[0], 'details')} alt="" />
+												
+												<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id}/>
+
+												
 											</div>
 											<div className="text">
 												<dl>
 													<dt aria-label="제목"></dt>
-													<dd>{brand}</dd>
+													<dd>{item.brand}</dd>
 													<dt aria-label="설명"></dt>
-													<dd>{description}</dd>
+													<dd>{item.description}</dd>
 													<dt aria-label="이름"></dt>
-													<dd>{name}</dd>
+													<dd>{item.name}</dd>
 													<dt aria-label="가격"></dt>
-													<dd>{price}</dd>
+													<dd>{item.price}</dd>
 													<dt aria-label="할인율"></dt>
-													<dd>{discount * 100}</dd>
+													<dd>{item.discount * 100}</dd>
 													<dt aria-label="할인가격"></dt>
-													<dd>{price * (1 - discount)}</dd>
+													<dd>{item.price * (1 - item.discount)}</dd>
 												</dl>
 											</div>
 										</a>
@@ -77,10 +79,8 @@ function MakeItYours() {
 						) : (
 							<div>ERROR</div>
 						)}
-						
 							<div className="swiper-button-prev" id="preNavi"></div>
 							<div className="swiper-button-next" id="nextNavi"></div>
-						
 					</Swiper>
 				</div>
 			</section>
