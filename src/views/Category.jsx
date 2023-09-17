@@ -1,4 +1,6 @@
-import ProductsItems from '@/components/Category/ProductItems';
+import ProductFilter from '@/components/category/ProductFilter';
+import ProductsItems from '@/components/category/ProductItems';
+import ProductPageNation from '@/components/category/ProductPageNation';
 // import { NavLink, useNavigate } from 'react-router-dom';
 
 /**
@@ -123,26 +125,10 @@ function Category() {
 					</li>
 				</ul>
 			</nav>
-			<div className="grid basis-1/2 grid-cols-2 border-l-grey-200 bg-slate-50 px-6 py-4 text-lg font-semibold">
-				<h4>
-					FILTER<button type="button"></button>
-				</h4>
-				<ul className="flex gap-40">
-					<li>
-						<button type="button">PRICE</button>
-					</li>
-					<li>
-						<button type="button">BENEFIT</button>
-					</li>
-					<li>
-						<button type="button">COLOR</button>
-					</li>
-					<li>
-						<button type="button">DISCOUNT</button>
-					</li>
-				</ul>
-			</div>
-			<div className="border-t-2 border-black py-4 text-left">
+
+			<ProductFilter/>
+
+			<div className="product- border-t-2 border-black py-4 text-left">
 				<span className="text-sm font-light text-black">
 					<em className="a11y text-mlg font-normal not-italic">196</em> 개의 상품
 				</span>
@@ -182,18 +168,10 @@ function Category() {
 			</div>
 			
 			<ProductsItems />
-
-			<ul className="mb-6 flex flex-row justify-center font-bold">
-				<li className="px-4">
-					<a href="#">1</a>
-				</li>
-				<li className="font-normal text-grey-300">
-					<a href="#">2</a>
-				</li>
-			</ul>
+			<ProductPageNation />
 		</section>
 	</main>
-	);;
+	);
 }
 
 export default Category;
