@@ -1,3 +1,7 @@
+/**
+ *  ProductCheckBox component
+ * */
+
 function ProductCheckBox({isPacked = false, children}){
     return(
         <li className="list-none">
