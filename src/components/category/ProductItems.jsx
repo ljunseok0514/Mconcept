@@ -44,7 +44,7 @@ function ProductItems() {
 										<img src={getProductsImage(item, 'photo')} alt={name} key={id} />
 									</div>
 
-									<div className="relative h-[150px]">
+									<div className="relative">
 										<dl className="absolut">
 											<dt className="sr-only" aria-label="제목"></dt>
 											<dd className="py-3 text-base font-semibold">{brand}</dd>
