@@ -1,7 +1,11 @@
 import pb from '@/api/pocketbase';
-import {getProductsImage} from '@/utils/getProductsImage';
 import {useEffect, useState} from 'react';
-import ProductLabel from './ProductLabel';
+import {getProductsImage} from '@/utils/getProductsImage';
+import ProductLabel from '@/components/category/ProductLabel';
+
+/**
+ *  ProductItems component
+ * */
 
 function ProductItems() {
 	const [data, setData] = useState([]);
@@ -20,38 +24,44 @@ function ProductItems() {
 		getProducts();
 	}, []);
 
-	console.log(data);
+	// 할인가격의 뒤에서 세번째 자리에 ',' 추가하는 정규식
+	function formatNumber(number) {
+		return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	}
 
 	return (
 		<>
-			<div className="products grid grid-cols-6 grid-rows-2 gap-4 pb-10">
+			<div className="products grid grid-cols-6 grid-rows-2 gap-6 mb-20">
 				{data ? (
-					data?.map((item) => {
+					data.map((item) => {
+                        // .item 없이 photo와 나머지 값을 불러오려면 'useProducts.js'의 로직을 수정해야 합니다. 지금은 {}값을 item 으로 정의해서 불러옴.
+						const {id, photo, name, brand, description, discount, price, main, newSeason} = item;
 						return (
-							<div key={item.id}>
+							<div key={id}>
 								<button></button>
 								<a href="#">
-									<figure>
-										<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} />
-									</figure>
+									<div className="img">
+										<img src={getProductsImage(item, 'photo')} alt={name} key={id} />
+									</div>
 
 									<div className="relative h-[150px]">
 										<dl className="absolut">
 											<dt className="sr-only" aria-label="제목"></dt>
-											<dd className="p-1 text-base font-semibold">{item.brand}</dd>
+											<dd className="py-3 text-base font-semibold">{brand}</dd>
 											<dt className="sr-only" aria-label="이름"></dt>
-											<dd className="h-[20px] pb-1 text-sm font-normal text-secondary">{item.name}</dd>
+											<dd className="h-[20px] pb-1 text-sm font-normal text-secondary">{name}</dd>
 											<dt className="sr-only" aria-label="설명"></dt>
-											<dd className="h-[50px] pb-1 text-sm font-normal text-secondary">{item.description}</dd>
+											<dd className="h-[50px] pb-1 text-sm font-normal text-secondary">{description}</dd>
 
 											<dt className="sr-only" aria-label="할인가격"></dt>
-											<dd className="b-0 inline font-semibold text-grey-800">{Math.floor((item.price * (1 - item.discount)) / 10) * 10}</dd>
+											<dd className="b-0 inline font-semibold text-grey-800">{formatNumber(Math.floor(price * (1 - discount)))}</dd>
 											<dt className="sr-only" aria-label="가격"></dt>
-											{item.discount === 0 ? null : <dd className="b-0 ml-2 inline text-xs font-medium text-grey-200 line-through">{item.price}</dd>}
+											<dd className="b-0 ml-2 inline text-xs font-medium text-grey-200 line-through">{price}</dd>
 											<dt className="sr-only" aria-label="할인율"></dt>
-											{parseInt(item.discount * 100) ? <dd className="b-0 float-right inline font-bold text-tertiary">{Math.floor(item.discount * 100)}%</dd> : null}
+											<dd className="b-0 float-right inline font-bold text-tertiary">{discount !== 0 ? `${Math.floor(discount * 100)}%` : null}</dd>
 											<dt className="sr-only" aria-label="태그"></dt>
-                                            <ProductLabel />
+
+											{newSeason && <ProductLabel />}
 										</dl>
 									</div>
 								</a>
@@ -79,7 +89,6 @@ export default ProductItems;
 // 						</dl>
 // ))} */}
 
-
 // 		//@ label
 // 		// 뉴시즌
 // 		newSeason: true,
@@ -90,19 +99,7 @@ export default ProductItems;
 // 		// 단독 판매
 // 		only: true,
 
-
 // const listItems = products.map((products) => (
 // 	<dl key={products.id}>
-// 		<dd>
-// 			<a href="/">
-// 				<img src="https://product-image.wconcept.co.kr/productimg/image/img1/85/303733185_VX94985.jpg"></img>
-// 			</a>
-// 		</dd>
-// 		<dd className="pb-2 text-base font-semibold">{products.brand}</dd>
-// 		<dd className="pb-6 text-sm font-normal text-secondary">{products.description}</dd>
-// 		<dd className="inline-block font-bold text-grey-800">{products.price}</dd>
-// 		<dd className="ml-2 inline-block text-right text-xs font-medium text-grey-200  line-through">{products.price}</dd>
-// 		<dd className="float-right inline-block font-bold text-tertiary">{products.discount}%</dd>
-// 		<dd className="mt-4 w-[40px] bg-tertiary px-1 py-[1px] text-center text-xs font-medium text-white">뉴시즌</dd>
 // 	</dl>
 // ));
