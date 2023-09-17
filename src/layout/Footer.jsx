@@ -7,7 +7,7 @@ function Footer() {
 		<>
 			<footer className="mb-6">
 				<div className="flex justify-center bg-grey-500 text-base text-white font-normal">
-					<div className="mt-18 w-[1920px] leading-[58px]">
+					<div className="max-w-[1920px] leading-[58px] mt-18">
 						<ul className="w-[1240px] mx-auto grid grid-cols-8 text-center">
 							<li>
 								<a href="/" target="_blank">
