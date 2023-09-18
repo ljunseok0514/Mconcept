@@ -6,9 +6,9 @@ function Footer() {
 	return (
 		<>
 			<footer className="mb-6">
-				<div className="flex justify-center bg-grey-500 text-base text-white font-normal">
-					<div className="max-w-[1920px] leading-[58px] mt-18">
-						<ul className="w-[1240px] mx-auto grid grid-cols-8 text-center">
+				<div className="flex justify-center bg-grey-500 text-base font-normal text-white">
+					<div className="mt-18 max-w-[1920px] leading-[58px]">
+						<ul className="mx-auto grid w-[1240px] grid-cols-8 text-center">
 							<li>
 								<a href="/" target="_blank">
 									회사소개
@@ -77,7 +77,7 @@ function Footer() {
 								소비자피해보상보험 서비스를 이용하실 수 있습니다.
 								<br />
 								보상대상 : 미배송/반품, 환불거부/쇼핑몰부도
-								<a className="inline ml-1 border border-black px-2 py-[1px] text-sm font-medium" href="/" target="_blank">
+								<a className="ml-1 inline border border-black px-2 py-[1px] text-sm font-medium" href="/" target="_blank">
 									서비스 가입사실 확인
 								</a>
 							</dd>
