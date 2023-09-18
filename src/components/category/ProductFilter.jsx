@@ -2,7 +2,7 @@ import ProductCheckBox from '@/components/category/ProductCheckBox';
 import {PrimaryButton, SecondaryButton} from '@/components/category/ProductFilterButton';
 
 /**
- *  Category Page
+ *  ProductFilter component
  * */
 
 function ProductFilter() {
