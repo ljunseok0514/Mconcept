@@ -21,7 +21,7 @@ const popup = [
 	},
 ]
 
-function Mainpage(params) {
+function Mainpage() {
 	return (
 		<div className="mx-auto max-w-[1920px]">
 			<MainArticle />
