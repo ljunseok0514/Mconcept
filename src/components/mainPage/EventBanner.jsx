@@ -11,16 +11,15 @@ function EventBanner() {
 			<section className="my-12 flex">
 				<h2 className="sr-only">EVENT BANNER</h2>
 
-				<a href="#" className="relative">
-					<img src={eventList[1]} alt="쇼핑 리워드" />
-					<img src={eventList[3]} alt="" className="absolute right-0 top-0" />
+				<a href="#" className="relative h-auto w-auto">
+					<img src={eventList[1]} alt="쇼핑 리워드" className="h-full w-full" />
+					<img src={eventList[3]} alt="" className="absolute right-0 top-0 h-full" />
 				</a>
 
-				<a href="#" className="relative">
-					<img src={eventList[0]} alt="이달의 혜택" />
-					<img src={eventList[2]} alt="" className="absolute left-0 top-0" />
+				<a href="#" className="relative h-auto w-auto">
+					<img src={eventList[0]} alt="이달의 혜택" className="h-full w-full" />
+					<img src={eventList[2]} alt="" className="absolute left-0 top-0 h-full" />
 				</a>
-
 			</section>
 		</>
 	);

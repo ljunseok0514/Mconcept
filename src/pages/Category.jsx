@@ -2,6 +2,7 @@ import ProductCategory from '@/components/category/ProductCategory';
 import ProductFilter from '@/components/category/ProductFilter';
 import ProductsItems from '@/components/category/ProductItems';
 import ProductPageNation from '@/components/category/ProductPageNation';
+import ProductSort from '@/components/category/ProductSort';
 // import { NavLink, useNavigate } from 'react-router-dom';
 
 /**
@@ -29,41 +30,10 @@ function Category() {
 
 			<div className="product-quantity border-t-2 border-black py-4 text-left">
 				<span className="text-sm font-light text-black">
-					<em className="a11y text-mlg font-normal not-italic">196</em> 개의 상품
+					<em className="a11y text-mlg font-normal not-italic">192</em> 개의 상품
 				</span>
 
-				<div className="product-sort float-right inline-block">
-					<button className="border border-grey-300 px-4 py-1 text-base text-grey-400" type="button">
-						신상품순
-						<span
-							className="float-right ml-4 mt-[2px] h-[11px] w-[11px]"
-							style={{
-								background: `url("https://static.wconcept.co.kr/web/images/common/spr-common.png") -238px 6px no-repeat`,
-							}}
-						></span>
-					</button>
-
-					<ul className="hidden">
-						<li>
-							<a href="/">신상품순</a>
-						</li>
-						<li>
-							<a href="/">판매순</a>
-						</li>
-						<li>
-							<a href="/">할인율순</a>
-						</li>
-						<li>
-							<a href="/">낮은 가격 순</a>
-						</li>
-						<li>
-							<a href="/">높은 가격 순</a>
-						</li>
-						<li>
-							<a href="/">리뷰순</a>
-						</li>
-					</ul>
-				</div>
+				<ProductSort/>
 			</div>
 			
 			<ProductsItems />

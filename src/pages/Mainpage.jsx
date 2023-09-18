@@ -5,6 +5,8 @@ import MakeItYours from '@/components/mainPage/MakeItYours';
 import Modal from '@/components/Modal';
 import popup1 from '@/assets/images/mainPage/main_popup_1.png';
 import popup2 from '@/assets/images/mainPage/main_popup_2.png';
+import StickyScroll from '@/components/mainPage/StickyScroll';
+import ShoppingHistoryPopup from '@/components/ShoppingHistoryPopup';
 
 const popup = [
 	{ 
@@ -30,6 +32,7 @@ function Mainpage() {
 			<MakeItYours />
 			<Modal popup={popup[0]} />
 			<Modal popup={popup[1]} />
+			<StickyScroll />
 		</div>
 	);
 }
