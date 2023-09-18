@@ -14,6 +14,7 @@ const router = createBrowserRouter(
 		<Route path="/" element={<RootLayout />}>
 			<Route index element={<Mainpage />} />
 			<Route path="join" element={<Join />} />
+			<Route path="login" element={<Login />} />
 		</Route>,
 	),
 );

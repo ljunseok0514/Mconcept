@@ -5,7 +5,7 @@ import MakeItYours from '@/components/mainPage/MakeItYours';
 
 function Mainpage(params) {
 	return (
-		<div className="mx-auto w-[1920px]">
+		<div className="mx-auto max-w-[1920px]">
 			<MainArticle />
 			<StyleStory />
 			<EventBanner />

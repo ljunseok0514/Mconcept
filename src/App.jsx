@@ -8,12 +8,15 @@ import Footer from './layout/Footer';
 import Join from './pages/Join';
 import {BrowserRouter, Route, RouterProvider} from 'react-router-dom';
 import router from './routes/routes';
+import AuthProvider from './contexts/Auth';
 // import Mainpage from './views/Mainpage';
 
 function App() {
 	return (
 		<>
-			<RouterProvider router={router} />
+			<AuthProvider>
+				<RouterProvider router={router} />
+			</AuthProvider>
 		</>
 	);
 }
