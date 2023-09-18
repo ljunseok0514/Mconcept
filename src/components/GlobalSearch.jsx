@@ -1,14 +1,13 @@
-import logo from '../../public/header/logo.png';
-import search from '../../public/header/icon_search.png';
 import join from '../../public/header/icon_join.png';
 import login from '../../public/header/icon_login.png';
 import my from '../../public/header/icon_my.png';
 import shopping from '../../public/header/icon_shopping.png';
+import logo from '../../public/header/logo.png';
 
 function GlobalSearch() {
 	return (
 		<>
-			<div className="global_search relative mx-auto h-[88px] w-[1920px] bg-[#fff] pr-[20px]">
+			<div className="global_search relative mx-auto h-[88px] max-w-[1920px] bg-[#fff] pr-[20px]">
 				<a href="/" className="symbol absolute left-[20px] top-[32px]">
 					<img src={logo} alt="M CONCEPT 홈" />
 				</a>
