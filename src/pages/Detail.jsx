@@ -1,6 +1,7 @@
-import {json} from 'react-router-dom';
-import React, {useState} from 'react';
+// import {json, useParams} from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
 import '../styles/detail.css';
+// import {getProductsImage} from '../utils/getProductsImage';
 
 // 자바스크립트 적용 확인해보기
 // document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -83,16 +84,28 @@ import btnNext from '../assets/images/detail/detail_btn_next.png';
 import btnPrev from '../assets/images/detail/detail_btn_Prev.png';
 
 function Detail() {
-	const [activeTab, setActiveTab] = useState('DETAIL');
+	// const [activeTab, setActiveTab] = useState('DETAIL');
+	// // const [data, setData] = useState();
+	// // const {id} = useParams();
+	// const handleTabClick = (tabName) => {
+	// // 	setActiveTab(tabName);
+	// // };
 
-	const handleTabClick = (tabName) => {
-		setActiveTab(tabName);
-	};
-
-	const tabStyle = {
-		color: 'black',
-		cursor: 'pointer',
-	};
+	// const tabStyle = {
+	// 	color: 'black',
+	// 	cursor: 'pointer',
+	// };
+	// useEffect(() => {
+	// 	async function getProduct() {
+	// 		try {
+	// 			const readProduct = await pb.collection('products').getOne(id);
+	// 			setData(readProduct);
+	// 		} catch (error) {
+	// 			// 츄라이 캐치는 화면에서 불러왔을때 서버랑 통신이 안됐을 때 > 조용하게, 수줍게 콘솔에 에러를 알려준다
+	// 			throw new Error(error);
+	// 		}
+	// 	}
+	// });
 
 	// function ZoomLens() {
 	// const [imageSrc, setImageSrc] = useState('image.jpg');
@@ -129,6 +142,8 @@ function Detail() {
 	// 	// 크롭된 이미지 출력
 	//   setZoomedArea(croppedImageURL);
 	// }
+
+	console.log;
 	return (
 		<div className="relative mx-auto mb-[200px] w-[1240px]">
 			<ul className="mb-7 mt-7 flex flex-row text-sm text-gray-500">
@@ -172,7 +187,7 @@ function Detail() {
 								<img className="mr-1 inline" src={star} alt="" />
 								<span className="align-middle text-lg font-semibold">4.9</span>
 							</li>
-							<li className="text-sm">55개 리뷰</li>
+							<li className="mt-1 text-sm underline">55개 리뷰 &#62;</li>
 						</ul>
 
 						<dl className="mb-4">
@@ -192,14 +207,20 @@ function Detail() {
 							</dd>
 						</dl>
 
-						<div className="t-0 r-0 absolute flex flex-row">
+						{/* 우측 버튼들 */}
+						{/* <div className="t-0 r-0 absolute flex flex-row">
 							<span>MY</span>
 							<img className="h-4 w-7" src={mybrand} alt="" />
 							<span>BRAND</span>
 						</div>
 						<button className="float-right">
 							<img src={share} alt="" />
-						</button>
+						</button> */}
+					</div>
+
+					<div className="flex flex-row justify-between py-[30px]">
+						<button className="h-[70px] w-[320px] border border-black text-[20px]">수정</button>
+						<button className="h-[70px] w-[320px] bg-black text-[20px] text-white">삭제</button>
 					</div>
 				</div>
 			</section>
@@ -264,10 +285,11 @@ function Detail() {
 				</div>
 
 				<div className="mx-auto flex w-[780px] flex-col justify-center text-center">
-					<img src={intro} alt="" />
-					<img src={color} alt="" />
+					<img src={getProductsImage(data, 'details')} alt="상품사진" className="m-auto h-auto pt-20" />
+
+					{/* <img src={color} alt="" />
 					<img src={detail01} alt="" />
-					<img className="pt-20" src={detail02} alt="" />
+					<img className="pt-20" src={detail02} alt="" /> */}
 					{/* <img className="pt-20" src={detail03} alt="" />
 					<img className="pt-20" src={detail04} alt="" />
 					<img className="pt-20" src={detail05} alt="" />
