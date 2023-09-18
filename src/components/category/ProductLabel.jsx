@@ -9,7 +9,7 @@ function Label({isVisible, label}) {
 function VisibilityButton({isVisible, label, backgroundColor, borderColor, color}) {
 	return (
 		<button
-			className="mt-1 bg-tertiary p-[2px] px-1 text-center text-xs font-medium"
+			className="mt-1 p-[2px] px-1 text-center text-xs font-medium"
 			role="label"
 			aria-label={isVisible ? label : 'hide'}
 			style={{backgroundColor, border: `1px solid ${borderColor}`, color}}
