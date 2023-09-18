@@ -34,11 +34,8 @@ function ProductItems() {
 			<div className="products mb-20 grid grid-cols-6 grid-rows-2 gap-6">
 				{data ? (
 					data?.map((item) => {
-						// .item 없이 photo와 나머지 값을 불러오려면 'useProducts.js'의 로직을 수정해야 합니다. 지금은 {}값을 item 으로 정의해서 불러옴.
-						// const {id, photo, name, brand, description, discount, price, main, newSeason, celebrity, coupon, only} = item;
 						return (
 							<div key={item.id}>
-								<button></button>
 								<a href="#">
 									<div className="img">
 										<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} />
@@ -80,29 +77,3 @@ function ProductItems() {
 }
 
 export default ProductItems;
-
-// {
-// 	/* products list items */
-// }
-
-// <div className="products grid grid-cols-6 grid-rows-2 gap-4 pb-10">
-// 	{/* {[...Array(12)].map((_, index) => (
-// 						<dl key={index} className="overflow-hidden text-ellipsis">
-// 							{listItems}
-// 						</dl>
-// ))} */}
-
-// 		//@ label
-// 		// 뉴시즌
-// 		newSeason: true,
-// 		// 셀럽착용
-// 		celebrity: true,
-// 		// 쿠폰
-// 		coupon: true,
-// 		// 단독 판매
-// 		only: true,
-
-// const listItems = products.map((products) => (
-// 	<dl key={products.id}>
-// 	</dl>
-// ));
