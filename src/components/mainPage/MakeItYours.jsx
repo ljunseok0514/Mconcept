@@ -23,15 +23,16 @@ function MakeItYours() {
 
 	return (
 		<>
-			<section className="mx-auto relative">
+			<section className="mx-auto relative mb-10">
 				<h2 className="mb-8 text-center text-[54px] font-thin">MAKE IT YOURS</h2>
 				<div className="flex px-20">
 					<Swiper
 						slidesPerView={5}
 						spaceBetween={20}
+						loop={true}
 						navigation={{
-							nextEl: '#nnavi',
-							prevEl: '#pnavi',
+							nextEl: '#nextNavi',
+							prevEl: '#preNavi',
 						}}
 						autoplay={{
 							delay: 2000,
@@ -82,8 +83,8 @@ function MakeItYours() {
 							<div>ERROR</div>
 						)}
 					</Swiper>
-						<div className="swiper-button-prev" id="pnavi"></div>
-						<div className="swiper-button-next" id="nnavi"></div>
+						<div className="swiper-button-prev" id="preNavi"></div>
+						<div className="swiper-button-next" id="nextNavi"></div>
 				</div>
 			</section>
 		</>
