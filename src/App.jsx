@@ -1,6 +1,7 @@
 import {RouterProvider} from 'react-router-dom';
 import router from './routes/routes';
 import AuthProvider from './contexts/Auth';
+import {Toaster} from 'react-hot-toast';
 // import Mainpage from './views/Mainpage';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
 			<AuthProvider>
 				<RouterProvider router={router} />
 			</AuthProvider>
+			<Toaster />
 		</>
 	);
 }

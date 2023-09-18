@@ -1,10 +1,21 @@
+import {useAuth} from '@/contexts/Auth';
 import join from '../../public/header/icon_join.png';
 import login from '../../public/header/icon_login.png';
+import logout from '../../public/header/icon_logout.svg';
 import my from '../../public/header/icon_my.png';
 import shopping from '../../public/header/icon_shopping.png';
 import logo from '../../public/header/logo.png';
+import {NavLink, useNavigate} from 'react-router-dom';
 
 function GlobalSearch() {
+	const {isAuth, signOut} = useAuth();
+	const navigate = useNavigate();
+
+	const handleSignOut = async () => {
+		await signOut();
+		navigate('/');
+	};
+
 	return (
 		<>
 			<div className="global_search relative mx-auto h-[88px] max-w-[1920px] bg-[#fff] pr-[20px]">
@@ -26,27 +37,42 @@ function GlobalSearch() {
 					></button>
 				</div>
 				<ul className="utility float-right mr-[-17px] flex pt-[26px]">
+					{!isAuth && (
+						<li>
+							<a href="/" className="block w-[64px] text-center">
+								<img className="inline-block h-[30px] w-[30px]" src={join} alt="joinIcon" />
+								<strong className="block text-[12px]">JOIN</strong>
+							</a>
+						</li>
+					)}
+
+					{isAuth && (
+						<li>
+							<button onClick={handleSignOut} className="block w-[64px] text-center" type="button">
+								<img src={logout} className="inline-block h-[30px] w-[30px]" alt="logout" />
+								<strong className="block text-[12px]">LOGOUT</strong>
+							</button>
+						</li>
+					)}
+					{!isAuth && (
+						<NavLink to={'/login'}>
+							<li>
+								<button Link className="block w-[64px] text-center" type="button">
+									<img className="inline-block h-[30px] w-[30px]" src={login} alt="loginIcon" />
+									<strong className="block text-[12px]">LOGIN</strong>
+								</button>
+							</li>
+						</NavLink>
+					)}
 					<li>
 						<a href="/" className="block w-[64px] text-center">
-							<img className="inline-block h-[30px] w-[30px]" src={join} alt="" />
-							<strong className="block text-[12px]">JOIN</strong>
-						</a>
-					</li>
-					<li>
-						<a href="/" className="block w-[64px] text-center">
-							<img className="inline-block h-[30px] w-[30px]" src={login} alt="" />
-							<strong className="block text-[12px]">LOGIN</strong>
-						</a>
-					</li>
-					<li>
-						<a href="/" className="block w-[64px] text-center">
-							<img className="inline-block h-[30px] w-[30px]" src={my} alt="" />
+							<img className="inline-block h-[30px] w-[30px]" src={my} alt="myIcon" />
 							<strong className="block text-[12px]">MY</strong>
 						</a>
 					</li>
 					<li>
 						<a href="/" className="block w-[64px] text-center">
-							<img className="inline-block h-[30px] w-[30px]" src={shopping} alt="" />
+							<img className="inline-block h-[30px] w-[30px]" src={shopping} alt="shoppingIcon" />
 							<strong className="block text-[12px]">0</strong>
 						</a>
 					</li>
