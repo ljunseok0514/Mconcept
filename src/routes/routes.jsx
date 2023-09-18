@@ -6,6 +6,8 @@ import Login from '@/pages/Login';
 import Mainpage from '@/pages/Mainpage';
 import Join from '@/pages/Join';
 import RootLayout from '@/layout/RootLayout';
+import Category from '@/pages/Category';
+import Detail from '@/pages/Detail';
 // 컴포넌트 경로
 
 const router = createBrowserRouter(
@@ -15,6 +17,8 @@ const router = createBrowserRouter(
 			<Route index element={<Mainpage />} />
 			<Route path="join" element={<Join />} />
 			<Route path="login" element={<Login />} />
+			<Route path="category" element={<Category />} />
+			<Route path="detail" element={<Detail />} />
 		</Route>,
 	),
 );
