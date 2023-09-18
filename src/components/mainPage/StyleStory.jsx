@@ -2,7 +2,7 @@ import story1 from '@/assets/images/mainPage/main_story_1.png';
 import story2 from '@/assets/images/mainPage/main_story_2.png';
 import story3 from '@/assets/images/mainPage/main_story_3.png';
 import story4 from '@/assets/images/mainPage/main_story_4.png';
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 const storyList = [
 	{
