@@ -1,8 +1,58 @@
+import pb from '@/api/pocketbase';
+import {LoginButton} from '@/components/LoginButton';
+import {LoginInput} from '@/components/LoginInput';
+import {useAuth} from '@/contexts/Auth';
+import debounce from '@/utils/debounce';
 import {useState} from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
 
 function Login() {
-	const [isChecked, setIsChecked] = useState(false);
+	const {state} = useLocation();
+	const navigate = useNavigate();
 
+	const [formState, setFormState] = useState({
+		email: '',
+		password: '',
+	});
+
+	const handleSignIn = async (e) => {
+		e.preventDefault();
+
+		const {email, password} = formState;
+		console.log(email);
+		console.log(password);
+		try {
+			const response = await pb.collection('users').authWithPassword(email, password);
+
+			console.log(response);
+
+			if (!state) {
+				navigate('/');
+			} else {
+				// 사용자가 원하는 경로로 접속 요청
+				// 로그인 유무 확인이 안되서 사용자를 로그인 페이지로 이동
+				// 로그인 페이지에서 사용자가 로그인 시도 (성공)
+				// 성공 (로그인 이력을 남기지 않도록 합니다.)
+				// console.log(state.wishLocationPath);
+				// 이슈 확인 결과: '/signin'이 나와서 이동 안한 것임!
+
+				const {wishLocationPath} = state;
+				navigate(wishLocationPath === '/signin' ? '/' : wishLocationPath);
+			}
+		} catch (error) {
+			console.error('@@' + error);
+		}
+	};
+
+	const handleInput = debounce((e) => {
+		const {name, value} = e.target;
+		setFormState({
+			...formState,
+			[name]: value,
+		});
+	}, 400);
+
+	const [isChecked, setIsChecked] = useState(false);
 	const handleCheckboxChange = () => {
 		console.log('test');
 		setIsChecked(!isChecked);
@@ -13,35 +63,27 @@ function Login() {
 			<section className="mx-[auto] w-[1240px]">
 				<h1 className=" mb-[42px] mt-[60px] text-center text-[41px]">LOGIN</h1>
 				<h2 className="sr-only">로그인 정보 입력</h2>
-				<form id="login-form" action="/login" method="POST" className=" border-t-2 border-solid border-[#171717] text-center">
+				<form onSubmit={handleSignIn} id="login-form" action="/login" method="POST" className=" border-t-2 border-solid border-[#171717] text-center">
 					<div className="grid-cols-gap mt-[62px] grid grid-cols-[525px_190px] place-content-center gap-[20px]">
 						<div className="inp_group relative">
-							<div className="mb-[20px] ">
-								<label htmlFor="userEmail" className="inline-block w-[105px] text-left text-[14px] text-[#333]">
-									이메일 아이디
-								</label>
-								<input
-									placeholder="이메일 아이디를 @까지 정확하게 입력하세요."
-									type="email"
-									id="userEmail"
-									name="userEmail"
-									className="h-[40px] w-[420px] rounded-none bg-[#F2F2F2] py-[1px] pl-[20px] pr-[2px] text-[14px] focus:outline-none"
-									required
-								/>
-							</div>
-							<div className="mb-[17px]">
-								<label htmlFor="password" className="inline-block w-[105px] text-left text-[14px] text-[#333]">
-									비밀번호
-								</label>
-								<input
-									placeholder="영문+숫자+특수문자 조합 8~16자리를 입력해주세요."
-									type="password"
-									id="password"
-									name="password"
-									className="h-[40px] w-[420px] rounded-none bg-[#F2F2F2] py-[1px] pl-[20px] pr-[2px] text-[14px] focus:outline-none"
-									required
-								/>
-							</div>
+							<LoginInput
+								type="email"
+								label="이메일 아이디"
+								name="email"
+								style="mb-[20px] "
+								placeholder="이메일 아이디를 @까지 정확하게 입력하세요."
+								defaultValue={formState.email}
+								onChange={handleInput}
+							/>
+							<LoginInput
+								type="password"
+								label="비밀번호"
+								name="password"
+								style="mb-[17px] "
+								placeholder="영문+숫자+특수문자 조합 8~16자리를 입력해주세요."
+								defaultValue={formState.password}
+								onChange={handleInput}
+							/>
 							<div className="checkbox  relative mb-[20px] ml-[105px]">
 								<input checked={isChecked} onChange={handleCheckboxChange} className="absolute left-[0] top-[0] z-[1] h-[25px] w-[25px] opacity-0" type="checkbox" id="saveEmail" name="saveEmail" />
 								<label
@@ -68,9 +110,7 @@ function Login() {
 								<span className="incorrect">비밀번호를 입력해주세요.</span>
 							</div>
 						</div>
-						<button type="submit" className="h-[100px] w-[190px] bg-[#000] text-[#fff]">
-							로그인
-						</button>
+						<LoginButton type="submit">로그인</LoginButton>
 					</div>
 				</form>
 				<div className="join_email relative mx-[auto] mt-[26px] flex justify-center border-t-[1px] border-solid border-[#ccc] py-[50px]">
