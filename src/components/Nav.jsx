@@ -12,7 +12,7 @@ import CategoryLife from './CategoryLife';
 
 function Nav() {
 	return (
-		<nav className="relative left-[0] right-[0] top-[0] z-[100] w-[1920px] min-w-[1280px] border-b-[1px] border-solid border-[#e9e9e9] bg-[#fff]">
+		<nav className="relative left-[0] right-[0] top-[0] z-[100] min-w-[1280px] max-w-[1920px] border-b-[1px] border-solid border-[#e9e9e9] bg-[#fff]">
 			<div className="global_nav_wrap mx-auto h-[57px] max-w-[1920px] px-[20px]">
 				<div className="global_nav flex justify-center">
 					<ul className="nav_left flex ">

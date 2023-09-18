@@ -7,7 +7,7 @@ import logo from '../../public/header/logo.png';
 function GlobalSearch() {
 	return (
 		<>
-			<div className="global_search relative mx-auto h-[88px] w-[1920px] bg-[#fff] pr-[20px]">
+			<div className="global_search relative mx-auto h-[88px] max-w-[1920px] bg-[#fff] pr-[20px]">
 				<a href="/" className="symbol absolute left-[20px] top-[32px]">
 					<img src={logo} alt="M CONCEPT 홈" />
 				</a>
