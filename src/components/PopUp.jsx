@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-function Modal({popup}) {
+function PopUp({popup}) {
 	const [showPopup, setShowPopup] = useState(true);
 	const [isChecked, setIsChecked] = useState(false);
 
@@ -49,4 +49,4 @@ function Modal({popup}) {
 	);
 }
 
-export default Modal;
+export default PopUp;

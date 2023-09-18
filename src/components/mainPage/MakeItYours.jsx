@@ -4,6 +4,11 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ProductInfo from '../ProductInfo';
 
+const style = [
+	'text-left',
+	'ml-1',
+	'ml-2',
+]
 
 function MakeItYours() {
 	const [data, setData] = useState([]);
@@ -48,7 +53,7 @@ function MakeItYours() {
 								.map((item) => {
 									return (
 										<SwiperSlide key={item.id}>
-											<ProductInfo item={item} />
+											<ProductInfo item={item} style={style}/>
 										</SwiperSlide>
 									);
 								})
