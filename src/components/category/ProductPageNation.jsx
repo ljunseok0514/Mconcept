@@ -1,3 +1,6 @@
+/**
+ *  ProductPageNation component
+ * */
 
 function ProductPageNation() {
   return (
