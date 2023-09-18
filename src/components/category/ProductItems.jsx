@@ -31,40 +31,40 @@ function ProductItems() {
 
 	return (
 		<>
-			<div className="products grid grid-cols-6 grid-rows-2 gap-6 mb-20">
+			<div className="products mb-20 grid grid-cols-6 grid-rows-2 gap-6">
 				{data ? (
-					data.map((item) => {
-                        // .item 없이 photo와 나머지 값을 불러오려면 'useProducts.js'의 로직을 수정해야 합니다. 지금은 {}값을 item 으로 정의해서 불러옴.
-						const {id, photo, name, brand, description, discount, price, main, newSeason, celebrity, coupon, only} = item;
+					data?.map((item) => {
+						// .item 없이 photo와 나머지 값을 불러오려면 'useProducts.js'의 로직을 수정해야 합니다. 지금은 {}값을 item 으로 정의해서 불러옴.
+						// const {id, photo, name, brand, description, discount, price, main, newSeason, celebrity, coupon, only} = item;
 						return (
-							<div key={id}>
+							<div key={item.id}>
 								<button></button>
 								<a href="#">
 									<div className="img">
-										<img src={getProductsImage(item, 'photo')} alt={name} key={id} />
+										<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} />
 									</div>
 
 									<div className="relative">
 										<dl className="absolut">
 											<dt className="sr-only" aria-label="제목"></dt>
-											<dd className="py-3 text-base font-semibold">{brand}</dd>
+											<dd className="py-3 text-base font-semibold">{item.brand}</dd>
 											<dt className="sr-only" aria-label="이름"></dt>
-											<dd className="h-[20px] pb-1 text-sm font-normal text-secondary">{name}</dd>
+											<dd className="h-[20px] pb-1 text-sm font-normal text-secondary">{item.name}</dd>
 											<dt className="sr-only" aria-label="설명"></dt>
-											<dd className="h-[50px] pb-1 text-sm font-normal text-secondary">{description}</dd>
+											<dd className="h-[50px] pb-1 text-sm font-normal text-secondary">{item.description}</dd>
 
 											<dt className="sr-only" aria-label="할인가격"></dt>
-											<dd className="b-0 inline font-semibold text-grey-800">{formatNumber(Math.floor(price * (1 - discount)))}</dd>
+											<dd className="b-0 inline font-semibold text-grey-800">{formatNumber(Math.floor(item.price * (1 - item.discount)))}</dd>
 											<dt className="sr-only" aria-label="가격"></dt>
-											<dd className="b-0 ml-2 inline text-xs font-medium text-grey-200 line-through">{price}</dd>
+											<dd className="b-0 ml-2 inline text-xs font-medium text-grey-200 line-through">{item.price}</dd>
 											<dt className="sr-only" aria-label="할인율"></dt>
-											<dd className="b-0 float-right inline font-bold text-tertiary">{discount !== 0 ? `${Math.floor(discount * 100)}%` : null}</dd>
+											<dd className="b-0 float-right inline font-bold text-tertiary">{item.discount !== 0 ? `${Math.floor(item.discount * 100)}%` : null}</dd>
 											<dt className="sr-only" aria-label="태그"></dt>
 
-											{newSeason && <NewSeasonLabel />}
-											{celebrity && <CelebrityLabel />}
-											{coupon && <CouponLabel />}
-											{only && <OnlyLabel />}
+											{item.newSeason && <NewSeasonLabel />}
+											{item.celebrity && <CelebrityLabel />}
+											{item.coupon && <CouponLabel />}
+											{item.only && <OnlyLabel />}
 										</dl>
 									</div>
 								</a>
