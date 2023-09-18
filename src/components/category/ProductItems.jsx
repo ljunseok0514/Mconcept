@@ -1,7 +1,7 @@
 import pb from '@/api/pocketbase';
 import {useEffect, useState} from 'react';
 import {getProductsImage} from '@/utils/getProductsImage';
-import ProductLabel from '@/components/category/ProductLabel';
+import {NewSeasonLabel, CelebrityLabel, CouponLabel, OnlyLabel} from '@/components/category/ProductLabel';
 
 /**
  *  ProductItems component
@@ -35,7 +35,7 @@ function ProductItems() {
 				{data ? (
 					data.map((item) => {
                         // .item 없이 photo와 나머지 값을 불러오려면 'useProducts.js'의 로직을 수정해야 합니다. 지금은 {}값을 item 으로 정의해서 불러옴.
-						const {id, photo, name, brand, description, discount, price, main, newSeason} = item;
+						const {id, photo, name, brand, description, discount, price, main, newSeason, celebrity, coupon, only} = item;
 						return (
 							<div key={id}>
 								<button></button>
@@ -61,7 +61,10 @@ function ProductItems() {
 											<dd className="b-0 float-right inline font-bold text-tertiary">{discount !== 0 ? `${Math.floor(discount * 100)}%` : null}</dd>
 											<dt className="sr-only" aria-label="태그"></dt>
 
-											{newSeason && <ProductLabel />}
+											{newSeason && <NewSeasonLabel />}
+											{celebrity && <CelebrityLabel />}
+											{coupon && <CouponLabel />}
+											{only && <OnlyLabel />}
 										</dl>
 									</div>
 								</a>
