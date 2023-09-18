@@ -4,7 +4,7 @@ import Login from '@/pages/Login';
 import Mainpage from '@/pages/Mainpage';
 import Join from '@/pages/Join';
 import RootLayout from '@/layout/RootLayout';
-import RootLayout from '@/pages/Category';
+import Category from '@/pages/Category';
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
