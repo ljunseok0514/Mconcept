@@ -1,15 +1,33 @@
-import ProductCheckBox from '@/components/category/ProductCheckBox';
+import pb from '@/api/pocketbase';
+import {useEffect, useState} from 'react';
 import {PrimaryButton, SecondaryButton} from '@/components/category/ProductFilterButton';
+import ProductFilter from '@/components/category/ProductFilter';
 
 /**
- *  ProductFilter component
+ *  ProductFilterList component
  * */
 
-function ProductFilter() {
+function ProductFilterList() {
+	const [data, setData] = useState([]);
+
+	useEffect(() => {
+		pb.autoCancellation(false);
+		async function getProducts() {
+			try {
+				const readRecordList = await pb.collection('products').getFullList();
+				setData(readRecordList);
+			} catch (error) {
+				console.log(error);
+				throw new Error('error');
+			}
+		}
+		getProducts();
+	}, []);
+
 	return (
 		<>
 			<div className="flex justify-between border-y-[1px] border-l-grey-200 bg-[#fbfbfb] px-6 py-4 text-lg font-semibold">
-				<h4>
+				<h4 className="filter-button">
 					FILTER
 					<button
 						className="float-right ml-4 mt-[6.5px] h-[11px] w-[11px]"
@@ -19,7 +37,7 @@ function ProductFilter() {
 						type="button"
 					></button>
 				</h4>
-				<ul className="flex gap-24">
+				<ul className="filter-nav flex gap-24">
 					<li>
 						<button type="button">BRAND</button>
 					</li>
@@ -39,53 +57,24 @@ function ProductFilter() {
 			</div>
 
 			<div className="bg-[#fbfbfb] p-8">
-				<ul className="brand flex justify-center mb-8 border border-grey-100 bg-white px-4 py-6">
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>UNALLOYED</span></li>
-				</ul>
-				<ul className="hidden price flex justify-center mb-8 border border-grey-100 bg-white px-4 py-6">
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>5만원 이하</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>5만원~10만원</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>10만원~20만원</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>20만원~30만원</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>30만원~50만원</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>50~100만원</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>100만원 이상</span></li>
-				</ul>
-				<ul className="hidden benefit flex justify-center mb-8 border border-grey-100 bg-white px-4 py-6">
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>뉴시즌</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>단독판매</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>쿠폰</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>셀럽착용</span></li>
-				</ul>
-				<ul className="hidden color flex flex-wrap mb-8 border border-grey-100 bg-white px-4 py-6">
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>BEIGE</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>BLACK</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>BLUE</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>BROWN</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>BURGUNDY</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>CHARCOAL</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>GREEN</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>GREY</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>KHAKII</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>NAVY</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>ORANGE</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>PINK</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>PURPLE</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>RED</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>WHITE</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>YELLOW</span></li>
-				</ul>
-				<ul className="hidden discount flex justify-center mb-8 border border-grey-100 bg-white px-4 py-6">
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>~5%</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>5%~10%</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>10%~20%</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>20%~30%</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>30%~50%</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>50%~100%</span></li>
-					<li className="flex pl-4"><ProductCheckBox /><span className='ml-1 text-base font-medium text-primary'>100%~</span></li>
-				</ul>
+				{data ? (
+					data
+						?.filter((item) => item.brand)
+						.map((item) => {
+							return (
+								<div key={item.id}>
+								<ul className="brand mb-8 flex justify-center border border-grey-100 bg-white px-4 py-6">
+									<li className="flex pl-4"></li>
+									<ProductFilter item={item} />
+								</ul>
+								</div>
+							);
+						})
+				) : (
+					<div>ERROR</div>
+				)}
 
-				<ul className='button text-center'>
+				<ul className="button text-center">
 					<SecondaryButton>초기화</SecondaryButton>
 					<PrimaryButton>필터적용</PrimaryButton>
 				</ul>
@@ -94,4 +83,4 @@ function ProductFilter() {
 	);
 }
 
-export default ProductFilter;
+export default ProductFilterList;
