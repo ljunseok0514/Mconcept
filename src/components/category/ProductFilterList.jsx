@@ -70,7 +70,7 @@ function ProductFilterList() {
 							});
 
 							return result.map((item, index) => (
-								<div key={index} onClick={() => setSelectedBrand(item.brand)}> {/* 수정된 부분 */}
+								<div key={index} onClick={() => setSelectedBrand(item.brand)}>
 									<li className="flex pl-4">
 										<ProductFilter item={item} />
 									</li>
