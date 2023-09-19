@@ -5,6 +5,7 @@ import Header from '@/layout/Header';
 import Login from '@/pages/Login';
 import Mainpage from '@/pages/Mainpage';
 import Join from '@/pages/Join';
+import Detail from '@/pages/Detail';
 import RootLayout from '@/layout/RootLayout';
 // 컴포넌트 경로
 
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
 			<Route index element={<Mainpage />} />
 			<Route path="join" element={<Join />} />
 			<Route path="login" element={<Login />} />
+			<Route path="products/:id" element={<Detail />} />
 		</Route>,
 	),
 );
