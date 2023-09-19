@@ -1,6 +1,6 @@
 import ProductFilter from '@/components/category/ProductFilter';
 import {PrimaryButton, SecondaryButton} from '@/components/category/ProductFilterButton';
-import {useState} from 'react';
+import ProductFilterNav from '@/components/category/ProductFilterNav';
 
 /**
  *  ProductFilterList component
@@ -20,23 +20,7 @@ function ProductFilterList({brandNames, onAdd, onRemove, onFilter}) {
 						type="button"
 					></button>
 				</h4>
-				<ul className="filter-nav flex gap-24">
-					<li>
-						<button className="filter-btn" type="button">BRAND</button>
-					</li>
-					<li>
-						<button className="filter-btn" type="button">PRICE</button>
-					</li>
-					<li>
-						<button className="filter-btn" type="button">BENEFIT</button>
-					</li>
-					<li>
-						<button className="filter-btn" type="button">COLOR</button>
-					</li>
-					<li>
-						<button className="filter-btn" type="button">DISCOUNT</button>
-					</li>
-				</ul>
+				<ProductFilterNav />
 			</div>
 
 			<div className="bg-[#fbfbfb] p-8">
