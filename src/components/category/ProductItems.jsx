@@ -9,7 +9,7 @@ import ProductInfo from '../ProductInfo';
 const style = [
 	'text-left',
 	'ml-1',
-	'ml-2',
+	'float-right'
 ]
 
 function ProductItems() {

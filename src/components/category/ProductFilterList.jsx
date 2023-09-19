@@ -6,6 +6,8 @@ import ProductFilter from '@/components/category/ProductFilter';
 /**
  *  ProductFilterList component
  * */
+const temp = {};
+const result = [];
 
 function ProductFilterList() {
 	const [data, setData] = useState([]);
@@ -60,9 +62,6 @@ function ProductFilterList() {
 				<ul className="brand mb-8 flex flex-wrap border border-grey-100 bg-white px-4 py-6">
 					{data ? (
 						(() => {
-							const temp = {};
-							const result = [];
-
 							data.forEach((item) => {
 								if (!temp[item.brand]) {
 									temp[item.brand] = true;
@@ -71,7 +70,7 @@ function ProductFilterList() {
 							});
 
 							return result.map((item, index) => (
-								<div key={index}>
+								<div key={index} onClick={() => setSelectedBrand(item.brand)}> {/* 수정된 부분 */}
 									<li className="flex pl-4">
 										<ProductFilter item={item} />
 									</li>
