@@ -35,8 +35,19 @@ function Join() {
 		navigate('/');
 	};
 
+	const [incorrectMessage, setIncorrectMessage] = useState('');
+
 	const handleInput = (e) => {
 		const {name, value} = e.target;
+		if (name === 'username') {
+			// Check if the input contains non-English characters
+			if (/[^\x00-\x7F]/.test(value)) {
+				console.log('test');
+				setIncorrectMessage('영문으로 입력해주세요.');
+			} else {
+				setIncorrectMessage('');
+			}
+		}
 		setFormState({
 			...formState,
 			[name]: value,
@@ -73,7 +84,16 @@ function Join() {
 								</td>
 							</tr>
 							<JoinInput maxLength="10" type="text" label="이름" name="name" defaultValue={formState.name} placeholder="ex) 홍길동" onChange={handleDebounceInput} />
-							<JoinInput maxLength="20" type="text" label="별명" name="username" defaultValue={formState.username} onChange={handleDebounceInput} />
+							<JoinInput
+								maxLength="20"
+								type="text"
+								label="닉네임"
+								name="username"
+								defaultValue={formState.username}
+								placeholder="영문으로 입력해주세요."
+								onChange={handleDebounceInput}
+								incorrectMessage={incorrectMessage}
+							/>
 							<JoinInput
 								maxLength="50"
 								type="email"
