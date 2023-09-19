@@ -6,37 +6,17 @@ import ProductInfo from '../ProductInfo';
  *  ProductItems component
  * */
 
-const style = [
-	'text-left',
-	'ml-1',
-	'float-right'
-]
+const style = ['text-left', 'ml-1', 'float-right'];
 
-function ProductItems() {
-	const [data, setData] = useState([]);
-
-	useEffect(() => {
-		pb.autoCancellation(false);
-		async function getProducts() {
-			try {
-				const readRecordList = await pb.collection('products').getFullList();
-				setData(readRecordList);
-			} catch (error) {
-				console.log(error);
-				throw new Error('error');
-			}
-		}
-		getProducts();
-	}, []);
-
+function ProductItems({items}) {
 	return (
 		<>
 			<div className="products mb-20 grid grid-cols-6 grid-rows-2 gap-6">
-				{data ? (
-					data?.map((item) => {
+				{items ? (
+					items?.map((item) => {
 						return (
 							<div key={item.id}>
-								<ProductInfo item={item} style={style}/>
+								<ProductInfo item={item} style={style} />
 							</div>
 						);
 					})

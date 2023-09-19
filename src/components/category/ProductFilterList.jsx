@@ -1,31 +1,12 @@
-import pb from '@/api/pocketbase';
-import {useEffect, useState} from 'react';
-import {PrimaryButton, SecondaryButton} from '@/components/category/ProductFilterButton';
 import ProductFilter from '@/components/category/ProductFilter';
+import {PrimaryButton, SecondaryButton} from '@/components/category/ProductFilterButton';
+import {useState} from 'react';
 
 /**
  *  ProductFilterList component
  * */
-const temp = {};
-const result = [];
 
-function ProductFilterList() {
-	const [data, setData] = useState([]);
-
-	useEffect(() => {
-		pb.autoCancellation(false);
-		async function getProducts() {
-			try {
-				const readRecordList = await pb.collection('products').getFullList();
-				setData(readRecordList);
-			} catch (error) {
-				console.log(error);
-				throw new Error('error');
-			}
-		}
-		getProducts();
-	}, []);
-
+function ProductFilterList({brandNames, onAdd, onRemove, onFilter}) {
 	return (
 		<>
 			<div className="flex justify-between border-y-[1px] border-l-grey-200 bg-[#fbfbfb] px-6 py-4 text-lg font-semibold">
@@ -60,31 +41,18 @@ function ProductFilterList() {
 
 			<div className="bg-[#fbfbfb] p-8">
 				<ul className="brand mb-8 flex flex-wrap border border-grey-100 bg-white px-4 py-6">
-					{data ? (
-						(() => {
-							data.forEach((item) => {
-								if (!temp[item.brand]) {
-									temp[item.brand] = true;
-									result.push(item);
-								}
-							});
-
-							return result.map((item, index) => (
-								<div key={index} onClick={() => setSelectedBrand(item.brand)}> {/* 수정된 부분 */}
-									<li className="flex pl-4">
-										<ProductFilter item={item} />
-									</li>
-								</div>
-							));
-						})()
-					) : (
-						<div>ERROR</div>
-					)}
+					{brandNames?.map((brandName, index) => (
+						<div key={brandName}>
+							<li className="flex pl-4">
+								<ProductFilter brandName={brandName} onAdd={onAdd} onRemove={onRemove} />
+							</li>
+						</div>
+					))}
 				</ul>
 
 				<ul className="button text-center">
 					<SecondaryButton>초기화</SecondaryButton>
-					<PrimaryButton>필터적용</PrimaryButton>
+					<PrimaryButton onClick={onFilter}>필터적용</PrimaryButton>
 				</ul>
 			</div>
 		</>
