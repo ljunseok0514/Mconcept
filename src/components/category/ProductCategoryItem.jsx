@@ -1,5 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import '../../styles/category.css';
+
+/**
+ *  ProductCategoryItem component
+ * */
+
+const category = document.querySelectorAll('.category-title', '.category-text');
+
+category.forEach((btn) => {
+	btn.addEventListener('click', function () {
+		category.forEach((btn) => btn.classList.remove('clicked'));
+		this.classList.add('clicked');
+	});
+});
 
 // 카테고리 및 아이템 데이터
 const categories = [
@@ -22,46 +35,42 @@ const categories = [
 ];
 
 function ProductCategoryItem() {
-	const [activeIndex, setActiveIndex] = useState(null);
-
-	const handleClick = (index) => {
-		setActiveIndex(index);
-	};
-
 	return (
 		<>
-			{categories.map((category, categoryIdx) => (
-				<dl key={categoryIdx} className="px-2 text-sm leading-8">
-					<dt className="pt-5 text-lg font-bold text-tertiary">
-						<a href="#">
+			{categories.map((category, index) => (
+				<dl key={index} className="px-2 text-sm leading-8">
+					<dt className="pt-5 text-lg font-bold">
+						<a href="#" className="category-title">
 							{category.title}
-							<button
-								className="float-right mr-2 mt-3 block h-[9px] w-[9px]"
-								style={{
-									backgroundImage: `url("https://static.wconcept.co.kr/web/images/common/spr-common.png")`,
-									backgroundPositionX: '0',
-									backgroundPositionY: '-60px',
-									backgroundRepeat: 'no-repeat',
-								}}
-							></button>
 						</a>
+						<button
+							className="float-right mr-2 mt-3 block h-[9px] w-[9px]"
+							style={{
+								background: `url("https://static.wconcept.co.kr/web/images/common/spr-common.png") -30px -60px no-repeat`,
+							}}
+						></button>
 					</dt>
-					{category.items.map((item, itemIdx) => renderItem(item, itemIdx))}
+
+					<dd>
+						<a href="#" className="category-text">
+							{category.items[0]}
+						</a>
+					</dd>
+
+					{category.items.slice(1).map((item, itemIndex) => {
+						const key = `item-${itemIndex}`;
+						return (
+							<dd key={key}>
+								<a href="#" className="category-text">
+									{item}
+								</a>
+							</dd>
+						);
+					})}
 				</dl>
 			))}
 		</>
 	);
-
-	function renderItem(item, index) {
-		const isActive = activeIndex === index;
-		const className = isActive ? 'item-active' : '';
-
-		return (
-			<dd key={index} onClick={() => handleClick(index)} className={className}>
-				<a href="#">{item}</a>
-			</dd>
-		);
-	}
 }
 
 export default ProductCategoryItem;
