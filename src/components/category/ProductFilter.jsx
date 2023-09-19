@@ -15,6 +15,7 @@ function ProductFilter({item}) {
 
 export default ProductFilter;
 
+
 {/* <ul className="price mb-8 flex hidden justify-center border border-grey-100 bg-white px-4 py-6">
 <li className="flex pl-4">
 	<ProductCheckBox />

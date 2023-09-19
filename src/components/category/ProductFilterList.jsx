@@ -1,13 +1,24 @@
 import pb from '@/api/pocketbase';
 import {useEffect, useState} from 'react';
 import {PrimaryButton, SecondaryButton} from '@/components/category/ProductFilterButton';
-import ProductFilter from '@/components/category/ProductFilter';
+import {ProductFilterBrand, ProductFilterPrice} from '@/components/category/ProductFilter';
 
 /**
  *  ProductFilterList component
  * */
 const temp = {};
 const result = [];
+
+const buttons = document.querySelectorAll('.filter-btn');
+
+buttons.forEach(btn => {
+	btn.addEventListener('click', function() {
+
+        buttons.forEach(btn => btn.classList.remove('clicked'));
+
+        this.classList.add('clicked');
+    });
+});
 
 function ProductFilterList() {
 	const [data, setData] = useState([]);
@@ -41,19 +52,19 @@ function ProductFilterList() {
 				</h4>
 				<ul className="filter-nav flex gap-24">
 					<li>
-						<button type="button">BRAND</button>
+						<button className="filter-btn" type="button">BRAND</button>
 					</li>
 					<li>
-						<button type="button">PRICE</button>
+						<button className="filter-btn" type="button">PRICE</button>
 					</li>
 					<li>
-						<button type="button">BENEFIT</button>
+						<button className="filter-btn" type="button">BENEFIT</button>
 					</li>
 					<li>
-						<button type="button">COLOR</button>
+						<button className="filter-btn" type="button">COLOR</button>
 					</li>
 					<li>
-						<button type="button">DISCOUNT</button>
+						<button className="filter-btn" type="button">DISCOUNT</button>
 					</li>
 				</ul>
 			</div>
@@ -72,7 +83,7 @@ function ProductFilterList() {
 							return result.map((item, index) => (
 								<div key={index} onClick={() => setSelectedBrand(item.brand)}>
 									<li className="flex pl-4">
-										<ProductFilter item={item} />
+										<ProductFilterBrand item={item} />
 									</li>
 								</div>
 							));
