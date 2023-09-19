@@ -144,7 +144,15 @@
 #nnavi:active {
   scale:0.7;
   opacity: 0.8;
-} 
+}
+
+#preNavi {
+	left: 25px;
+}
+
+#nextNavi {
+	right: 25px;
+}
 
 #preNavi::after,
 #nextNavi::after {

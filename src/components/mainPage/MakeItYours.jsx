@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ProductInfo from '../ProductInfo';
+import '@/styles/swiper.css';
 
 const style = [
 	'text-left',
