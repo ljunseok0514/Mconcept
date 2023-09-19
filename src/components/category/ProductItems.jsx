@@ -6,6 +6,12 @@ import ProductInfo from '../ProductInfo';
  *  ProductItems component
  * */
 
+const style = [
+	'text-left',
+	'ml-1',
+	'float-right'
+]
+
 function ProductItems() {
 	const [data, setData] = useState([]);
 
@@ -30,7 +36,7 @@ function ProductItems() {
 					data?.map((item) => {
 						return (
 							<div key={item.id}>
-								<ProductInfo item={item} />
+								<ProductInfo item={item} style={style}/>
 							</div>
 						);
 					})

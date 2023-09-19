@@ -1,5 +1,5 @@
 import ProductCategory from '@/components/category/ProductCategory';
-import ProductFilter from '@/components/category/ProductFilter';
+import ProductFilterList from '@/components/category/ProductFilterList';
 import ProductsItems from '@/components/category/ProductItems';
 import ProductPageNation from '@/components/category/ProductPageNation';
 import ProductSort from '@/components/category/ProductSort';
@@ -26,7 +26,7 @@ function Category() {
 				</ul>
 			</nav>
 
-			<ProductFilter/>
+			<ProductFilterList/>
 
 			<div className="product-quantity border-t-2 border-black py-4 text-left">
 				<span className="text-sm font-light text-black">

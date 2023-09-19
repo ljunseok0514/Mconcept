@@ -1,25 +1,26 @@
+
 /**
  *  ProductCheckBox component
  * */
 
 function ProductCheckBox({isPacked = false, children}){
     return(
-        <li className="list-none">
-            <label>
+        <ul className="list-none">
+            <li>
                 {isPacked ? (
                     <ProductCheck>{children}</ProductCheck>
                 ):(
                     <UnProductCheck>{children}</UnProductCheck> 
                 )}
-            </label>
-        </li>
+            </li>
+        </ul>
     );
 }
 
 function ProductCheck({children}){
     return(
         <>
-            <input type="checkbox" defaultChecked /> <del>{children}</del>
+            <input type="checkbox" className="custom-checkbox" /> <del>{children}</del>
         </>
     );
 }
@@ -27,7 +28,7 @@ function ProductCheck({children}){
 function UnProductCheck({children}){
     return(
         <>
-            <input type="checkbox" defaultChecked /> {children}
+            <input type="checkbox" className="custom-checkbox" /> {children}
         </>
     );
 }
