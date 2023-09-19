@@ -2,6 +2,7 @@ import story1 from '@/assets/images/mainPage/main_story_1.png';
 import story2 from '@/assets/images/mainPage/main_story_2.png';
 import story3 from '@/assets/images/mainPage/main_story_3.png';
 import story4 from '@/assets/images/mainPage/main_story_4.png';
+import {motion} from "framer-motion";
 
 const storyList = [
 	{
@@ -37,7 +38,12 @@ function StyleStory() {
 						<li key={item.title}>
 							<a href="">
 								<figure>
-									<img src={item.img} alt={item.title} />
+									<motion.img src={item.img} alt={item.title} 
+									whileHover={{ scale: 1.05 }}
+									whileTap={{ scale: 1.02 }}
+									drag="x"
+									dragConstraints={{ left: -100, right: 100 }}
+									/>
 									<dl>
 										<dt aria-label="제목"></dt>
 										<dd className="my-6 text-center text-2xl font-semibold">{item.title}</dd>
