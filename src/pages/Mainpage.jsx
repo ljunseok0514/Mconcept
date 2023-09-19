@@ -1,12 +1,11 @@
-import MainArticle from '@/components/mainPage/MainArticle';
-import StyleStory from '@/components/mainPage/StyleStory';
-import EventBanner from '@/components/mainPage/EventBanner';
-import MakeItYours from '@/components/mainPage/MakeItYours';
-import Modal from '@/components/Modal';
 import popup1 from '@/assets/images/mainPage/main_popup_1.png';
 import popup2 from '@/assets/images/mainPage/main_popup_2.png';
+import PopUp from '@/components/PopUp';
+import EventBanner from '@/components/mainPage/EventBanner';
+import MainArticle from '@/components/mainPage/MainArticle';
+import MakeItYours from '@/components/mainPage/MakeItYours';
 import StickyScroll from '@/components/mainPage/StickyScroll';
-import ShoppingHistoryPopup from '@/components/ShoppingHistoryPopup';
+import StyleStory from '@/components/mainPage/StyleStory';
 
 const popup = [
 	{ 
@@ -30,8 +29,8 @@ function Mainpage() {
 			<StyleStory />
 			<EventBanner />
 			<MakeItYours />
-			<Modal popup={popup[0]} />
-			<Modal popup={popup[1]} />
+			<PopUp popup={popup[0]} />
+			<PopUp popup={popup[1]} />
 			<StickyScroll />
 		</div>
 	);

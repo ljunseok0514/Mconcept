@@ -3,6 +3,7 @@ import sticky1 from '/public/mainPage/main_sticky_1.svg';
 import sticky2 from '/public/mainPage/main_sticky_2.svg';
 import sticky3 from '/public/mainPage/main_sticky_3.svg';
 import ShoppingHistoryPopup from '../ShoppingHistoryPopup';
+
 function StickyScroll() {
 	const [showTopButton, setShowTopButton] = useState(false);
 	const [showBottomButton, setShowBottomButton] = useState(true);
@@ -42,31 +43,31 @@ function StickyScroll() {
 		window.scrollTo({top: document.documentElement.scrollHeight, behavior: 'smooth'});
 	};
 
-	const togglePopup = () => {
+	const openModal = () => {
 		setIsOpen(!isOpen);
 	};
 
 	return (
 		<>
-				{isOpen ? (
-					<ShoppingHistoryPopup />
-				) : (
-					<div className="flex flex-col gap-2 fixed bottom-4 right-4">
-						<button className="hover:opacity-70 active:scale-90" onClick={togglePopup}>
-							<img src={sticky1} alt="" className="w-10" />
+			{isOpen ? (
+				<ShoppingHistoryPopup isOpen={isOpen} setIsOpen={setIsOpen} />
+			) : (
+				<div className="fixed bottom-4 right-4 flex flex-col gap-2">
+					<button className="hover:opacity-70 active:scale-90" onClick={openModal}>
+						<img src={sticky1} alt="" className="w-10" />
+					</button>
+					{showTopButton && (
+						<button className="scroll-button hover:opacity-70 active:scale-90" onClick={scrollToTop}>
+							<img src={sticky2} alt="" className="w-10" />
 						</button>
-						{showTopButton && (
-							<button className="scroll-button hover:opacity-70 active:scale-90" onClick={scrollToTop}>
-								<img src={sticky2} alt="" className="w-10" />
-							</button>
-						)}
-						{showBottomButton && (
-							<button className="scroll-button hover:opacity-70 active:scale-90" onClick={scrollToBottom}>
-								<img src={sticky3} alt="" className="w-10" />
-							</button>
-						)}
-					</div>
-				)}
+					)}
+					{showBottomButton && (
+						<button className="scroll-button hover:opacity-70 active:scale-90" onClick={scrollToBottom}>
+							<img src={sticky3} alt="" className="w-10" />
+						</button>
+					)}
+				</div>
+			)}
 		</>
 	);
 }

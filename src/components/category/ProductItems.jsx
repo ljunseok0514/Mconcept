@@ -1,5 +1,5 @@
 import pb from '@/api/pocketbase';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import ProductInfo from '../ProductInfo';
 
 /**
@@ -30,7 +30,7 @@ function ProductItems() {
 					data?.map((item) => {
 						return (
 							<div key={item.id}>
-								<ProductInfo item={item}/>
+								<ProductInfo item={item} />
 							</div>
 						);
 					})
