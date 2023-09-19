@@ -1,7 +1,7 @@
 import pb from '@/api/pocketbase';
 import {useEffect, useState} from 'react';
 import {PrimaryButton, SecondaryButton} from '@/components/category/ProductFilterButton';
-import {ProductFilterBrand, ProductFilterPrice} from '@/components/category/ProductFilter';
+import ProductFilter from '@/components/category/ProductFilter';
 
 /**
  *  ProductFilterList component
@@ -83,7 +83,7 @@ function ProductFilterList() {
 							return result.map((item, index) => (
 								<div key={index} onClick={() => setSelectedBrand(item.brand)}>
 									<li className="flex pl-4">
-										<ProductFilterBrand item={item} />
+										<ProductFilter item={item} />
 									</li>
 								</div>
 							));
