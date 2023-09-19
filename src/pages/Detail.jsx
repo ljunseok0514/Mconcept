@@ -169,7 +169,7 @@ function Detail() {
 							<ul className="mb-5 flex flex-row">
 								<li className="w-[125px]">
 									<img className="mr-1 inline" src={star} alt="" />
-									<span className="align-middle text-lg font-semibold">4.9</span>
+									<span className="align-middle text-lg font-semibold">{data.star}</span>
 								</li>
 								<li className="mt-1 text-sm underline">55개 리뷰 &#62;</li>
 							</ul>
