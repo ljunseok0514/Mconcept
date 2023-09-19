@@ -20,7 +20,7 @@ function ProductCheckBox({isPacked = false, children}){
 function ProductCheck({children}){
     return(
         <>
-            <input type="checkbox" className="custom-checkbox" defaultChecked /> <del>{children}</del>
+            <input type="checkbox" className="custom-checkbox" /> <del>{children}</del>
         </>
     );
 }
@@ -28,7 +28,7 @@ function ProductCheck({children}){
 function UnProductCheck({children}){
     return(
         <>
-            <input type="checkbox" className="custom-checkbox" defaultChecked /> {children}
+            <input type="checkbox" className="custom-checkbox" /> {children}
         </>
     );
 }

@@ -57,22 +57,31 @@ function ProductFilterList() {
 			</div>
 
 			<div className="bg-[#fbfbfb] p-8">
-				{data ? (
-					data
-						?.filter((item) => item.brand)
-						.map((item) => {
-							return (
-								<div key={item.id}>
-								<ul className="brand mb-8 flex justify-center border border-grey-100 bg-white px-4 py-6">
-									<li className="flex pl-4"></li>
-									<ProductFilter item={item} />
-								</ul>
+				<ul className="brand mb-8 flex flex-wrap border border-grey-100 bg-white px-4 py-6">
+					{data ? (
+						(() => {
+							const temp = {};
+							const result = [];
+
+							data.forEach((item) => {
+								if (!temp[item.brand]) {
+									temp[item.brand] = true;
+									result.push(item);
+								}
+							});
+
+							return result.map((item, index) => (
+								<div key={index}>
+									<li className="flex pl-4">
+										<ProductFilter item={item} />
+									</li>
 								</div>
-							);
-						})
-				) : (
-					<div>ERROR</div>
-				)}
+							));
+						})()
+					) : (
+						<div>ERROR</div>
+					)}
+				</ul>
 
 				<ul className="button text-center">
 					<SecondaryButton>초기화</SecondaryButton>
