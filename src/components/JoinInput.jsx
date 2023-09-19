@@ -7,11 +7,12 @@ export function JoinInput({type = 'text', name = null, label, placeholder, style
 	const [incorrectDiv, setIncorrectDiv] = useState('hidden');
 
 	useEffect(() => {
-		if (incorrectMessage === '영문으로 입력해주세요.') {
-			console.log('보인다');
+		if (incorrectMessage) {
 			setIncorrectDiv('');
+		} else {
+			setIncorrectDiv('hidden');
 		}
-	}, []);
+	});
 
 	return (
 		<tr>
