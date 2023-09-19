@@ -7,3 +7,12 @@
   .filter-btn.clicked {
     color: #fa5500; 
   }
+
+  .category-title:hover, .category-title.clicked {
+    color: #fa5500; 
+  }
+
+  .category-text:hover, .category-text.clicked {
+    color: #fa5500; 
+    text-decoration: underline;
+  }
