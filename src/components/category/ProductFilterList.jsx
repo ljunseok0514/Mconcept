@@ -22,19 +22,19 @@ function ProductFilterList({brandNames, onAdd, onRemove, onFilter}) {
 				</h4>
 				<ul className="filter-nav flex gap-24">
 					<li>
-						<button type="button">BRAND</button>
+						<button className="filter-btn" type="button">BRAND</button>
 					</li>
 					<li>
-						<button type="button">PRICE</button>
+						<button className="filter-btn" type="button">PRICE</button>
 					</li>
 					<li>
-						<button type="button">BENEFIT</button>
+						<button className="filter-btn" type="button">BENEFIT</button>
 					</li>
 					<li>
-						<button type="button">COLOR</button>
+						<button className="filter-btn" type="button">COLOR</button>
 					</li>
 					<li>
-						<button type="button">DISCOUNT</button>
+						<button className="filter-btn" type="button">DISCOUNT</button>
 					</li>
 				</ul>
 			</div>

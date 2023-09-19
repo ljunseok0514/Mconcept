@@ -39,7 +39,7 @@ function MainArticle() {
 
 	return (
 		<>
-			<section className="mb-[5rem]">
+			<section className="mb-32">
 				<article className="relative h-full">
 					<Swiper
 						ref={swiperRef}

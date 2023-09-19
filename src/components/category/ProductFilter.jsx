@@ -25,3 +25,4 @@ function ProductFilter({brandName, onAdd, onRemove}) {
 }
 
 export default ProductFilter;
+
