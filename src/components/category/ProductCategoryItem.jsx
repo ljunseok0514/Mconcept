@@ -30,7 +30,7 @@ const categories = [
 	},
 	{
 		title: '니트',
-		items: ['VIEW ALL NEAT', '반팔', '스웻', '후드', '긴팔'],
+		items: ['VIEW ALL NEAT', '풀오버', '가디건', '베스트', '터틀넥'],
 	},
 ];
 
