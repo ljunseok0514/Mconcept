@@ -24,11 +24,43 @@ function Join() {
 	const handleRegister = async (e) => {
 		e.preventDefault();
 
-		if (password !== passwordConfirm) {
-			passwordconfirmIncorrectMessage('비밀번호 일치 안됨.');
+		const {name, username, email, password, passwordConfirm} = formState;
+		if (name == '') {
+			toast.error(`이름을 입력하세요.`, {
+				style: {
+					padding: '6px 14px',
+					lineHeight: '22px',
+				},
+			});
+			return;
 		}
-
-		const {username, email, password, passwordConfirm} = formState;
+		if (username == '') {
+			toast.error(`닉네임을 입력하세요.`, {
+				style: {
+					padding: '6px 14px',
+					lineHeight: '22px',
+				},
+			});
+			return;
+		}
+		if (email == '') {
+			toast.error(`이메일을 입력하세요.`, {
+				style: {
+					padding: '6px 14px',
+					lineHeight: '22px',
+				},
+			});
+			return;
+		}
+		if (password == '') {
+			toast.error(`비밀번호를 입력하세요.`, {
+				style: {
+					padding: '6px 14px',
+					lineHeight: '22px',
+				},
+			});
+			return;
+		}
 
 		if (/[^\x00-\x7F]/.test(username)) {
 			toast.error(`닉네임을 영문으로 입력해주세요.`, {

@@ -6,7 +6,7 @@ function useInputIncorrectCheck() {
 	const [passwordIncorrectMessage, setPasswordIncorrectMessage] = useState('');
 	const [passwordconfirmIncorrectMessage, setPasswordconfirmIncorrectMessage] = useState('');
 
-	let passwordValue;
+	const [passwordValue, setPasswordValue] = useState('');
 
 	const checkInput = (name, value) => {
 		if (name === 'username') {
@@ -23,7 +23,7 @@ function useInputIncorrectCheck() {
 				setEmailIncorrectMessage('');
 			}
 		} else if (name === 'password') {
-			passwordValue = value;
+			setPasswordValue(value);
 			if (!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$/.test(value)) {
 				setPasswordIncorrectMessage('영문+숫자+특수문자 조합 8~16자리로 입력해주세요.');
 			} else {
