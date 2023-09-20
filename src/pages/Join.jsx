@@ -5,8 +5,8 @@ import debounce from '@/utils/debounce';
 import {JoinInput} from '@/components/JoinInput';
 import {JoinButton} from '@/components/JoinButton';
 import {Helmet} from 'react-helmet-async';
-import inputIncorrectCheck from '@/hooks/inputIncorrectCheck';
 import toast from 'react-hot-toast';
+import useInputIncorrectCheck from '@/hooks/useInputIncorrectCheck';
 
 function Join() {
 	const navigate = useNavigate();
@@ -19,7 +19,7 @@ function Join() {
 		passwordConfirm: '',
 	});
 
-	const {usernameIncorrectMessage, emailIncorrectMessage, passwordIncorrectMessage, passwordconfirmIncorrectMessage, checkInput} = inputIncorrectCheck();
+	const {usernameIncorrectMessage, emailIncorrectMessage, passwordIncorrectMessage, passwordconfirmIncorrectMessage, checkInput} = useInputIncorrectCheck();
 
 	const handleRegister = async (e) => {
 		e.preventDefault();
@@ -122,15 +122,6 @@ function Join() {
 
 	const handleInput = (e) => {
 		const {name, value} = e.target;
-		// if (name === 'username') {
-		// 	// Check if the input contains non-English characters
-		// 	if (/[^\x00-\x7F]/.test(value)) {
-		// 		console.log('test');
-		// 		setIncorrectMessage('영문으로 입력해주세요.');
-		// 	} else {
-		// 		setIncorrectMessage('');
-		// 	}
-		// }
 		checkInput(name, value);
 		//함수로 만들어서 매개변수 넣어서 재활용
 		setFormState({
