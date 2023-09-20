@@ -8,7 +8,6 @@ import ProductFilter from '@/components/category/ProductFilter';
  * */
 
 function ProductFilterList({brands, onFilter, onAssign, onReset}, ref) {
-  
 	return (
 		<>
 			<div className="flex justify-between border-y-[1px] border-l-grey-200 bg-[#fbfbfb] px-6 py-4 text-lg font-semibold">

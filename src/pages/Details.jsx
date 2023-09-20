@@ -1,7 +1,12 @@
 // import {json, useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import '../styles/detail.css';
-// import {getProductsImage} from '../utils/getProductsImage';
+import {getProductsImage} from '../utils/getProductsImage';
+import getProductsImageArray from '../utils/getProductsImageArray';
+import pb from '@/api/pocketbase';
+import DetailsNav from '../components/detail/DetailsNav';
+import DetailsProducts from '../components/detail/DetailsProducts';
+import DetailsWvProject from '../components/detail/DetailsWvProject';
 
 // 자바스크립트 적용 확인해보기
 // document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -19,11 +24,7 @@ import '../styles/detail.css';
 // });
 
 // 이미지 불러오기
-import thumbnail01 from '../assets/images/detail/301859392_LM29886.jpg';
-import thumbnail02 from '../assets/images/detail/301859392_add1_GD94957.jpg';
-import mybrand from '../assets/images/detail/bg_heart.png';
-import share from '../assets/images/detail/share.png';
-import star from '../assets/images/detail/star.png';
+
 import intro from '../assets/images/detail/2022FW_intro.jpg';
 import color from '../assets/images/detail/MJHD7622_01_pack_mj.jpg';
 import detail01 from '../assets/images/detail/MJHD7622_navy_jn.jpg';
@@ -61,14 +62,7 @@ import list02_3 from '../assets/images/detail/list02/image_3.png';
 import list02_4 from '../assets/images/detail/list02/image_4.png';
 import list02_5 from '../assets/images/detail/list02/image_5.png';
 import list02_6 from '../assets/images/detail/list02/image_6.png';
-import more01 from '../assets/images/detail/more/img_01.jpeg';
-import more02 from '../assets/images/detail/more/img_02.png';
-import more03 from '../assets/images/detail/more/img_03.png';
-import more04 from '../assets/images/detail/more/img_04.jpeg';
-import more05 from '../assets/images/detail/more/img_05.png';
-import more06 from '../assets/images/detail/more/img_06.png';
-import more07 from '../assets/images/detail/more/img_07.png';
-import more08 from '../assets/images/detail/more/img_08.png';
+
 import icoMoreBrand from '../assets/images/detail/ico_more_brand.png';
 import tooltip from '../assets/images/detail/tooltip.png';
 import review01 from '../assets/images/detail/review/01.jpg';
@@ -83,145 +77,98 @@ import lock from '../assets/images/detail/lock.png';
 import btnNext from '../assets/images/detail/detail_btn_next.png';
 import btnPrev from '../assets/images/detail/detail_btn_Prev.png';
 
-function Detail() {
-	// const [activeTab, setActiveTab] = useState('DETAIL');
-	// // const [data, setData] = useState();
-	// // const {id} = useParams();
-	// const handleTabClick = (tabName) => {
-	// // 	setActiveTab(tabName);
-	// // };
+function Details() {
+	const {id} = useParams();
+	const [activeTab, setActiveTab] = useState('detail');
+	const [data, setData] = useState();
+	const handleTabClick = (tabName) => {
+		setActiveTab(tabName);
+	};
 
-	// const tabStyle = {
-	// 	color: 'black',
-	// 	cursor: 'pointer',
-	// };
-	// useEffect(() => {
-	// 	async function getProduct() {
-	// 		try {
-	// 			const readProduct = await pb.collection('products').getOne(id);
-	// 			setData(readProduct);
-	// 		} catch (error) {
-	// 			// 츄라이 캐치는 화면에서 불러왔을때 서버랑 통신이 안됐을 때 > 조용하게, 수줍게 콘솔에 에러를 알려준다
-	// 			throw new Error(error);
-	// 		}
-	// 	}
-	// });
+	const tabStyle = {
+		color: 'black',
+		cursor: 'pointer',
+	};
+	useEffect(() => {
+		async function getProduct() {
+			try {
+				const readProduct = await pb.collection('products').getOne(id);
 
-	// function ZoomLens() {
-	// const [imageSrc, setImageSrc] = useState('image.jpg');
-	// const [zoomedArea, setZoomedArea] = useState(null);
+				setData(readProduct);
+				console.log(data);
+			} catch (error) {
+				if (!(error instanceof ClientResponseError)) {
+					console.error(error);
+				}
+			}
+		}
+		getProduct();
+	}, []);
+}
+// function ZoomLens() {
+// const [imageSrc, setImageSrc] = useState('image.jpg');
+// const [zoomedArea, setZoomedArea] = useState(null);
 
-	// function handleImageClick(event) {
-	//   const { offsetX, offsetY } = event.nativeEvent;
-	//   // 여기서 offsetX와 offsetY는 클릭한 위치의 좌표입니다.
+// function handleImageClick(event) {
+//   const { offsetX, offsetY } = event.nativeEvent;
+//   // 여기서 offsetX와 offsetY는 클릭한 위치의 좌표입니다.
 
-	//   // 확대할 범위 설정
-	//   const zoomFactor = 2;
-	//   const originalWidth = event.target.clientWidth;
-	//   const originalHeight = event.target.clientHeight;
+//   // 확대할 범위 설정
+//   const zoomFactor = 2;
+//   const originalWidth = event.target.clientWidth;
+//   const originalHeight = event.target.clientHeight;
 
-	//   // 확대할 좌상단 점 계산
-	//   const topLeftX = Math.max(0, offsetX - originalWidth / (2 * zoomFactor));
-	//   const topLeftY = Math.max(0, offsetY - originalHeight / (2 * zoomFactor));
+//   // 확대할 좌상단 점 계산
+//   const topLeftX = Math.max(0, offsetX - originalWidth / (2 * zoomFactor));
+//   const topLeftY = Math.max(0, offsetY - originalHeight / (2 * zoomFactor));
 
-	//   // 확대할 우하단 점 계산
-	//   const bottomRightX = Math.min(originalWidth, offsetX + originalWidth / (2 * zoomFactor));
-	//   const bottomRightY = Math.min(originalHeight, offsetY + originalHeight / (2 * zoomFactor));
+//   // 확대할 우하단 점 계산
+//   const bottomRightX = Math.min(originalWidth, offsetX + originalWidth / (2 * zoomFactor));
+//   const bottomRightY = Math.min(originalHeight, offsetY + originalHeight / (2 * zoomFactor));
 
-	//   // 선택한 영역 크롭
-	//   const canvas = document.createElement('canvas');
-	//   canvas.width = bottomRightX - topLeftX;
-	// 	canvas.height= bottomRightY - topLeftY;
-	// 	const context=canvas.getContext("2d");
-	// 	context.drawImage(event.target,topLeftX,topLeftY,bottomRightX-topLeftX,bottomRightY-topLeftY,
-	//                     0,0,bottomRightX-topLeftX,bottomRightY-topLeftY);
+//   // 선택한 영역 크롭
+//   const canvas = document.createElement('canvas');
+//   canvas.width = bottomRightX - topLeftX;
+// 	canvas.height= bottomRightY - topLeftY;
+// 	const context=canvas.getContext("2d");
+// 	context.drawImage(event.target,topLeftX,topLeftY,bottomRightX-topLeftX,bottomRightY-topLeftY,
+//                     0,0,bottomRightX-topLeftX,bottomRightY-topLeftY);
 
-	// 	// 크롭된 이미지 데이터 URL 생성
-	// 	const croppedImageURL=canvas.toDataURL();
+// 	// 크롭된 이미지 데이터 URL 생성
+// 	const croppedImageURL=canvas.toDataURL();
 
-	// 	// 크롭된 이미지 출력
-	//   setZoomedArea(croppedImageURL);
-	// }
-
-	console.log;
+// 	// 크롭된 이미지 출력
+//   setZoomedArea(croppedImageURL);
+// }
+console.log(data);
+if (data) {
 	return (
 		<div className="relative mx-auto mb-[200px] w-[1240px]">
-			<ul className="mb-7 mt-7 flex flex-row text-sm text-gray-500">
-				<li className="mr-3">
-					<p className="mr-2 inline">HOME</p> &#62;
-				</li>
-				<li className="mr-3">
-					<p className="mr-2 inline">WOMEN</p> &#62;
-				</li>
-				<li className="mr-3">
-					<p className="mr-2 inline">APPAREL</p> &#62;
-				</li>
-				<li className="mr-3">
-					<p className="mr-2 inline">티셔츠</p> &#62;
-				</li>
-				<li className="text-black">후드</li>
-			</ul>
-			<section className="flex-rows mb-10 flex">
-				<div className="mr-[55px]">
-					{/* <div>
-						<img src={thumbnail01} alt="" onClick={handleImageClick} />
-						{zoomedArea && <img src={thumbnail01} alt="=" />}
-					</div> */}
-					<img className="mb-5" src={thumbnail01} alt="" />
-					<ul className="flex w-[140px] flex-row justify-between">
-						<li>
-							<img className="w-15 h-20" src={thumbnail01} alt="" />
-						</li>
-						<li>
-							<img className="w-15 h-20" src={thumbnail02} alt="" />
-						</li>
-					</ul>
+			<DetailsNav />
+			<DetailsProducts data={data} />
+			<DetailsWvProject />
+			{/* More by WV PROJECT */}
+
+			{/* detail */}
+			<section id="detail" className="pt-10">
+				<div className="detailTabBtn mb-16 grid grid-cols-4 font-normal text-gray-700">
+					<a href="#detail" className="detailTabBtnOn py-4 text-center text-mlg">
+						DETAIL
+					</a>
+					<a href="#review" className="detailTabBtn02 py-4 text-center text-mlg">
+						REVIEW (55)
+					</a>
+					<a href="#question" className="detailTabBtn03 py-4 text-center text-mlg">
+						Q&A (12)
+					</a>
+					<a href="#delivery" className="detailTabBtn04 py-4 text-center text-mlg">
+						RETURN & DELIVERY
+					</a>
 				</div>
 
-				<div className="w-[660px]">
-					<div className="relative border-b-2 border-black">
-						<h4 className="mb-4 text-[24px] font-medium">WV PROJECT</h4>
-						<p className="mb-5 text-base font-normal">[패키지] 컬러인 후드 2PACK MJHD7622</p>
-						<ul className="mb-5 flex flex-row">
-							<li className="w-[125px]">
-								<img className="mr-1 inline" src={star} alt="" />
-								<span className="align-middle text-lg font-semibold">4.9</span>
-							</li>
-							<li className="mt-1 text-sm underline">55개 리뷰 &#62;</li>
-						</ul>
-
-						<dl className="mb-4">
-							<dt className="float-left w-[125px] py-2 text-[13px]">정상가</dt>
-							<dd className="flex flex-row py-2 text-[18px] text-grey-200">
-								108,000 <p className="text-base">원</p>
-							</dd>
-							<dt className="float-left w-[125px] py-2">
-								<span className="mr-2 text-[13px]">할인적용가</span>
-								<button className="align-middle">
-									<img src={tooltip} alt="" />
-								</button>
-							</dt>
-							<dd className="flex flex-row py-2">
-								74,900<p>원</p>
-								<span className="text-tertiary">31&#37;</span>
-							</dd>
-						</dl>
-
-						{/* 우측 버튼들 */}
-						{/* <div className="t-0 r-0 absolute flex flex-row">
-							<span>MY</span>
-							<img className="h-4 w-7" src={mybrand} alt="" />
-							<span>BRAND</span>
-						</div>
-						<button className="float-right">
-							<img src={share} alt="" />
-						</button> */}
-					</div>
-
-					<div className="flex flex-row justify-between py-[30px]">
-						<button className="h-[70px] w-[320px] border border-black text-[20px]">수정</button>
-						<button className="h-[70px] w-[320px] bg-black text-[20px] text-white">삭제</button>
-					</div>
+				<div className="flex flex-row justify-between py-[30px]">
+					<button className="h-[70px] w-[320px] border border-black text-[20px]">수정</button>
+					<button className="h-[70px] w-[320px] bg-black text-[20px] text-white">삭제</button>
 				</div>
 			</section>
 
@@ -783,6 +730,7 @@ function Detail() {
 	);
 }
 
-export default Detail;
+export default Details;
 
-// import photo from '@/assets/image.svg';
+// 가져온거는 완료
+// data.name 처럼  data.ㅇㅇㅇ로 가져오기 > 스타일링한 것에 항목들에 class를 지정하기
