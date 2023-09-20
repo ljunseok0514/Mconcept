@@ -14,7 +14,7 @@ const router = createBrowserRouter(
 			<Route path="join" element={<Join />} />
 			<Route path="login" element={<Login />} />
 			<Route path="products/:id" element={<Details />} />
-			<Route path="Category" element={<Category />} />
+			<Route path="category" element={<Category />} />
 		</Route>,
 	),
 );

@@ -57,7 +57,7 @@ function GlobalSearch() {
 					{!isAuth && (
 						<NavLink to={'/login'}>
 							<li>
-								<button Link className="block w-[64px] text-center" type="button">
+								<button className="block w-[64px] text-center" type="button">
 									<img className="inline-block h-[30px] w-[30px]" src={login} alt="loginIcon" />
 									<strong className="block text-[12px]">LOGIN</strong>
 								</button>
