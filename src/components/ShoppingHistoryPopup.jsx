@@ -3,10 +3,12 @@ import {getProductsImage} from '@/utils/getProductsImage';
 import {motion} from 'framer-motion';
 import {useEffect, useState} from 'react';
 import close from '/public/common/popup_close.svg';
-import { formatNumber } from '@/utils/formatNumber';
+import {formatNumber} from '@/utils/formatNumber';
+import { Link } from 'react-router-dom';
 
 function ShoppingHistoryPopup({isOpen, setIsOpen}) {
 	const [items, setItems] = useState([]);
+	const [isHovered, setIsHovered] = useState(null);
 
 	useEffect(() => {
 		// 로컬 스토리지에서 데이터 가져오기
@@ -60,7 +62,6 @@ function ShoppingHistoryPopup({isOpen, setIsOpen}) {
 
 		if (currentHistory) {
 			localStorage.setItem('recentlyViewed', JSON.stringify(currentHistory.filter((item) => item !== id)));
-			fetchItems();
 		}
 	};
 
@@ -82,33 +83,34 @@ function ShoppingHistoryPopup({isOpen, setIsOpen}) {
 						<img src={close} alt="닫기" className="h-full w-full" />
 					</button>
 					<h2 className="p-4 text-2xl font-bold">SHOPPING HISTORY</h2>
-					{/* ㅁㅁㅁㅁ */}
 
-					<ul className="m-3 border-t-2 px-1 py-4 ">
+					<ul className="m-3 border-t-2 px-3 py-6 ">
 						{items.length > 0 ? (
 							items?.map((item) => (
-								<li key={item.id} className="mb-6 flex justify-stretch gap-4">
-									<div>
-										<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} className="h-28 w-24" />
-									</div>
-
-									<dl className="relative flex w-full flex-col gap-3">
-										<button onClick={() => handleDelete(item.id)} className="absolute right-3 top-2 rounded-lg border p-3 hover:bg-gray-200 active:scale-95">
-											삭제
-										</button>
-										<dt className="sr-only">브랜드</dt>
-										<dd className="font-semibold">{item.brand}</dd>
-										<dt className="sr-only">상품명</dt>
-										<dd className="font-normal text-gray-500">{item.name}</dd>
-										<dt className="sr-only">가격</dt>
-										<dd className="font-normal text-gray-900 font-normal">
-											{formatNumber(Math.floor(item.price * (1 - item.discount)))} 원
-										</dd>
-									</dl>
+								<li key={item.id} onMouseEnter={() => setIsHovered(item.id)} onMouseLeave={() => setIsHovered(null)}>
+									<Link to={`/products/${item.id}`} className="mb-6 flex justify-stretch gap-4 hover:bg-gray-100">
+										<div>
+											<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} className="h-28 w-24" />
+										</div>
+										<dl className="relative flex w-full flex-col gap-3">
+											{isHovered === item.id && (
+												<button onClick={(event) => {event.preventDefault();
+													event.stopPropagation();handleDelete(item.id);}} className="absolute right-3 top-2 rounded-lg border p-3 hover:bg-gray-200 active:scale-95">
+													삭제
+												</button>
+											)}
+											<dt className="sr-only">브랜드</dt>
+											<dd className="font-semibold">{item.brand}</dd>
+											<dt className="sr-only">상품명</dt>
+											<dd className="font-normal text-gray-500">{item.name}</dd>
+											<dt className="sr-only">가격</dt>
+											<dd className="font-normal text-gray-900">{formatNumber(Math.floor(item.price * (1 - item.discount)))} 원</dd>
+										</dl>
+									</Link>
 								</li>
 							))
 						) : (
-							<div>최근 본 상품이 없습니다.</div>
+							<div className='text-lg'>최근 본 상품이 없습니다.</div>
 						)}
 					</ul>
 				</motion.div>
