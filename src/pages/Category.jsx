@@ -5,6 +5,7 @@ import ProductsItems from '@/components/category/ProductItems';
 import ProductPageNation from '@/components/category/ProductPageNation';
 import ProductSort from '@/components/category/ProductSort';
 import {useEffect, useRef, useState} from 'react';
+import { Helmet } from 'react-helmet-async';
 // import { NavLink, useNavigate } from 'react-router-dom';
 
 /**
