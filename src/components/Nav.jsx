@@ -17,19 +17,14 @@ function Nav() {
 			<div className="global_nav_wrap mx-auto h-[57px] max-w-[1920px] px-[20px]">
 				<div className="global_nav flex justify-center">
 					<ul className="nav_left flex ">
-						<NavLink to={'/'}>
-							<li className="symbol static hidden pr-[7px] pt-[9px] ease-in-out">
-								<a href="/" className="inline-block p-[0] leading-[normal]">
-									<img src={icon_gnbLogo} alt="M CONCEPT" />
-								</a>
-							</li>
-						</NavLink>
+						<li className="symbol static hidden pr-[7px] pt-[9px] ease-in-out">
+							<a href="/" className="inline-block p-[0] leading-[normal]">
+								<img src={icon_gnbLogo} alt="M CONCEPT" />
+							</a>
+						</li>
 
 						<NavList listTitle="NEW" />
-						<NavLink to={'category'}>
-							<NavList listTitle="MEN" />
-						</NavLink>
-
+						<NavList listTitle="MEN" link="category" />
 						<NavList listTitle="WOMEN" />
 						<NavList listTitle="BEAUTY" />
 						<NavList listTitle="LIFE" />
@@ -58,25 +53,25 @@ function Nav() {
 					</ul>
 					<ul className="utility float-right mr-[-17px] hidden pt-[26px] before:table before:content-[''] after:clear-both after:table after:content-['']">
 						<li className="nav_search float-left text-center uppercase">
-							<a href="" className="relative block px-[17px] pb-[18px] text-[#000]">
+							<a href="#" className="relative block px-[17px] pb-[18px] text-[#000]">
 								<span className="icon_search inline-block h-[30px] w-[30px] bg-transparent bg-[url('../../public/header/icon_search.png')] bg-center bg-no-repeat align-top"></span>
 								<strong className="absolute bottom-[0] left-[0] right-[0] text-[12px] uppercase leading-[12px]">serch</strong>
 							</a>
 						</li>
 						<li className="nav_search float-left text-center uppercase">
-							<a href="" className="relative block px-[17px] pb-[18px] text-[#000]">
+							<a href="#" className="relative block px-[17px] pb-[18px] text-[#000]">
 								<span className="icon_search inline-block h-[30px] w-[30px] bg-transparent bg-[url('../../public/header/icon_heart.png')] bg-center bg-no-repeat align-top"></span>
 								<strong className="absolute bottom-[0] left-[0] right-[0] text-[12px] uppercase leading-[12px]">Heart</strong>
 							</a>
 						</li>
 						<li className="nav_search float-left text-center uppercase">
-							<a href="" className="relative block px-[17px] pb-[18px] text-[#000]">
+							<a href="#" className="relative block px-[17px] pb-[18px] text-[#000]">
 								<span className="icon_search inline-block h-[30px] w-[30px] bg-transparent bg-[url('../../public/header/icon_my.png')] bg-center bg-no-repeat align-top"></span>
 								<strong className="absolute bottom-[0] left-[0] right-[0] text-[12px] uppercase leading-[12px]">my</strong>
 							</a>
 						</li>
 						<li className="nav_search float-left text-center uppercase">
-							<a href="" className="relative block px-[17px] pb-[18px] text-[#000]">
+							<a href="#" className="relative block px-[17px] pb-[18px] text-[#000]">
 								<span className="icon_search inline-block h-[30px] w-[30px] bg-transparent bg-[url('../../public/header/icon_shopping.png')] bg-center bg-no-repeat align-top"></span>
 								<strong className="absolute bottom-[0] left-[0] right-[0] text-[12px] uppercase leading-[12px]">0</strong>
 							</a>
