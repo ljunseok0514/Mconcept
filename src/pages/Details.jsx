@@ -105,6 +105,13 @@ function Details() {
 		getProduct();
 	}, []);
 }
+
+{
+	/* <Helmet>
+	<title>Details - M Concept</title>
+</Helmet>; */
+}
+
 // function ZoomLens() {
 // const [imageSrc, setImageSrc] = useState('image.jpg');
 // const [zoomedArea, setZoomedArea] = useState(null);
@@ -147,7 +154,6 @@ if (data) {
 			<DetailsNav />
 			<DetailsProducts data={data} />
 			<DetailsWvProject />
-			{/* More by WV PROJECT */}
 
 			{/* detail */}
 			<section id="detail" className="pt-10">
