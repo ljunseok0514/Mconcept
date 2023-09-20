@@ -3,7 +3,6 @@ import {useEffect, useState} from 'react';
 import {Autoplay, Navigation} from 'swiper/modules';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import ProductInfo from '../ProductInfo';
-import '@/styles/swiper.css';
 
 const style = ['text-left', 'ml-1', 'ml-2'];
 
@@ -11,7 +10,6 @@ function MakeItYours() {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		pb.autoCancellation(false);
 		async function getProducts() {
 			try {
 				const readRecordList = await pb.collection('products').getFullList();

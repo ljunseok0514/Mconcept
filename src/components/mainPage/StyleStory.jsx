@@ -32,7 +32,7 @@ function StyleStory() {
 		<>
 		<section className='mb-32'>
 		<h2 className="mb-8 text-center text-[54px] font-thin">STYLE STORY</h2>
-			<ul className="flex justify-between gap-10 px-2">
+			<ul className="flex justify-between gap-5">
 				{storyList.map((item) => {
 					return (
 						<li key={item.title}>
