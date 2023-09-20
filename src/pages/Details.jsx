@@ -4,6 +4,9 @@ import '../styles/detail.css';
 import {getProductsImage} from '../utils/getProductsImage';
 import getProductsImageArray from '../utils/getProductsImageArray';
 import pb from '@/api/pocketbase';
+import DetailsNav from '../components/detail/DetailsNav';
+import DetailsProducts from '../components/detail/DetailsProducts';
+import DetailsWvProject from '../components/detail/DetailsWvProject';
 
 // 자바스크립트 적용 확인해보기
 // document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -21,11 +24,7 @@ import pb from '@/api/pocketbase';
 // });
 
 // 이미지 불러오기
-import thumbnail01 from '../assets/images/detail/301859392_LM29886.jpg';
-import thumbnail02 from '../assets/images/detail/301859392_add1_GD94957.jpg';
-import mybrand from '../assets/images/detail/bg_heart.png';
-import share from '../assets/images/detail/share.png';
-import star from '../assets/images/detail/star.png';
+
 import intro from '../assets/images/detail/2022FW_intro.jpg';
 import color from '../assets/images/detail/MJHD7622_01_pack_mj.jpg';
 import list01_1 from '../assets/images/detail/list01/image_1.png';
@@ -40,14 +39,7 @@ import list02_3 from '../assets/images/detail/list02/image_3.png';
 import list02_4 from '../assets/images/detail/list02/image_4.png';
 import list02_5 from '../assets/images/detail/list02/image_5.png';
 import list02_6 from '../assets/images/detail/list02/image_6.png';
-import more01 from '../assets/images/detail/more/img_01.jpeg';
-import more02 from '../assets/images/detail/more/img_02.png';
-import more03 from '../assets/images/detail/more/img_03.png';
-import more04 from '../assets/images/detail/more/img_04.jpeg';
-import more05 from '../assets/images/detail/more/img_05.png';
-import more06 from '../assets/images/detail/more/img_06.png';
-import more07 from '../assets/images/detail/more/img_07.png';
-import more08 from '../assets/images/detail/more/img_08.png';
+
 import icoMoreBrand from '../assets/images/detail/ico_more_brand.png';
 import tooltip from '../assets/images/detail/tooltip.png';
 import review01 from '../assets/images/detail/review/01.jpg';
@@ -62,9 +54,8 @@ import lock from '../assets/images/detail/lock.png';
 import btnNext from '../assets/images/detail/detail_btn_next.png';
 import btnPrev from '../assets/images/detail/detail_btn_Prev.png';
 
-function Detail() {
+function Details() {
 	const {id} = useParams();
-	console.log(id);
 	const [activeTab, setActiveTab] = useState('detail');
 	const [data, setData] = useState();
 	const handleTabClick = (tabName) => {
@@ -78,7 +69,7 @@ function Detail() {
 	useEffect(() => {
 		async function getProduct() {
 			try {
-				const readProduct = await pb.collection('products').getOne('1w7mpagtol07an0');
+				const readProduct = await pb.collection('products').getOne(id);
 
 				setData(readProduct);
 				console.log(data);
@@ -130,127 +121,10 @@ function Detail() {
 	if (data) {
 		return (
 			<div className="relative mx-auto mb-[200px] w-[1240px]">
-				<ul className="mb-7 mt-7 flex flex-row text-sm text-gray-500">
-					<li className="mr-3">
-						<p className="mr-2 inline">HOME</p> &#62;
-					</li>
-					<li className="mr-3">
-						<p className="mr-2 inline">WOMEN</p> &#62;
-					</li>
-					<li className="mr-3">
-						<p className="mr-2 inline">APPAREL</p> &#62;
-					</li>
-					<li className="mr-3">
-						<p className="mr-2 inline">티셔츠</p> &#62;
-					</li>
-					<li className="text-black">후드</li>
-				</ul>
-				<section className="flex-rows mb-10 flex">
-					<div className="mr-[55px]">
-						{/* <div>
-									<img src={thumbnail01} alt="" onClick={handleImageClick} />
-									{zoomedArea && <img src={thumbnail01} alt="=" />}
-								</div> */}
-						<img className="mb-5" src={thumbnail01} alt="" />
-						<ul className="flex w-[140px] flex-row justify-between">
-							<li>
-								<img className="w-15 h-20" src={thumbnail01} alt="" />
-							</li>
-							<li>
-								<img className="w-15 h-20" src={thumbnail02} alt="" />
-							</li>
-						</ul>
-					</div>
-
-					<div className="w-[660px]">
-						<div className="relative border-b-2 border-black">
-							<h4 className="mb-4 text-[24px] font-medium">{data.brand}</h4>
-							<p className="mb-5 text-base font-normal">{data.name}</p>
-							<ul className="mb-5 flex flex-row">
-								<li className="w-[125px]">
-									<img className="mr-1 inline" src={star} alt="" />
-									<span className="align-middle text-lg font-semibold">{data.star}</span>
-								</li>
-								<li className="mt-1 text-sm underline">55개 리뷰 &#62;</li>
-							</ul>
-
-							<dl className="mb-4">
-								<dt className="float-left w-[125px] py-2 text-[13px]">정상가</dt>
-								<dd className="flex flex-row py-2 text-[18px] text-grey-200">
-									{data.price} <p className="text-base">원</p>
-								</dd>
-								<dt className="float-left w-[125px] py-2">
-									<span className="mr-2 text-[13px]">할인적용가</span>
-									<button className="align-middle">
-										<img src={tooltip} alt="" />
-									</button>
-								</dt>
-								<dd className="flex flex-row py-2">
-									74,900<p>원</p>
-									<span className="text-tertiary">31&#37;</span>
-								</dd>
-							</dl>
-
-							{/* 우측 버튼들 */}
-							{/* <div className="t-0 r-0 absolute flex flex-row">
-										<span>MY</span>
-										<img className="h-4 w-7" src={mybrand} alt="" />
-										<span>BRAND</span>
-									</div>
-									<button className="float-right">
-										<img src={share} alt="" />
-									</button> */}
-						</div>
-
-						{/* 관리자페이지 버튼 */}
-						{/* <div className="flex flex-row justify-between py-[30px]">
-							<button className="h-[70px] w-[320px] border border-black text-[20px]">수정</button>
-							<button className="h-[70px] w-[320px] bg-black text-[20px] text-white">삭제</button>
-						</div> */}
-					</div>
-				</section>
-
+				<DetailsNav />
+				<DetailsProducts data={data} />
+				<DetailsWvProject />
 				{/* More by WV PROJECT */}
-				<section className="mb-16">
-					<div className="mb-4 flex flex-row">
-						<h6 className="font-mlg mr-2 font-semibold">More by WV PROJECT</h6>
-						<img className="h-[14px] w-[14px] align-middle" src={icoMoreBrand} alt="" />
-					</div>
-					<ul className="flex w-[1240px] flex-row justify-between">
-						<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
-							<img src={more01} alt="" />
-							<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">65,900</span>
-						</li>
-						<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
-							<img src={more02} alt="" />
-							<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">43,900</span>
-						</li>
-						<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
-							<img src={more03} alt="" />
-							<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">41,900</span>
-						</li>
-						<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
-							<img src={more04} alt="" />
-							<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">53,600</span>
-						</li>
-						<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
-							<img src={more05} alt="" />
-							<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">49,500</span>
-						</li>
-						<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
-							<img src={more06} alt="" />
-							<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">41,900</span>
-						</li>
-						<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
-							<img src={more07} alt="" />
-							<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">46,400</span>
-						</li>
-						<li className="detail_dimmed_box imgHover relative h-[180px] w-[135px]">
-							<img src={more08} alt="" />
-							<span className="detail_dimmed absolute bottom-0 inline-block w-[135px] bg-black bg-opacity-50 py-[3px] text-center font-normal text-white">62,900</span>
-						</li>
-					</ul>
-				</section>
 
 				{/* detail */}
 				<section id="detail" className="pt-10">
@@ -750,9 +624,7 @@ function Detail() {
 	}
 }
 
-export default Detail;
-
-// import photo from '@/assets/image.svg';
+export default Details;
 
 // 가져온거는 완료
 // data.name 처럼  data.ㅇㅇㅇ로 가져오기 > 스타일링한 것에 항목들에 class를 지정하기
