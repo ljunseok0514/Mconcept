@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 
-function recentlyItems(params) {
+function Detail(params) {
 	const {id} = useParams(); // URL의 마지막 부분에서 상품 ID 가져오기
 
 	useEffect(() => {

@@ -1,9 +1,9 @@
-import {motion} from 'framer-motion';
-import {useEffect, useState} from 'react';
-import groupBy from 'lodash/groupBy';
-import close from '/public/common/popup_close.svg';
 import pb from '@/api/pocketbase';
 import {getProductsImage} from '@/utils/getProductsImage';
+import {motion} from 'framer-motion';
+import {useEffect, useState} from 'react';
+import close from '/public/common/popup_close.svg';
+import { formatNumber } from '@/utils/formatNumber';
 
 function ShoppingHistoryPopup({isOpen, setIsOpen}) {
 	const [items, setItems] = useState([]);
@@ -62,51 +62,59 @@ function ShoppingHistoryPopup({isOpen, setIsOpen}) {
 			localStorage.setItem('recentlyViewed', JSON.stringify(currentHistory.filter((item) => item !== id)));
 			fetchItems();
 		}
-	}
+	};
 
-		return (
-			<>
-				<div className="fixed left-0 top-0 z-[102] h-full w-full bg-[rgba(0,0,0,0.2)]" onClick={closeModal}>
-					<motion.div
-						initial={{x: 500, opacity: 0.5}}
-						animate={{x: 0, opacity: 1}}
-						exit={{x: 500, opacity: 0.5}}
-						transition={{
-							duration: 0.5,
-							type: 'tween',
-						}}
-						className="z-[103] float-right h-full w-1/4 transform bg-white pt-2"
-						onClick={stopPropagation}
-					>
-						<button className="float-right mt-3 h-12 w-12 hover:scale-105 active:scale-75" onClick={closeModal}>
-							<img src={close} alt="닫기" className="h-full w-full" />
-						</button>
-						<h2 className="p-4 text-2xl font-bold">SHOPPING HISTORY</h2>
-						{/* ㅁㅁㅁㅁ */}
+	return (
+		<>
+			<div className="fixed left-0 top-0 z-[102] h-full w-full bg-[rgba(0,0,0,0.2)]" onClick={closeModal}>
+				<motion.div
+					initial={{x: 500, opacity: 0.5}}
+					animate={{x: 0, opacity: 1}}
+					exit={{x: 500, opacity: 0.5}}
+					transition={{
+						duration: 0.5,
+						type: 'tween',
+					}}
+					className="z-[103] float-right h-full w-1/4 transform bg-white pt-2"
+					onClick={stopPropagation}
+				>
+					<button className="float-right mt-3 h-12 w-12 hover:scale-105 active:scale-75" onClick={closeModal}>
+						<img src={close} alt="닫기" className="h-full w-full" />
+					</button>
+					<h2 className="p-4 text-2xl font-bold">SHOPPING HISTORY</h2>
+					{/* ㅁㅁㅁㅁ */}
 
-						<ul className="m-3 border-t-2 px-1 py-4">
-							{items.length > 0 ? (
-								items?.map((item) => (
-									<li key={item.id} className="mb-6 flex gap-4">
-										<button onClick={() => handleDelete(item.id)}>삭제삭제</button>
-										<div>
-											<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} className="h-28 w-20" />
-										</div>
+					<ul className="m-3 border-t-2 px-1 py-4 ">
+						{items.length > 0 ? (
+							items?.map((item) => (
+								<li key={item.id} className="mb-6 flex justify-stretch gap-4">
+									<div>
+										<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} className="h-28 w-24" />
+									</div>
 
-										<div>
-											<p>{item.brand}</p>
-											<p>{item.name}</p>
-										</div>
-									</li>
-								))
-							) : (
-								<div>최근 본 상품이 없습니다.</div>
-							)}
-						</ul>
-					</motion.div>
-				</div>
-			</>
-		);
-	}
+									<dl className="relative flex w-full flex-col gap-3">
+										<button onClick={() => handleDelete(item.id)} className="absolute right-3 top-2 rounded-lg border p-3 hover:bg-gray-200 active:scale-95">
+											삭제
+										</button>
+										<dt className="sr-only">브랜드</dt>
+										<dd className="font-semibold">{item.brand}</dd>
+										<dt className="sr-only">상품명</dt>
+										<dd className="font-normal text-gray-500">{item.name}</dd>
+										<dt className="sr-only">가격</dt>
+										<dd className="font-normal text-gray-900 font-normal">
+											{formatNumber(Math.floor(item.price * (1 - item.discount)))} 원
+										</dd>
+									</dl>
+								</li>
+							))
+						) : (
+							<div>최근 본 상품이 없습니다.</div>
+						)}
+					</ul>
+				</motion.div>
+			</div>
+		</>
+	);
+}
 
 export default ShoppingHistoryPopup;
