@@ -94,7 +94,6 @@ function Details() {
 	// 	// 크롭된 이미지 출력
 	//   setZoomedArea(croppedImageURL);
 	// }
-	console.log(data);
 	if (data) {
 		return (
 			<div className="relative mx-auto mb-[200px] w-[1240px]">
