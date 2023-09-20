@@ -1,21 +1,15 @@
 import pb from '@/api/pocketbase';
-import { useEffect, useState } from 'react';
-import { Autoplay, Navigation } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {useEffect, useState} from 'react';
+import {Autoplay, Navigation} from 'swiper/modules';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import ProductInfo from '../ProductInfo';
-import '@/styles/swiper.css';
 
-const style = [
-	'text-left',
-	'ml-1',
-	'ml-2',
-]
+const style = ['text-left', 'ml-1', 'ml-2'];
 
 function MakeItYours() {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		pb.autoCancellation(false);
 		async function getProducts() {
 			try {
 				const readRecordList = await pb.collection('products').getFullList();
@@ -54,7 +48,7 @@ function MakeItYours() {
 								.map((item) => {
 									return (
 										<SwiperSlide key={item.id}>
-											<ProductInfo item={item} style={style}/>
+											<ProductInfo item={item} style={style} />
 										</SwiperSlide>
 									);
 								})
@@ -71,7 +65,3 @@ function MakeItYours() {
 }
 
 export default MakeItYours;
-
-
-
-

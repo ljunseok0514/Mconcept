@@ -1,12 +1,14 @@
-import ProductFilter from '@/components/category/ProductFilter';
+import pb from '@/api/pocketbase';
+import {forwardRef, useEffect, useState} from 'react';
 import {PrimaryButton, SecondaryButton} from '@/components/category/ProductFilterButton';
-import ProductFilterNav from '@/components/category/ProductFilterNav';
+import ProductFilter from '@/components/category/ProductFilter';
 
 /**
  *  ProductFilterList component
  * */
 
-function ProductFilterList({brandNames, onAdd, onRemove, onFilter}) {
+function ProductFilterList({brands, onFilter, onAssign, onReset}, ref) {
+  
 	return (
 		<>
 			<div className="flex justify-between border-y-[1px] border-l-grey-200 bg-[#fbfbfb] px-6 py-4 text-lg font-semibold">
@@ -20,27 +22,41 @@ function ProductFilterList({brandNames, onAdd, onRemove, onFilter}) {
 						type="button"
 					></button>
 				</h4>
-				<ProductFilterNav />
+				<ul className="filter-nav flex gap-24">
+					<li>
+						<button type="button">BRAND</button>
+					</li>
+					<li>
+						<button type="button">PRICE</button>
+					</li>
+					<li>
+						<button type="button">BENEFIT</button>
+					</li>
+					<li>
+						<button type="button">COLOR</button>
+					</li>
+					<li>
+						<button type="button">DISCOUNT</button>
+					</li>
+				</ul>
 			</div>
 
-			<div className="bg-[#fbfbfb] p-8">
+			<div ref={ref} className="bg-[#fbfbfb] p-8">
 				<ul className="brand mb-8 flex flex-wrap border border-grey-100 bg-white px-4 py-6">
-					{brandNames?.map((brandName, index) => (
-						<div key={brandName}>
-							<li className="flex pl-4">
-								<ProductFilter brandName={brandName} onAdd={onAdd} onRemove={onRemove} />
-							</li>
-						</div>
+					{brands.map((brandName) => (
+						<li key={brandName} className="flex pl-4">
+							<ProductFilter brandName={brandName} onFilter={onFilter} />
+						</li>
 					))}
 				</ul>
 
-				<ul className="button text-center">
-					<SecondaryButton>초기화</SecondaryButton>
-					<PrimaryButton onClick={onFilter}>필터적용</PrimaryButton>
-				</ul>
+				<div role="group" className="button text-center">
+					<SecondaryButton onClick={onReset}>초기화</SecondaryButton>
+					<PrimaryButton onClick={onAssign}>필터적용</PrimaryButton>
+				</div>
 			</div>
 		</>
 	);
 }
 
-export default ProductFilterList;
+export default forwardRef(ProductFilterList);
