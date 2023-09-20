@@ -1,38 +1,36 @@
 import {motion} from 'framer-motion';
 import {useEffect, useState} from 'react';
+import groupBy from 'lodash/groupBy';
 import close from '/public/common/popup_close.svg';
+import pb from '@/api/pocketbase';
+import {getProductsImage} from '@/utils/getProductsImage';
 
 function ShoppingHistoryPopup({isOpen, setIsOpen}) {
-	const [shoppingHistory, setShoppingHistory] = useState([]);
-
-	// 로컬스토리지 활용 부분.
-	/* const [data, setData] = useState([]);
+	const [items, setItems] = useState([]);
 
 	useEffect(() => {
-		pb.autoCancellation(false);
-		async function getProducts() {
-			try {
-				const readRecordList = await pb.collection('products').getFullList();
-				setData(readRecordList);
-			} catch (error) {
-				console.log(error);
-				throw new Error('error');
+		// 로컬 스토리지에서 데이터 가져오기
+		const currentHistory = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+
+		const fetchItems = async () => {
+			let fetchedItems = [];
+
+			for (let id of currentHistory) {
+				try {
+					// 각 아이템에 대해 서버에서 데이터 불러오기
+					const response = await pb.collection('products').getOne(id);
+					console.log(response);
+					fetchedItems.push(response);
+				} catch (error) {
+					console.error('Error fetching item data:', error);
+				}
 			}
-		}
-		getProducts();
+
+			setItems(fetchedItems.reverse());
+		};
+
+		fetchItems();
 	}, []);
-
-	data.map(item=>{
-		return item.id == shoppingHistory
-	})
-
-	// 로컬 스토리지에서 최근 본 상품 목록 가져오기
-	useEffect(() => {
-		const storedShoppingHistory = JSON.parse(localStorage.getItem('shoppingHistory'));
-		if (storedShoppingHistory) {
-			setShoppingHistory(storedShoppingHistory);
-		}
-	}, []); */
 
 	useEffect(() => {
 		// 컴포넌트가 마운트되면 body의 overflow를 hidden으로 설정하여 스크롤 제거
@@ -53,33 +51,62 @@ function ShoppingHistoryPopup({isOpen, setIsOpen}) {
 		e.stopPropagation();
 	};
 
-	return (
-		<>
-			<div className="fixed left-0 top-0 z-[102] h-full w-full bg-[rgba(0,0,0,0.2)]" onClick={closeModal}>
-				<motion.div
-					initial={{x: 500, opacity: 0.5}}
-					animate={{x: 0, opacity: 1}}
-					exit={{x: 500, opacity: 0.5}}
-					transition={{
-						duration: 0.5,
-						type: 'tween',
-					}}
-					className="z-[103] float-right h-full w-1/4 transform bg-white pt-2"
-					onClick={stopPropagation}
-				>
-					<button className="float-right mt-3 h-12 w-12 hover:scale-105 active:scale-75" onClick={closeModal}>
-						<img src={close} alt="닫기" className="h-full w-full" />
-					</button>
-					<h2 className="p-4 text-2xl font-bold">SHOPPING HISTORY</h2>
-					<div className="content border-t-2 p-6">
-						<ul className="flex-col-reverse">
-							{shoppingHistory.length > 0 ? shoppingHistory.map((product) => <li key={product.name}>{product.name}</li>) : <p className="text-lg font-medium">최근에 본 상품이 없습니다.</p>}
+	const handleDelete = (id) => {
+		// 상태에서 아이템 제거
+		setItems(items.filter((item) => item.id !== id));
+
+		// 로컬 스토리지에서 아이템 제거
+		let currentHistory = JSON.parse(localStorage.getItem('recentlyViewed'));
+
+		if (currentHistory) {
+			localStorage.setItem('recentlyViewed', JSON.stringify(currentHistory.filter((item) => item !== id)));
+			fetchItems();
+		}
+	}
+
+		return (
+			<>
+				<div className="fixed left-0 top-0 z-[102] h-full w-full bg-[rgba(0,0,0,0.2)]" onClick={closeModal}>
+					<motion.div
+						initial={{x: 500, opacity: 0.5}}
+						animate={{x: 0, opacity: 1}}
+						exit={{x: 500, opacity: 0.5}}
+						transition={{
+							duration: 0.5,
+							type: 'tween',
+						}}
+						className="z-[103] float-right h-full w-1/4 transform bg-white pt-2"
+						onClick={stopPropagation}
+					>
+						<button className="float-right mt-3 h-12 w-12 hover:scale-105 active:scale-75" onClick={closeModal}>
+							<img src={close} alt="닫기" className="h-full w-full" />
+						</button>
+						<h2 className="p-4 text-2xl font-bold">SHOPPING HISTORY</h2>
+						{/* ㅁㅁㅁㅁ */}
+
+						<ul className="m-3 border-t-2 px-1 py-4">
+							{items.length > 0 ? (
+								items?.map((item) => (
+									<li key={item.id} className="mb-6 flex gap-4">
+										<button onClick={() => handleDelete(item.id)}>삭제삭제</button>
+										<div>
+											<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} className="h-28 w-20" />
+										</div>
+
+										<div>
+											<p>{item.brand}</p>
+											<p>{item.name}</p>
+										</div>
+									</li>
+								))
+							) : (
+								<div>최근 본 상품이 없습니다.</div>
+							)}
 						</ul>
-					</div>
-				</motion.div>
-			</div>
-		</>
-	);
-}
+					</motion.div>
+				</div>
+			</>
+		);
+	}
 
 export default ShoppingHistoryPopup;
