@@ -1,12 +1,12 @@
-import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import pb from '@/api/pocketbase';
 import debounce from '@/utils/debounce';
-import {JoinInput} from '@/components/JoinInput';
+import {JoinInput} from '@/components/join/JoinInput';
 import {JoinButton} from '@/components/JoinButton';
 import {Helmet} from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import useInputIncorrectCheck from '@/hooks/useInputIncorrectCheck';
+import {useState} from 'react';
 
 function Join() {
 	const navigate = useNavigate();
@@ -134,9 +134,9 @@ function Join() {
 
 	return (
 		<>
-			{/* <Helmet>
+			<Helmet>
 				<title>Join - M Concept</title>
-			</Helmet> */}
+			</Helmet>
 			<section className="join_container">
 				<h2 className="subTitle relative min-w-[1240px] pb-[36px] pt-[55px] text-center text-[44px] uppercase">join member</h2>
 				<div className="member_join mx-[auto] mb-[140px] w-[1240px]">

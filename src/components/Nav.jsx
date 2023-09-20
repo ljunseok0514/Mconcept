@@ -4,11 +4,12 @@ import cate_casual from '../../public/header/cate_casual.jpeg';
 import cate_globalshop from '../../public/header/cate_globalshop.jpeg';
 import cate_luxuryzone from '../../public/header/cate_luxuryzone.jpeg';
 import cate_manneiProductPic from '../../public/header/cate_manneiProductPic.jpeg';
-import NavList from './NavList.jsx';
 import CategoryWomen from './CategoryWomen';
 import CategoryMen from './CategoryMen';
 import CategoryBeauty from './CategoryBeauty';
 import CategoryLife from './CategoryLife';
+import {NavLink} from 'react-router-dom';
+import NavList from './NavList';
 
 function Nav() {
 	return (
@@ -16,13 +17,19 @@ function Nav() {
 			<div className="global_nav_wrap mx-auto h-[57px] max-w-[1920px] px-[20px]">
 				<div className="global_nav flex justify-center">
 					<ul className="nav_left flex ">
-						<li className="symbol static hidden pr-[7px] pt-[9px] ease-in-out">
-							<a href="/" className="inline-block p-[0] leading-[normal]">
-								<img src={icon_gnbLogo} alt="M CONCEPT" />
-							</a>
-						</li>
+						<NavLink to={'/'}>
+							<li className="symbol static hidden pr-[7px] pt-[9px] ease-in-out">
+								<a href="/" className="inline-block p-[0] leading-[normal]">
+									<img src={icon_gnbLogo} alt="M CONCEPT" />
+								</a>
+							</li>
+						</NavLink>
+
 						<NavList listTitle="NEW" />
-						<NavList listTitle="MEN" />
+						<NavLink to={'category'}>
+							<NavList listTitle="MEN" />
+						</NavLink>
+
 						<NavList listTitle="WOMEN" />
 						<NavList listTitle="BEAUTY" />
 						<NavList listTitle="LIFE" />

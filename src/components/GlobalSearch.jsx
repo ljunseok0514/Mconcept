@@ -19,9 +19,12 @@ function GlobalSearch() {
 	return (
 		<>
 			<div className="global_search relative mx-auto h-[88px] max-w-[1920px] bg-[#fff] pr-[20px]">
-				<a href="/" className="symbol absolute left-[20px] top-[32px]">
-					<img src={logo} alt="M CONCEPT 홈" />
-				</a>
+				<NavLink to={'/'}>
+					<a className="symbol absolute left-[20px] top-[32px]">
+						<img src={logo} alt="M CONCEPT 홈" />
+					</a>
+				</NavLink>
+
 				<div className="top_search absolute left-[50%] top-[9px] z-[101] h-[70px] w-[392px] translate-x-[-50%] bg-[#fff] py-[16px] pl-[11px] pr-[15px] after:absolute after:block after:h-[1px] after:w-[360px] after:bg-[#000] after:content-['']">
 					<input
 						className="float-left block h-[44px]  w-[335px] border-none bg-none p-0 text-[14px] leading-[44px] focus:outline-none"
@@ -38,12 +41,14 @@ function GlobalSearch() {
 				</div>
 				<ul className="utility float-right mr-[-17px] flex pt-[26px]">
 					{!isAuth && (
-						<li>
-							<a href="/" className="block w-[64px] text-center">
-								<img className="inline-block h-[30px] w-[30px]" src={join} alt="joinIcon" />
-								<strong className="block text-[12px]">JOIN</strong>
-							</a>
-						</li>
+						<NavLink to={'join'}>
+							<li>
+								<a href="/" className="block w-[64px] text-center">
+									<img className="inline-block h-[30px] w-[30px]" src={join} alt="joinIcon" />
+									<strong className="block text-[12px]">JOIN</strong>
+								</a>
+							</li>
+						</NavLink>
 					)}
 
 					{isAuth && (
@@ -55,7 +60,7 @@ function GlobalSearch() {
 						</li>
 					)}
 					{!isAuth && (
-						<NavLink to={'/login'}>
+						<NavLink to={'#'}>
 							<li>
 								<button className="block w-[64px] text-center" type="button">
 									<img className="inline-block h-[30px] w-[30px]" src={login} alt="loginIcon" />
@@ -65,13 +70,13 @@ function GlobalSearch() {
 						</NavLink>
 					)}
 					<li>
-						<a href="/" className="block w-[64px] text-center">
+						<a href="#" className="block w-[64px] text-center">
 							<img className="inline-block h-[30px] w-[30px]" src={my} alt="myIcon" />
 							<strong className="block text-[12px]">MY</strong>
 						</a>
 					</li>
 					<li>
-						<a href="/" className="block w-[64px] text-center">
+						<a href="#" className="block w-[64px] text-center">
 							<img className="inline-block h-[30px] w-[30px]" src={shopping} alt="shoppingIcon" />
 							<strong className="block text-[12px]">0</strong>
 						</a>
