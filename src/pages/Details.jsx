@@ -1,6 +1,6 @@
 import {json, useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
-import '@/styles/detail.css';
+import '../styles/detail.css';
 // import {getProductsImage} from '../utils/getProductsImage';
 // import getProductsImageArray from '../utils/getProductsImageArray';
 import pb from '@/api/pocketbase';
@@ -13,6 +13,23 @@ import DetailsBeauty from '../components/detail/DetailsBeauty';
 import DetailsReview from '../components/detail/DetailsReview';
 import DetailsQuestion from '../components/detail/DetailsQuestion';
 import DetailsDelivery from '../components/detail/DetailsDelivery';
+
+// 자바스크립트 적용 확인해보기
+// document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+// 	anchor.addEventListener('click', function (e) {
+// 		e.preventDefault();
+
+// 		const targetId = this.getAttribute('href').substring(1);
+// 		const targetElement = document.getElementById(targetId);
+
+// 		window.scrollTo({
+// 			top: targetElement.offsetTop,
+// 			behavior: 'smooth', // 부드러운 스크롤 애니메이션을 적용합니다.
+// 		});
+// 	});
+// });
+
+// 이미지 불러오기
 
 function Details() {
 	const {id} = useParams();
@@ -42,6 +59,41 @@ function Details() {
 		getProduct();
 	}, []);
 
+	// function ZoomLens() {
+	// const [imageSrc, setImageSrc] = useState('image.jpg');
+	// const [zoomedArea, setZoomedArea] = useState(null);
+
+	// function handleImageClick(event) {
+	//   const { offsetX, offsetY } = event.nativeEvent;
+	//   // 여기서 offsetX와 offsetY는 클릭한 위치의 좌표입니다.
+
+	//   // 확대할 범위 설정
+	//   const zoomFactor = 2;
+	//   const originalWidth = event.target.clientWidth;
+	//   const originalHeight = event.target.clientHeight;
+
+	//   // 확대할 좌상단 점 계산
+	//   const topLeftX = Math.max(0, offsetX - originalWidth / (2 * zoomFactor));
+	//   const topLeftY = Math.max(0, offsetY - originalHeight / (2 * zoomFactor));
+
+	//   // 확대할 우하단 점 계산
+	//   const bottomRightX = Math.min(originalWidth, offsetX + originalWidth / (2 * zoomFactor));
+	//   const bottomRightY = Math.min(originalHeight, offsetY + originalHeight / (2 * zoomFactor));
+
+	//   // 선택한 영역 크롭
+	//   const canvas = document.createElement('canvas');
+	//   canvas.width = bottomRightX - topLeftX;
+	// 	canvas.height= bottomRightY - topLeftY;
+	// 	const context=canvas.getContext("2d");
+	// 	context.drawImage(event.target,topLeftX,topLeftY,bottomRightX-topLeftX,bottomRightY-topLeftY,
+	//                     0,0,bottomRightX-topLeftX,bottomRightY-topLeftY);
+
+	// 	// 크롭된 이미지 데이터 URL 생성
+	// 	const croppedImageURL=canvas.toDataURL();
+
+	// 	// 크롭된 이미지 출력
+	//   setZoomedArea(croppedImageURL);
+	// }
 	console.log(data);
 	if (data) {
 		return (
@@ -61,3 +113,6 @@ function Details() {
 }
 
 export default Details;
+
+// 가져온거는 완료
+// data.name 처럼  data.ㅇㅇㅇ로 가져오기 > 스타일링한 것에 항목들에 class를 지정하기
