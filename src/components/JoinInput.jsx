@@ -4,6 +4,16 @@ import {oneOf, string} from 'prop-types';
 export function JoinInput({type = 'text', name = null, label, placeholder, style, maxLength, incorrectMessage, ...restProps}) {
 	const id = useId();
 
+	const [incorrectDiv, setIncorrectDiv] = useState('hidden');
+
+	useEffect(() => {
+		if (incorrectMessage) {
+			setIncorrectDiv('');
+		} else {
+			setIncorrectDiv('hidden');
+		}
+	});
+
 	return (
 		<tr>
 			<th className="h-[68px] border-t-[1px] border-[#d9d9d9] pl-[43px] text-left text-[#333]">

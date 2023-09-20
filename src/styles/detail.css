@@ -51,3 +51,24 @@
 	overflow: hidden; /* 넘치는 부분을 숨깁니다. */
 	text-overflow: ellipsis; /* 넘치는 텍스트에 말줄임표를 추가합니다. */
 }
+
+.zoom-container {
+	position: relative;
+	width: 300px; /* 이미지 컨테이너의 너비 조정 */
+	overflow: hidden;
+}
+
+.image-container img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+.zoom-lens {
+	position: absolute;
+	width: 100px; /* 줌 렌즈의 너비 조정 */
+	height: 100px; /* 줌 렌즈의 높이 조정 */
+	border: 1px solid #ccc;
+	background-color: rgba(255, 255, 255, 0.5); /* 줌 렌즈 배경색과 투명도 조정 */
+	pointer-events: none; /* 줌 렌즈 위에서 마우스 이벤트 무시 */
+}
