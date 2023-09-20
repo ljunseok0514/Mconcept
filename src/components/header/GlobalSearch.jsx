@@ -1,10 +1,10 @@
 import {useAuth} from '@/contexts/Auth';
-import join from '../../public/header/icon_join.png';
-import login from '../../public/header/icon_login.png';
-import logout from '../../public/header/icon_logout.svg';
-import my from '../../public/header/icon_my.png';
-import shopping from '../../public/header/icon_shopping.png';
-import logo from '../../public/header/logo.png';
+import join from '../../../public/header/icon_join.png';
+import login from '../../../public/header/icon_login.png';
+import logout from '../../../public/header/icon_logout.svg';
+import my from '../../../public/header/icon_my.png';
+import shopping from '../../../public/header/icon_shopping.png';
+import logo from '../../../public/header/logo.png';
 import {NavLink, useNavigate} from 'react-router-dom';
 
 function GlobalSearch() {

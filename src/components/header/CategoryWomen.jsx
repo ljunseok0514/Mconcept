@@ -1,8 +1,8 @@
-import cate_label from '../../public/header/cate_label.jpeg';
-import cate_casual from '../../public/header/cate_casual.jpeg';
-import cate_globalshop from '../../public/header/cate_globalshop.jpeg';
-import cate_luxuryzone from '../../public/header/cate_luxuryzone.jpeg';
-import cate_manneiProductPic from '../../public/header/cate_manneiProductPic.jpeg';
+import cate_label from '../../../public//header/cate_label.jpeg';
+import cate_casual from '../../../public//header/cate_casual.jpeg';
+import cate_globalshop from '../../../public//header/cate_globalshop.jpeg';
+import cate_luxuryzone from '../../../public//header/cate_luxuryzone.jpeg';
+import cate_manneiProductPic from '../../../public//header/cate_manneiProductPic.jpeg';
 
 function CategoryWomen() {
 	return (

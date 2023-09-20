@@ -2,11 +2,11 @@ import {useNavigate} from 'react-router-dom';
 import pb from '@/api/pocketbase';
 import debounce from '@/utils/debounce';
 import {JoinInput} from '@/components/join/JoinInput';
-import {JoinButton} from '@/components/JoinButton';
+import {JoinButton} from '@/components/join/JoinButton';
 import {Helmet} from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import useInputIncorrectCheck from '@/hooks/useInputIncorrectCheck';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 function Join() {
 	const navigate = useNavigate();
@@ -111,6 +111,48 @@ function Join() {
 			return;
 		}
 
+		if (!isAgeChecked) {
+			toast.error(
+				`필수항목 
+			만 14세 이상일 경우 동의하여 주십시오.`,
+				{
+					style: {
+						padding: '6px 14px',
+						lineHeight: '22px',
+					},
+				},
+			);
+			return;
+		}
+
+		if (!isAgreementChecked) {
+			toast.error(
+				`필수항목 
+			사이트 이용 약관에 동의하여 주십시오.`,
+				{
+					style: {
+						padding: '6px 14px',
+						lineHeight: '22px',
+					},
+				},
+			);
+			return;
+		}
+
+		if (!isInfoChecked) {
+			toast.error(
+				`필수항목 
+			개인정보 수집·이용에 동의해 주십시오.`,
+				{
+					style: {
+						padding: '6px 14px',
+						lineHeight: '22px',
+					},
+				},
+			);
+			return;
+		}
+
 		// PocketBase SDK 인증 요청
 		await pb.collection('users').create({
 			...formState,
@@ -131,6 +173,50 @@ function Join() {
 	};
 
 	const handleDebounceInput = debounce(handleInput, 200);
+	//이벤트 정보 토글버튼
+	const [isEventChecked, setEventIsChecked] = useState(false);
+	const handleEventCheckboxChange = () => {
+		setEventIsChecked(!isEventChecked);
+	};
+
+	//전체동의합니다 체크박스 토글
+	const [isAllChecked, setAllIsChecked] = useState(false);
+	const handleAllCheckboxChange = () => {
+		let newValue = !isAllChecked;
+
+		setAllIsChecked(newValue);
+		setAgeIsChecked(newValue);
+		setAgreementIsChecked(newValue);
+		setInfoIsChecked(newValue);
+		setInfoUseIsChecked(newValue);
+	};
+
+	//만 14세 이상입니다 체크박스 토글
+	const [isAgeChecked, setAgeIsChecked] = useState(false);
+
+	//이용약관 동의 체크박스 토글
+	const [isAgreementChecked, setAgreementIsChecked] = useState(false);
+
+	//개인정보 수집 및 이용에 대한 동의 체크박스 토글
+	const [isInfoChecked, setInfoIsChecked] = useState(false);
+
+	//개인정보 수집 및 이용안내 체크박스 토글
+	const [isInfoUseChecked, setInfoUseIsChecked] = useState(false);
+
+	// 전체 토글 제외 다른 토글들이 모두 체크된 상태일 때, 전체 토글 체크됨
+	// 토글들이 모두 체크된 상태일 때 전체 토글 제외 토글이 1개이상 해제되면 전체 토글 체크 해제됨
+	useEffect(() => {
+		if (isAgeChecked && isAgreementChecked && isInfoChecked && isInfoUseChecked) {
+			setAllIsChecked(true);
+		} else if (!isAgeChecked || !isAgreementChecked || !isInfoChecked || !isInfoUseChecked) {
+			setAllIsChecked(false);
+		}
+	}, [isAgeChecked, isAgreementChecked, isInfoChecked, isInfoUseChecked]);
+
+	//나머지 토글 체크박스 핸들러
+	const handleCheckboxChange = (setFunc) => () => {
+		setFunc((prevState) => !prevState);
+	};
 
 	return (
 		<>
@@ -209,19 +295,37 @@ function Join() {
 									</th>
 									<td className="break-words border-t-[1px] border-solid border-[#d9d9d9] bg-clip-padding px-[19px] py-[14px] text-[14px] text-[#000]">
 										<div className="input_button agree-all_box relative mr-[50px] inline-block">
-											<input className="absolute left-0 top-0 z-[1] h-[25px] w-[25px] opacity-0" type="radio" id="agree-all" />
+											<input
+												checked={isEventChecked}
+												onChange={handleEventCheckboxChange}
+												className="absolute left-0 top-0 z-[1] h-[25px] w-[25px] opacity-0"
+												type="checkbox"
+												id="agree-all"
+												name="test"
+											/>
 											<label
 												htmlFor="agree-all"
-												className="before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/sprīt_2.png')] before:bg-[left_0px_top_-30px]"
+												className={`${
+													isEventChecked ? 'before:bg-[left_-30px_top_-30px]' : 'before:bg-[left_-30px_top_0px]'
+												}  before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] before:bg-[left_0px_top_-30px]`}
 											>
 												수신
 											</label>
 										</div>
 										<div className="input_button disagree-all_box relative mr-[50px] inline-block">
-											<input className="absolute left-0 top-0 z-[1] h-[25px] w-[25px] opacity-0" type="radio" id="disagree-all" />
+											<input
+												checked={isEventChecked}
+												onChange={handleEventCheckboxChange}
+												className="absolute left-0 top-0 z-[1] h-[25px] w-[25px] opacity-0"
+												type="checkbox"
+												id="disagree-all"
+												name="test"
+											/>
 											<label
 												htmlFor="disagree-all"
-												className="before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/sprīt_2.png')] before:bg-[left_0px_top_-30px]"
+												className={`${
+													isEventChecked ? 'before:bg-[left_-30px_top_0px]' : 'before:bg-[left_-30px_top_-30px]'
+												}  before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] before:bg-[left_0px_top_-30px]`}
 											>
 												비수신
 											</label>
@@ -233,10 +337,19 @@ function Join() {
 
 						<section className="join_agreement mb-[60px]">
 							<div className="all_check_desc relative m-0 inline-block pb-[20px] pl-[40px] pt-[0]">
-								<input className="absolute left-0 top-[0] z-[1] h-[25px] w-[25px] opacity-0" type="checkbox" name="checkAll2" id="checkAll2" />
+								<input
+									checked={isAllChecked}
+									onChange={handleAllCheckboxChange}
+									className="absolute left-0 top-[0] z-[1] h-[25px] w-[25px] opacity-0"
+									type="checkbox"
+									name="checkAll2"
+									id="checkAll2"
+								/>
 								<label
 									htmlFor="checkAll2"
-									className="before:-content[''] relative mt-[5px] block pl-[35px] text-[14px] leading-[25px] text-[#666] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/sprīt_2.png')] "
+									className={`${
+										isAllChecked ? 'before:bg-[left_-30px_top_0px]' : ''
+									} before:-content[''] relative mt-[5px] block pl-[35px] text-[14px] leading-[25px] text-[#666] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')]`}
 								>
 									<em className="text-[16px] not-italic	">전체동의합니다.</em>
 									<br />
@@ -248,26 +361,46 @@ function Join() {
 							<ul>
 								<li className="relative mb-[1px] h-[50px] bg-[#f2f2f2] pl-[40px] pt-[13px]">
 									<div className="input_button relative mr-[50px] inline-block">
-										<input className="absolute left-0 top-0 z-[1] h-[25px] w-[25px] opacity-0" type="checkbox" name="all_agree04" id="checkAgree5" />
+										<input
+											checked={isAgeChecked}
+											onChange={handleCheckboxChange(setAgeIsChecked)}
+											className="absolute left-0 top-0 z-[1] h-[25px] w-[25px] opacity-0"
+											type="checkbox"
+											name="all_agree04"
+											id="checkAgree5"
+										/>
 										<label
 											htmlFor="checkAgree5"
-											className="before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/sprīt_2.png')]"
+											className={` before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] ${
+												isAgeChecked ? 'before:bg-[left_-30px_top_0px]' : ''
+											}`}
 										>
-											만 14세 이상입니다.(필수)
+											만 14세 이상입니다. (필수)
 										</label>
 									</div>
 								</li>
 								<li className="relative mb-[1px] h-[50px] bg-[#f2f2f2] pl-[40px] pt-[13px]">
 									<div className="input_button relative mr-[50px] inline-block">
-										<input className="absolute left-0 top-0 z-[1] h-[25px] w-[25px] opacity-0" type="checkbox" name="all_agree04" id="checkAgree4" />
+										<input
+											checked={isAgreementChecked}
+											onChange={handleCheckboxChange(setAgreementIsChecked)}
+											className="absolute left-0 top-0 z-[1] h-[25px] w-[25px] opacity-0"
+											type="checkbox"
+											name="all_agree04"
+											id="checkAgree4"
+										/>
 										<label
 											htmlFor="checkAgree4"
-											className="before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/sprīt_2.png')]"
+											className={` before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] 
+											 ${isAgreementChecked ? 'before:bg-[left_-30px_top_0px]' : ''} `}
 										>
-											이용약관 동의.(필수)
+											이용약관 동의 (필수)
 										</label>
 									</div>
 									<button
+										onClick={() => {
+											window.location.href = 'https://www.wconcept.co.kr/CustomerAgreement';
+										}}
 										type="button"
 										className="open-layer absolute right-[40px] top-[14px] inline-block h-[20px] min-w-[60px] border-[1px] border-solid border-[#333] bg-[#fff] px-[8px] text-center align-middle text-[12px] leading-[18px]"
 									>
@@ -276,15 +409,27 @@ function Join() {
 								</li>
 								<li className="relative mb-[1px] h-[50px] bg-[#f2f2f2] pl-[40px] pt-[13px]">
 									<div className="input_button relative mr-[50px] inline-block">
-										<input className="absolute left-0 top-0 z-[1] h-[25px] w-[25px] opacity-0" type="checkbox" name="all_agree02" id="checkAgree2" />
+										<input
+											checked={isInfoChecked}
+											onChange={handleCheckboxChange(setInfoIsChecked)}
+											className="absolute left-0 top-0 z-[1] h-[25px] w-[25px] opacity-0"
+											type="checkbox"
+											name="all_agree02"
+											id="checkAgree2"
+										/>
 										<label
 											htmlFor="checkAgree2"
-											className="before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/sprīt_2.png')]"
+											className={` before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] ${
+												isInfoChecked ? 'before:bg-[left_-30px_top_0px]' : ''
+											} `}
 										>
-											개인정보 수집 및 이용에 대한 동의(필수)
+											개인정보 수집 및 이용에 대한 동의 (필수)
 										</label>
 									</div>
 									<button
+										onClick={() => {
+											window.location.href = 'https://www.wconcept.co.kr/CustomerAgreement';
+										}}
 										type="button"
 										className="open-layer absolute right-[40px] top-[14px] inline-block h-[20px] min-w-[60px] border-[1px] border-solid border-[#333] bg-[#fff] px-[8px] text-center align-middle text-[12px] leading-[18px]"
 									>
@@ -293,15 +438,27 @@ function Join() {
 								</li>
 								<li className="relative mb-[1px] h-[50px] bg-[#f2f2f2] pl-[40px] pt-[13px]">
 									<div className="input_button relative mr-[50px] inline-block">
-										<input className="absolute left-0 top-0 z-[1] h-[25px] w-[25px] opacity-0" type="checkbox" name="all_agree03" id="checkAgree3" />
+										<input
+											checked={isInfoUseChecked}
+											onChange={handleCheckboxChange(setInfoUseIsChecked)}
+											className="absolute left-0 top-0 z-[1] h-[25px] w-[25px] opacity-0"
+											type="checkbox"
+											name="all_agree03"
+											id="checkAgree3"
+										/>
 										<label
 											htmlFor="checkAgree3"
-											className="before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/sprīt_2.png')]"
+											className={` before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] ${
+												isInfoUseChecked ? 'before:bg-[left_-30px_top_0px]' : ''
+											} `}
 										>
-											개인정보 수집 및 이용안내(필수)
+											개인정보 수집 및 이용안내 (선택)
 										</label>
 									</div>
 									<button
+										onClick={() => {
+											window.location.href = 'https://www.wconcept.co.kr/CustomerAgreement';
+										}}
 										type="button"
 										className="open-layer absolute right-[40px] top-[14px] inline-block h-[20px] min-w-[60px] border-[1px] border-solid border-[#333] bg-[#fff] px-[8px] text-center align-middle text-[12px] leading-[18px]"
 									>
