@@ -31,14 +31,14 @@ function PopUp({popup}) {
 					<div className={popupPosition}>
 						<figure className='bg-[#c9cdce] p-10 rounded-t-xl'>
 							<a href="">
-								<img src={popup.img} alt={popup.alt} className="w-full" />
+								<img src={popup.img} alt={popup.alt} className="w-full hover:scale-95" />
 							</a>
 						</figure>
 							<div className='border-gray-400 text-center flex justify-around bg-[#e8e8e8]  rounded-b-xl px-2 py-2'>
-								<button className="text-xl hover:scale-95 border-r-2 border-gray-200 border-spacing-2 px-4 pe-8" onClick={handleTodayClose}>
+								<button className="text-lg hover:scale-95 border-r-2 border-gray-200 border-spacing-2 px-4 pe-8" onClick={handleTodayClose}>
 									다시 보지 않음
 								</button>
-								<button className="text-xl hover:scale-95 border-spacing-2 px-4 pe-8" onClick={handleClosePopup}>
+								<button className="text-lg hover:scale-95 border-spacing-2 px-4 pe-8" onClick={handleClosePopup}>
 									닫기
 								</button>
 						</div>

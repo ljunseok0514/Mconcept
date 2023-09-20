@@ -28,7 +28,7 @@ function StickyScroll() {
 			setShowTopButton(false);
 		}
 
-		if (scrollTop + clientHeight >= scrollHeight) {
+		if (scrollTop + clientHeight >= scrollHeight - 10) {
 			setShowBottomButton(false);
 		} else {
 			setShowBottomButton(true);
@@ -52,18 +52,18 @@ function StickyScroll() {
 			{isOpen ? (
 				<ShoppingHistoryPopup isOpen={isOpen} setIsOpen={setIsOpen} />
 			) : (
-				<div className="fixed bottom-4 right-4 flex flex-col gap-2">
+				<div className="fixed bottom-7 right-6 flex flex-col gap-2">
 					<button className="hover:opacity-70 active:scale-90" onClick={openModal}>
-						<img src={sticky1} alt="" className="w-10" />
+						<img src={sticky1} alt="최근 본 상품" className="w-[2vw]" />
 					</button>
 					{showTopButton && (
 						<button className="scroll-button hover:opacity-70 active:scale-90" onClick={scrollToTop}>
-							<img src={sticky2} alt="" className="w-10" />
+							<img src={sticky2} alt="최상단으로 이동" className="w-[2vw]" />
 						</button>
 					)}
 					{showBottomButton && (
 						<button className="scroll-button hover:opacity-70 active:scale-90" onClick={scrollToBottom}>
-							<img src={sticky3} alt="" className="w-10" />
+							<img src={sticky3} alt="최하단으로 이동" className="w-[2vw]" />
 						</button>
 					)}
 				</div>

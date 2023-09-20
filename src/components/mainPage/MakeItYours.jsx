@@ -24,7 +24,7 @@ function MakeItYours() {
 
 	return (
 		<>
-			<section className="relative mx-auto mb-10">
+			<section className="relative mx-auto mb-32">
 				<h2 className="mb-8 text-center text-[54px] font-thin">MAKE IT YOURS</h2>
 				<div className="flex px-20">
 					<Swiper
@@ -47,7 +47,7 @@ function MakeItYours() {
 								?.filter((item) => item.main == true)
 								.map((item) => {
 									return (
-										<SwiperSlide key={item.id}>
+										<SwiperSlide key={item.id} onClick={() => handleClick(item.id)}>
 											<ProductInfo item={item} style={style} />
 										</SwiperSlide>
 									);

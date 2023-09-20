@@ -6,6 +6,7 @@ import MainArticle from '@/components/mainPage/MainArticle';
 import MakeItYours from '@/components/mainPage/MakeItYours';
 import StickyScroll from '@/components/mainPage/StickyScroll';
 import StyleStory from '@/components/mainPage/StyleStory';
+import {Helmet} from 'react-helmet-async';
 
 const popup = [
 	{ 
@@ -24,15 +25,19 @@ const popup = [
 
 function Mainpage() {
 	return (
-		<div className="mx-auto max-w-[1920px]">
-			<MainArticle />
-			<StyleStory />
-			<EventBanner />
-			<MakeItYours />
-			<PopUp popup={popup[0]} />
-			<PopUp popup={popup[1]} />
-			<StickyScroll />
-		</div>
+		<>
+			<Helmet>
+				<title>Home - M Concept</title>
+			</Helmet>
+			<div className="mx-auto max-w-[1920px]">
+				<MainArticle />
+				<StyleStory />
+				<EventBanner />
+				<MakeItYours />
+				<PopUp popup={popup[0]} />
+				<PopUp popup={popup[1]} />
+			</div>
+		</>
 	);
 }
 
