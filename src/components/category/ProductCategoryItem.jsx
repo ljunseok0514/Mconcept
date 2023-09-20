@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import '../../styles/category.css';
 
 // 카테고리 및 아이템 데이터
@@ -21,20 +21,15 @@ const categories = [
 	},
 ];
 
-function ProductCategoryItem() {
-	const [activeIndex, setActiveIndex] = useState(null);
 
-	const handleClick = (index) => {
-		setActiveIndex(index);
-	};
+function ProductCategoryItem() {
+	const [activeItem, setActiveItem] = useState(null);
 
 	return (
-		<>
-			{categories.map((category, categoryIdx) => (
-				<dl key={categoryIdx} className="px-2 text-sm leading-8">
-					<dt className="pt-5 text-lg font-bold text-tertiary">
-						<a href="#">
-							{category.title}
+        <>
+            {categories.map((category) => (
+                <dl className="px-2 text-sm leading-8 my-4">
+						<a className='text-lg font-bold' href="#">
 							<button
 								className="float-right mr-2 mt-3 block h-[9px] w-[9px]"
 								style={{
@@ -43,25 +38,33 @@ function ProductCategoryItem() {
 									backgroundPositionY: '-60px',
 									backgroundRepeat: 'no-repeat',
 								}}
-							></button>
+								></button>
+								{renderItem({name: category.title})}
 						</a>
-					</dt>
-					{category.items.map((item, itemIdx) => renderItem(item, itemIdx))}
-				</dl>
-			))}
-		</>
-	);
+                    {category.items.map((item) => renderItem(item))}
+                </dl>
+            ))}
+        </>
+    );
 
-	function renderItem(item, index) {
-		const isActive = activeIndex === index;
-		const className = isActive ? 'item-active' : '';
+	function renderItem(item) {
+		let name;
+		
+		if (typeof item === "string") {
+			name = item;
+		} else if (typeof item === "object") {
+			name = item.name;
+	    }
 
-		return (
-			<dd key={index} onClick={() => handleClick(index)} className={className}>
-				<a href="#">{item}</a>
-			</dd>
-		);
-	}
+	    const isActive = activeItem === name;
+	    const className = isActive ? 'item-active' : '';
+
+	    return (
+	        <dd key={name} onClick={() => setActiveItem(name)} className={className}>
+	            <a href="#">{name}</a>
+	        </dd>
+	    );
+    }
 }
 
 export default ProductCategoryItem;
