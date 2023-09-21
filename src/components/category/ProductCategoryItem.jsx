@@ -50,7 +50,7 @@ function ProductCategoryItem() {
                             className={activeItem === category.title ? "item-active" : ""}
                         >
                             <dt className="sr-only" aria-label="제목"></dt>
-                            <button>{category.title}</button>
+                            <dd>{category.title}</dd>
                         </dl>
                     </a>
 
@@ -61,7 +61,7 @@ function ProductCategoryItem() {
                             className={activeItem === item ? "item-active" : ""}
                         >
 	                        <dt className="sr-only" aria-label="부제목"></dt>
-	                        <button>{item}</button>
+	                        <dd>{item}</dd>
 	                    </dl>
 	                ))}
                 </div>
