@@ -1,13 +1,15 @@
 import pb from '@/api/pocketbase';
 import {forwardRef, useEffect, useState} from 'react';
 import {PrimaryButton, SecondaryButton} from '@/components/category/ProductFilterButton';
-import ProductFilter from '@/components/category/ProductFilter';
+import {ProductFilterBrand, ProductFilterPrice, ProductFilterBenefit, ProductFilterColor, ProductFilterDiscount} from '@/components/category/ProductFilter';
 
 /**
  *  ProductFilterList component
  * */
 
 function ProductFilterList({brands, onFilter, onAssign, onReset}, ref) {
+	const [activeFilter, setActiveFilter] = useState('BRAND');
+
 	return (
 		<>
 			<div className="flex justify-between border-y-[1px] border-l-grey-200 bg-[#fbfbfb] px-6 py-4 text-lg font-semibold">
@@ -23,19 +25,29 @@ function ProductFilterList({brands, onFilter, onAssign, onReset}, ref) {
 				</h4>
 				<ul className="filter-nav flex gap-24">
 					<li>
-						<button type="button">BRAND</button>
+						<button type="button" onClick={() => setActiveFilter('BRAND')} style={{color: activeFilter === 'BRAND' ? '#fa5500' : 'initial'}}>
+							BRAND
+						</button>
 					</li>
 					<li>
-						<button type="button">PRICE</button>
+						<button type="button" onClick={() => setActiveFilter('PRICE')} style={{color: activeFilter === 'PRICE' ? '#fa5500' : 'initial'}}>
+							PRICE
+						</button>
 					</li>
 					<li>
-						<button type="button">BENEFIT</button>
+						<button type="button" onClick={() => setActiveFilter('BENEFIT')} style={{color: activeFilter === 'BENEFIT' ? '#fa5500' : 'initial'}}>
+							BENEFIT
+						</button>
 					</li>
 					<li>
-						<button type="button">COLOR</button>
+						<button type="button" onClick={() => setActiveFilter('COLOR')} style={{color: activeFilter === 'COLOR' ? '#fa5500' : 'initial'}}>
+							COLOR
+						</button>
 					</li>
 					<li>
-						<button type="button">DISCOUNT</button>
+						<button type="button" onClick={() => setActiveFilter('DISCOUNT')} style={{color: activeFilter === 'DISCOUNT' ? '#fa5500' : 'initial'}}>
+							DISCOUNT
+						</button>
 					</li>
 				</ul>
 			</div>
@@ -43,9 +55,23 @@ function ProductFilterList({brands, onFilter, onAssign, onReset}, ref) {
 			<div ref={ref} className="bg-[#fbfbfb] p-8">
 				<ul className="brand mb-8 flex flex-wrap border border-grey-100 bg-white px-4 py-6">
 					{brands.map((brandName) => (
-						<li key={brandName} className="flex pl-4">
-							<ProductFilter brandName={brandName} onFilter={onFilter} />
-						</li>
+						<>
+							<li key={brandName} className="flex pl-4">
+								{activeFilter === 'BRAND' && <ProductFilterBrand brandName={brandName} onFilter={onFilter} />}
+							</li>
+							{/* <li key={price} className="flex pl-4">
+								{activeFilter === 'PRICE' && <ProductFilterPrice brandName={price} onFilter={onFilter} />}
+							</li>
+							<li key={benefit} className="flex pl-4">
+								{activeFilter === 'PRICE' && <ProductFilterBenefit brandName={benefit} onFilter={onFilter} />}
+							</li>
+							<li key={color} className="flex pl-4">
+								{activeFilter === 'PRICE' && <ProductFilterColor brandName={color} onFilter={onFilter} />}
+							</li>
+							<li key={discount} className="flex pl-4">
+								{activeFilter === 'PRICE' && <ProductFilterDiscount brandName={discount} onFilter={onFilter} />}
+							</li> */}
+						</>
 					))}
 				</ul>
 
