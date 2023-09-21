@@ -6,7 +6,7 @@ import {ProductFilterBrand, ProductFilterPrice, ProductFilterBenefit, ProductFil
  *  ProductFilterList component
  * */
 
-function ProductFilterList({brands, color, onFilter, onAssign, onReset}, ref) {
+function ProductFilterList({brands = [], colors = [], onfilter, onassign, onreset}, ref){
 	const [activeFilter, setActiveFilter] = useState('BRAND');
 
 	return (
@@ -28,6 +28,7 @@ function ProductFilterList({brands, color, onFilter, onAssign, onReset}, ref) {
 							BRAND
 						</button>
 					</li>
+
 					<li>
 						<button type="button" onClick={() => setActiveFilter('BENEFIT')} style={{color: activeFilter === 'BENEFIT' ? '#fa5500' : 'initial'}}>
 							BENEFIT
@@ -47,12 +48,35 @@ function ProductFilterList({brands, color, onFilter, onAssign, onReset}, ref) {
 			</div>
 
 			<div ref={ref} className="bg-[#fbfbfb] p-8">
-				<ul className="brand mb-8 flex flex-wrap border border-grey-100 bg-white px-4 py-6">
-					{brands.map((brandName) => (
-						<>
-							<li key={brandName} className="flex pl-4">
-								{activeFilter === 'BRAND' && <ProductFilterBrand brandName={brandName} onFilter={onFilter} />}
-							</li>
+          <ul className="brand mb-8 flex flex-wrap border border-grey-100 bg-white px-4 py-6">
+              {brands.map((brandName) => (
+                  <>
+                      <li key={`brand-${brandName}`} className="flex pl-4">
+                          {activeFilter === 'BRAND' && <ProductFilterBrand brandname={`brand-${brandName}`}  />}
+                      </li>
+                  </>
+              ))}
+
+              {colors.map((color) => (
+                  <li key={`color-${color}`} className="flex pl-4">
+                      {activeFilter === 'COLOR' && <ProductFilterColor colorname={`color-${color}`}  colorvalue={`#${Math.floor(Math.random()*16777215).toString(16)}`}  />}
+                  </li>
+              ))}
+
+          </ul>
+
+				<div role="group" className="button text-center">
+					<SecondaryButton onClick={onreset}>초기화</SecondaryButton>
+					<PrimaryButton onClick={onassign}>필터적용</PrimaryButton>
+				</div>
+			</div>
+		</>
+	);
+}
+
+
+export default forwardRef(ProductFilterList);
+
 
 							{/* <li key={benefit} className="flex pl-4">
 								{activeFilter === 'BENEFIT' && <ProductFilterBenefit brandName={benefit} onFilter={onFilter} />}
@@ -61,24 +85,3 @@ function ProductFilterList({brands, color, onFilter, onAssign, onReset}, ref) {
 							<li key={discount} className="flex pl-4">
 								{activeFilter === 'DISCOUNT' && <ProductFilterDiscount brandName={discount} onFilter={onFilter} />}
 							</li> */}
-						</>
-					))}
-{/* 
-					{color.map((color) => (
-						<li key={color} className="flex pl-4">
-							{activeFilter === 'COLOR' && <ProductFilterColor colorName={color} onFilter={onFilter} />}
-						</li>
-					))}
-					 */}
-				</ul>
-
-				<div role="group" className="button text-center">
-					<SecondaryButton onClick={onReset}>초기화</SecondaryButton>
-					<PrimaryButton onClick={onAssign}>필터적용</PrimaryButton>
-				</div>
-			</div>
-		</>
-	);
-}
-
-export default forwardRef(ProductFilterList);
