@@ -44,16 +44,16 @@ export function ProductFilterBenefit({benefit, onFilter}) {
 	);
 }
 
-export function ProductFilterColor({color, onFilter}) {
+export function ProductFilterColor({colorName, onFilter}) {
 	return (
 		<label>
 			<input
 				type="checkbox"
 				onChange={(e) => {
-					onFilter?.(color);
+					onFilter?.(colorName);
 				}}
 			/>
-			<span className="ml-1 text-base font-medium text-primary">{color}</span>
+			<span className="ml-1 text-base font-medium text-primary">{colorName}</span>
 		</label>
 	);
 }
