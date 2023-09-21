@@ -8,24 +8,24 @@ import star from '../../assets/images/detail/star.png';
 import tooltip from '../../assets/images/detail/tooltip.png';
 import {getProductsImage} from '@/utils/getProductsImage';
 
-function DetailsProducts({data, image}) {
-	const [zoom, setZoom] = useState(false);
-	const [position, setPosition] = useState({x: 0, y: 0});
+function DetailsProducts({data}) {
+	// const [zoom, setZoom] = useState(false);
+	// const [position, setPosition] = useState({x: 0, y: 0});
 
-	function handleMouseOver(e) {
-		const {left, top} = e.target.getBoundingClientRect();
-		setPosition({x: e.clientX - left, y: e.clientY - top});
-		setZoom(true);
-	}
+	// function handleMouseOver(e) {
+	// 	const {left, top} = e.target.getBoundingClientRect();
+	// 	setPosition({x: e.clientX - left, y: e.clientY - top});
+	// 	setZoom(true);
+	// }
 
-	function handleMouseMove(e) {
-		const {left, top} = e.target.getBoundingClientRect();
-		setPosition({x: e.clientX - left, y: e.clientY - top});
-	}
+	// function handleMouseMove(e) {
+	// 	const {left, top} = e.target.getBoundingClientRect();
+	// 	setPosition({x: e.clientX - left, y: e.clientY - top});
+	// }
 
-	function handleMouseOut() {
-		setZoom(false);
-	}
+	// function handleMouseOut() {
+	// 	setZoom(false);
+	// }
 
 	const {id} = useParams();
 
@@ -53,13 +53,13 @@ function DetailsProducts({data, image}) {
 									{zoomedArea && <img src={thumbnail01} alt="=" />}
 								</div> */}
 
-					<div className="zoom-lens-container" onMouseOver={handleMouseOver} onMouseMove={handleMouseMove} onMouseOut={handleMouseOut}>
+					{/* <div className="zoom-lens-container" onMouseOver={handleMouseOver} onMouseMove={handleMouseMove} onMouseOut={handleMouseOut}>
 						<img src={getProductsImage(data, 'photo')} alt={data.name} key={data.id} className="mb-5 w-[525px]" />
 
 						{zoom && <div className="lens" style={{backgroundImage: `url(${image})`, backgroundPosition: `${position.x}px ${position.y}px`}} />}
-					</div>
+					</div> */}
 
-					{/* <img src={getProductsImage(data, 'photo')} alt={data.name} key={data.id} className="mb-5 w-[525px]" /> */}
+					<img src={getProductsImage(data, 'photo')} alt={data.name} key={data.id} className="mb-5 w-[525px]" />
 				</div>
 
 				<div className="w-[660px]">
