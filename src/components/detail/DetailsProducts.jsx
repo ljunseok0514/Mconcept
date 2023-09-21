@@ -29,6 +29,9 @@ function DetailsProducts({data}) {
 
 	const {id} = useParams();
 
+	const [size, setSize] = useState('');
+	const [color, setColor] = useState('');
+
 	useEffect(() => {
 		async function getProductsImage() {
 			try {
@@ -90,6 +93,45 @@ function DetailsProducts({data}) {
 								<span className="text-tertiary">31&#37;</span>
 							</dd>
 						</dl>
+					</div>
+
+					<div className="border-b-[1px] border-grey-100 py-5">
+						<dl className="mb-4">
+							<dt className="float-left w-[125px] py-2 text-[13px]">신규회원 혜택가</dt>
+							<dd className="flex flex-row py-2 text-[18px]">
+								67,410 <p className="text-base">원</p>
+							</dd>
+							<dt className="float-left w-[125px] py-2 text-[13px]">추가혜택가</dt>
+							<dd className="flex flex-col py-2 text-sm text-grey-800">
+								<span>KakaoPay 할인 5,000원 할인</span>
+								<span>카카오페이로 신한카드 10만원 이상 결제 시 5천원 즉시할인</span>
+							</dd>
+						</dl>
+						<button className="text-sm text-[#333] underline">추가혜택 더보기 &#62;</button>
+					</div>
+
+					<div className="py-5">
+						<dl className="mb-4">
+							<dt className="float-left w-[125px] py-2 text-[13px]">무이자 할부</dt>
+							<dd className="py-2 text-sm text-grey-800">최대 6개월&#40;12,483원 X 6개월&#41;</dd>
+							<dt className="float-left w-[125px] py-2 text-[13px]">포인트 적립</dt>
+							<dd className="py-2 text-sm text-grey-800">749 p 적립</dd>
+						</dl>
+					</div>
+
+					<button className="text-sm text-[#333] underline">사이즈 가이드 &#62;</button>
+
+					<div className="py-4">
+						<label>
+							<span className="inline-block w-[125px] text-[13px]">색상&#47;사이즈</span>
+
+							<select value={size} onChange={(e) => setSize(e.target.value)} className="w-[535px] bg-[#f2f2f2] px-5 py-3 text-base">
+								<option value="">선택해 주세요.</option>
+								<option value="s">Small</option>
+								<option value="m">Medium</option>
+								<option value="l">Large</option>
+							</select>
+						</label>
 					</div>
 
 					{/* 우측 버튼들 */}
