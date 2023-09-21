@@ -9,6 +9,7 @@ import tooltip from '../../assets/images/detail/tooltip.png';
 import {getProductsImage} from '@/utils/getProductsImage';
 import gift from '../../assets/images/detail/ico_prod_gift.svg';
 import heartoff from '../../assets/images/detail/ico_prod_heart_off.svg';
+import hearton from '../../assets/images/detail/ico_prod_heart_on.svg';
 
 function DetailsProducts({data}) {
 	// const [zoom, setZoom] = useState(false);
@@ -33,6 +34,18 @@ function DetailsProducts({data}) {
 
 	const [size, setSize] = useState('');
 	const [color, setColor] = useState('');
+
+	const [isLiked, setIsLiked] = useState(false);
+	const [likesCount, setLikesCount] = useState(107);
+
+	const handleClick = () => {
+		if (isLiked) {
+			setLikesCount(likesCount - 1);
+		} else {
+			setLikesCount(likesCount + 1);
+		}
+		setIsLiked(!isLiked);
+	};
 
 	useEffect(() => {
 		async function getProductsImage() {
@@ -76,7 +89,9 @@ function DetailsProducts({data}) {
 								<img className="mr-1 inline" src={star} alt="" />
 								<span className="align-middle text-lg font-semibold">{data.star}</span>
 							</li>
-							<li className="mt-1 text-sm underline">55개 리뷰 &#62;</li>
+							<a href="#review" className="mt-1 text-sm underline">
+								55개 리뷰 &#62;
+							</a>
 						</ul>
 
 						<dl className="mb-4">
@@ -116,7 +131,7 @@ function DetailsProducts({data}) {
 						<dl className="mb-4">
 							<dt className="float-left w-[125px] py-2 text-[13px]">무이자 할부</dt>
 							<dd className="py-2 text-sm text-grey-800">최대 6개월&#40;12,483원 X 6개월&#41;</dd>
-							<dt className="float-left w-[125px] py-2 text-[13px]">포인트 적립</dt>
+							<dt className="float-left w-[125px] bg-red-300 py-2 text-[13px]">포인트 적립</dt>
 							<dd className="py-2 text-sm text-grey-800">749 p 적립</dd>
 						</dl>
 					</div>
@@ -150,9 +165,9 @@ function DetailsProducts({data}) {
 							</button>
 						</li>
 						<li>
-							<button className="flex h-[70px] w-[70px] flex-col items-center border border-grey-200">
-								<img className="mt-2" src={heartoff} alt="" />
-								<span className="mt-[3px] text-[13px] text-[#7d7d7d]">107</span>
+							<button onClick={handleClick} className="flex h-[70px] w-[70px] flex-col items-center border border-grey-200">
+								<img className="mt-2" src={isLiked ? hearton : heartoff} alt="" />
+								<span className="mt-[3px] text-[13px] text-[#7d7d7d]">{likesCount}</span>
 							</button>
 						</li>
 					</ul>
