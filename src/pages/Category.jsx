@@ -2,6 +2,7 @@ import pb from '@/api/pocketbase';
 import ProductCategory from '@/components/category/ProductCategory';
 import ProductFilterList from '@/components/category/ProductFilterList';
 import ProductsItems from '@/components/category/ProductItems';
+import ProductNav from '@/components/category/ProductNav';
 import ProductPageNation from '@/components/category/ProductPageNation';
 import ProductSort from '@/components/category/ProductSort';
 import {useEffect, useRef, useState} from 'react';
@@ -88,16 +89,7 @@ function Category() {
 				<ProductCategory />
 
 				<section className="w-4/5">
-					<nav className="mb-6 text-xs">
-						<ul className="flex flex-row">
-							<li>
-								<button type="button">HOME ＞ </button>
-							</li>
-							<li>
-								<button type="button">MEN</button>
-							</li>
-						</ul>
-					</nav>
+					<ProductNav/>
 
 					<ProductFilterList ref={productFilterListRef} brands={brands} onFilter={handleChangeFilter} onAssign={handleAssignFilter} onReset={handleResetFilteredBrandList} />
 
