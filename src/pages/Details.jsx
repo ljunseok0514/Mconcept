@@ -116,7 +116,7 @@ function Details() {
 				<DetailsNav />
 				<DetailsProducts data={data} />
 				<DetailsWvProject />
-				<DetailsDetail data={data} image={image} />
+				<DetailsDetail data={data} />
 				<DetailsYouMay />
 				<DetailsBeauty />
 				<DetailsReview />
