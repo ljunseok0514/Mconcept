@@ -47,7 +47,7 @@ function MakeItYours() {
 								?.filter((item) => item.main == true)
 								.map((item) => {
 									return (
-										<SwiperSlide key={item.id} onClick={() => handleClick(item.id)}>
+										<SwiperSlide key={item.id} >
 											<ProductInfo item={item} style={style} />
 										</SwiperSlide>
 									);

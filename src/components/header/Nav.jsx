@@ -1,14 +1,15 @@
-import icon_gnbLogo from '../../public/header/icon_gnbLogo.svg';
-import cate_label from '../../public/header/cate_label.jpeg';
-import cate_casual from '../../public/header/cate_casual.jpeg';
-import cate_globalshop from '../../public/header/cate_globalshop.jpeg';
-import cate_luxuryzone from '../../public/header/cate_luxuryzone.jpeg';
-import cate_manneiProductPic from '../../public/header/cate_manneiProductPic.jpeg';
-import NavList from './NavList.jsx';
+import icon_gnbLogo from '../../../public/header/icon_gnbLogo.svg';
+import cate_label from '../../../public/header/cate_label.jpeg';
+import cate_casual from '../../../public/header/cate_casual.jpeg';
+import cate_globalshop from '../../../public/header/cate_globalshop.jpeg';
+import cate_luxuryzone from '../../../public/header/cate_luxuryzone.jpeg';
+import cate_manneiProductPic from '../../../public/header/cate_manneiProductPic.jpeg';
 import CategoryWomen from './CategoryWomen';
 import CategoryMen from './CategoryMen';
 import CategoryBeauty from './CategoryBeauty';
 import CategoryLife from './CategoryLife';
+import {NavLink} from 'react-router-dom';
+import NavList from './NavList';
 
 function Nav() {
 	return (
@@ -21,8 +22,9 @@ function Nav() {
 								<img src={icon_gnbLogo} alt="M CONCEPT" />
 							</a>
 						</li>
+
 						<NavList listTitle="NEW" />
-						<NavList listTitle="MEN" />
+						<NavList listTitle="MEN" link="category" />
 						<NavList listTitle="WOMEN" />
 						<NavList listTitle="BEAUTY" />
 						<NavList listTitle="LIFE" />
@@ -51,25 +53,25 @@ function Nav() {
 					</ul>
 					<ul className="utility float-right mr-[-17px] hidden pt-[26px] before:table before:content-[''] after:clear-both after:table after:content-['']">
 						<li className="nav_search float-left text-center uppercase">
-							<a href="" className="relative block px-[17px] pb-[18px] text-[#000]">
+							<a href="#" className="relative block px-[17px] pb-[18px] text-[#000]">
 								<span className="icon_search inline-block h-[30px] w-[30px] bg-transparent bg-[url('../../public/header/icon_search.png')] bg-center bg-no-repeat align-top"></span>
 								<strong className="absolute bottom-[0] left-[0] right-[0] text-[12px] uppercase leading-[12px]">serch</strong>
 							</a>
 						</li>
 						<li className="nav_search float-left text-center uppercase">
-							<a href="" className="relative block px-[17px] pb-[18px] text-[#000]">
+							<a href="#" className="relative block px-[17px] pb-[18px] text-[#000]">
 								<span className="icon_search inline-block h-[30px] w-[30px] bg-transparent bg-[url('../../public/header/icon_heart.png')] bg-center bg-no-repeat align-top"></span>
 								<strong className="absolute bottom-[0] left-[0] right-[0] text-[12px] uppercase leading-[12px]">Heart</strong>
 							</a>
 						</li>
 						<li className="nav_search float-left text-center uppercase">
-							<a href="" className="relative block px-[17px] pb-[18px] text-[#000]">
+							<a href="#" className="relative block px-[17px] pb-[18px] text-[#000]">
 								<span className="icon_search inline-block h-[30px] w-[30px] bg-transparent bg-[url('../../public/header/icon_my.png')] bg-center bg-no-repeat align-top"></span>
 								<strong className="absolute bottom-[0] left-[0] right-[0] text-[12px] uppercase leading-[12px]">my</strong>
 							</a>
 						</li>
 						<li className="nav_search float-left text-center uppercase">
-							<a href="" className="relative block px-[17px] pb-[18px] text-[#000]">
+							<a href="#" className="relative block px-[17px] pb-[18px] text-[#000]">
 								<span className="icon_search inline-block h-[30px] w-[30px] bg-transparent bg-[url('../../public/header/icon_shopping.png')] bg-center bg-no-repeat align-top"></span>
 								<strong className="absolute bottom-[0] left-[0] right-[0] text-[12px] uppercase leading-[12px]">0</strong>
 							</a>

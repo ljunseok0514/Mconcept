@@ -1,7 +1,7 @@
-import Nav from '@/components/Nav';
+import Nav from '@/components/header/Nav';
 import banner from '../assets/images/header/heeader_banner.png';
 
-import GlobalSearch from '@/components/GlobalSearch';
+import GlobalSearch from '@/components/header/GlobalSearch';
 
 function Header() {
 	return (
