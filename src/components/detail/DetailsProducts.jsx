@@ -7,6 +7,8 @@ import React, {useEffect, useState} from 'react';
 import star from '../../assets/images/detail/star.png';
 import tooltip from '../../assets/images/detail/tooltip.png';
 import {getProductsImage} from '@/utils/getProductsImage';
+import gift from '../../assets/images/detail/ico_prod_gift.svg';
+import heartoff from '../../assets/images/detail/ico_prod_heart_off.svg';
 
 function DetailsProducts({data}) {
 	// const [zoom, setZoom] = useState(false);
@@ -133,6 +135,27 @@ function DetailsProducts({data}) {
 							</select>
 						</label>
 					</div>
+
+					<ul className="flex flex-row justify-between py-[30px]">
+						<li>
+							<button className="h-[70px] w-[250px] border border-black text-[20px]">바로 구매</button>
+						</li>
+						<li>
+							<button className="h-[70px] w-[250px] bg-black text-[20px] text-white">쇼핑백 담기</button>
+						</li>
+						<li>
+							<button className="flex h-[70px] w-[70px] flex-col items-center bg-tertiary">
+								<img className="mt-2" src={gift} alt="" />
+								<span className="mt-[3px] text-[13px] text-white">선물하기</span>
+							</button>
+						</li>
+						<li>
+							<button className="flex h-[70px] w-[70px] flex-col items-center border border-grey-200">
+								<img className="mt-2" src={heartoff} alt="" />
+								<span className="mt-[3px] text-[13px] text-[#7d7d7d]">107</span>
+							</button>
+						</li>
+					</ul>
 
 					{/* 우측 버튼들 */}
 					{/* <div className="t-0 r-0 absolute flex flex-row">
