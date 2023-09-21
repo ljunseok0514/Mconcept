@@ -63,13 +63,13 @@ function ProductFilterList({brands, color, onFilter, onAssign, onReset}, ref) {
 							</li> */}
 						</>
 					))}
-
+{/* 
 					{color.map((color) => (
 						<li key={color} className="flex pl-4">
 							{activeFilter === 'COLOR' && <ProductFilterColor colorName={color} onFilter={onFilter} />}
 						</li>
 					))}
-					
+					 */}
 				</ul>
 
 				<div role="group" className="button text-center">
