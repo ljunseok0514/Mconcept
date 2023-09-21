@@ -1,17 +1,32 @@
-// import {getProductsImage} from '../../utils/getProductsImage';
 import pb from '@/api/pocketbase';
 import {useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 
-import thumbnail01 from '../../assets/images/detail/301859392_LM29886.jpg';
-import thumbnail02 from '../../assets/images/detail/301859392_add1_GD94957.jpg';
 // import mybrand from '../../assets/images/detail/bg_heart.png';
 // import share from '../../assets/images/detail/share.png';
 import star from '../../assets/images/detail/star.png';
 import tooltip from '../../assets/images/detail/tooltip.png';
 import {getProductsImage} from '@/utils/getProductsImage';
 
-function DetailsProducts({data}) {
+function DetailsProducts({data, image}) {
+	const [zoom, setZoom] = useState(false);
+	const [position, setPosition] = useState({x: 0, y: 0});
+
+	function handleMouseOver(e) {
+		const {left, top} = e.target.getBoundingClientRect();
+		setPosition({x: e.clientX - left, y: e.clientY - top});
+		setZoom(true);
+	}
+
+	function handleMouseMove(e) {
+		const {left, top} = e.target.getBoundingClientRect();
+		setPosition({x: e.clientX - left, y: e.clientY - top});
+	}
+
+	function handleMouseOut() {
+		setZoom(false);
+	}
+
 	const {id} = useParams();
 
 	useEffect(() => {
@@ -38,7 +53,13 @@ function DetailsProducts({data}) {
 									{zoomedArea && <img src={thumbnail01} alt="=" />}
 								</div> */}
 
-					<img src={getProductsImage(data, 'photo')} alt={data.name} key={data.id} className="mb-5 w-[525px]" />
+					<div className="zoom-lens-container" onMouseOver={handleMouseOver} onMouseMove={handleMouseMove} onMouseOut={handleMouseOut}>
+						<img src={getProductsImage(data, 'photo')} alt={data.name} key={data.id} className="mb-5 w-[525px]" />
+
+						{zoom && <div className="lens" style={{backgroundImage: `url(${image})`, backgroundPosition: `${position.x}px ${position.y}px`}} />}
+					</div>
+
+					{/* <img src={getProductsImage(data, 'photo')} alt={data.name} key={data.id} className="mb-5 w-[525px]" /> */}
 				</div>
 
 				<div className="w-[660px]">

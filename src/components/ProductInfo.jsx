@@ -1,6 +1,7 @@
 import {getProductsImage} from '@/utils/getProductsImage';
-import { CelebrityLabel, CouponLabel, NewSeasonLabel, OnlyLabel } from './category/ProductLabel';
-import {motion} from "framer-motion";
+import {CelebrityLabel, CouponLabel, NewSeasonLabel, OnlyLabel} from './category/ProductLabel';
+import {motion} from 'framer-motion';
+import {Link} from 'react-router-dom';
 
 // 할인가격의 뒤에서 세번째 자리에 ',' 추가하는 정규식
 function formatNumber(number) {
@@ -8,12 +9,11 @@ function formatNumber(number) {
 }
 
 function ProductInfo({item, style = ''}) {
-
 	return (
 		<>
-			<a href="#">
-				<motion.div className="img"	whileHover={{ opacity : 0.8}}>
-					<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id}/>
+			<Link to={`/products/${item.id}`}>
+				<motion.div className="img" whileHover={{opacity: 0.8}}>
+					<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} />
 				</motion.div>
 
 				<div className="relative">
@@ -39,11 +39,9 @@ function ProductInfo({item, style = ''}) {
 						{item.only && <OnlyLabel />}
 					</dl>
 				</div>
-			</a>
+			</Link>
 		</>
 	);
 }
 
 export default ProductInfo;
-
-
