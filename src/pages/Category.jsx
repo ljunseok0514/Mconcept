@@ -6,7 +6,7 @@ import ProductNav from '@/components/category/ProductNav';
 import ProductPageNation from '@/components/category/ProductPageNation';
 import ProductSort from '@/components/category/ProductSort';
 import {useEffect, useRef, useState} from 'react';
-import {Helmet} from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 // import { NavLink, useNavigate } from 'react-router-dom';
 
 /**
@@ -47,41 +47,13 @@ function Category() {
 		});
 	};
 
-	const [color, setColor] = useState([]); // 상품 브랜드 이름 목록
-	// const [products, setProducts] = useState([]); // 상품 정보 목록
-	const [filteredColor, setFilteredColor] = useState([]); // 사용자에 의해 체크된  브랜드 이름 목록
-	const [filteredColorList, setFilteredColorList] = useState([]); // 필터 적용 버튼을 누를 때 필터링 되도록 하기 위한 상태
-
-	const handleChangeColorFilter = (newColorName) => {
-		setFilteredColor((filteredColors) => [...filteredColors, newColorName]);
-	};
-
-	const handleAssignColorFilter = () => {
-		setFilteredColorList(filteredColor);
-	};
-
-	const handleResetFiltereColorList = () => {
-		// 선언형 프로그래밍 방식
-		setFilteredColor([]);
-		setFilteredColorList([]);
-		// 명령형 프로그래밍 방식으로 모든 인풋의 체크 상태 초기화
-		const checkboxes = productFilterListRef.current.querySelectorAll('input');
-		checkboxes.forEach((checkbox) => {
-			if (checkbox.checked) {
-				checkbox.checked = false;
-			}
-		});
-	};
-
 	useEffect(() => {
 		async function getProducts() {
 			try {
 				const productList = await pb.collection('products').getFullList();
-				const brandList = Array.from(new Set(productList.map((product) => product.brand)));
-				const colorList = Array.from(new Set(productList.map((product) => product.color)));
-				setProducts(productList);
+				const brandList = Array.from(new Set(productList.map((product) => product.color)));
 				setBrands(brandList);
-				setColor(colorList);
+				setProducts(productList);
 			} catch (error) {
 				throw new Error('error');
 			}
@@ -92,8 +64,7 @@ function Category() {
 	// 사용자가 필터링할 브랜드를 체크하고 필터 적용 버튼을 누르면 그 때 필터링된 리스트 데이터를 파생된 리스트 데이터로 설정합니다.
 	// 파생된 상태(filtteredProducts) ← 필터링(filteredBrandList) ← 상태(products: 192)
 
-	// 브랜드에 대한 필터링
-	const filteredProductsByBrand =
+	const filteredProducts =
 		filteredBrandList.length === 0
 			? products
 			: products.filter((product) => {
@@ -101,23 +72,6 @@ function Category() {
 
 					for (const filterBrandName of filteredBrandList) {
 						if (product.brand === filterBrandName) {
-							isFiltered = true;
-							break;
-						}
-					}
-
-					return isFiltered;
-			  });
-
-	// 색상에 대한 필터링
-	const filteredProductsByColor =
-		filteredColorList.length === 0
-			? products
-			: products.filter((product) => {
-					let isFiltered = false;
-
-					for (const filterColorName of filteredColorList) {
-						if (product.color === filterColorName) {
 							isFiltered = true;
 							break;
 						}
@@ -135,21 +89,19 @@ function Category() {
 				<ProductCategory />
 
 				<section className="w-4/5">
-					<ProductNav />
+					<ProductNav/>
 
-					<ProductFilterList ref={productFilterListRef} items={brands} onFilter={handleChangeFilter} onAssign={handleAssignFilter} onReset={handleResetFilteredBrandList} />
-					<ProductFilterList ref={productFilterListRef} items={color} onFilter={handleChangeColorFilter} onAssign={handleAssignColorFilter} onReset={handleResetFiltereColorList} />
+					<ProductFilterList ref={productFilterListRef} brands={brands} onFilter={handleChangeFilter} onAssign={handleAssignFilter} onReset={handleResetFilteredBrandList} />
 
 					<div className="product-quantity border-t-2 border-black py-4 text-left">
 						<span className="text-sm font-light text-black">
-							<em className="a11y text-mlg font-normal not-italic">{filteredProductsByBrand.length}</em> 개의 상품
+							<em className="a11y text-mlg font-normal not-italic">{filteredProducts.length}</em> 개의 상품
 						</span>
 
 						<ProductSort />
 					</div>
 
-					<ProductsItems data={filteredProductsByBrand} />
-					<ProductsItems data={filteredProductsByColor} />
+					<ProductsItems data={filteredProducts} />
 					<ProductPageNation />
 				</section>
 			</main>
