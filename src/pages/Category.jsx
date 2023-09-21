@@ -5,6 +5,7 @@ import ProductsItems from '@/components/category/ProductItems';
 import ProductPageNation from '@/components/category/ProductPageNation';
 import ProductSort from '@/components/category/ProductSort';
 import {useEffect, useRef, useState} from 'react';
+import { Helmet } from 'react-helmet-async';
 // import { NavLink, useNavigate } from 'react-router-dom';
 
 /**
@@ -12,8 +13,7 @@ import {useEffect, useRef, useState} from 'react';
  * */
 
 function Category() {
-
-  const productFilterListRef = useRef(null);
+	const productFilterListRef = useRef(null);
 
 	// 서버에 데이터 요청/응답
 	// 응답 받은 데이터 상태로 설정해서 공유
@@ -33,18 +33,18 @@ function Category() {
 		setFilteredBrandList(filteredBrands);
 	};
 
-  const handleResetFilteredBrandList = () => {
-    // 선언형 프로그래밍 방식
-    setFilteredBrands([]);
-    setFilteredBrandList([]);
-    // 명령형 프로그래밍 방식으로 모든 인풋의 체크 상태 초기화
-    const checkboxes = productFilterListRef.current.querySelectorAll('input');
-    checkboxes.forEach(checkbox => {
-      if (checkbox.checked) {
-        checkbox.checked = false;
-      }
-    })
-  };
+	const handleResetFilteredBrandList = () => {
+		// 선언형 프로그래밍 방식
+		setFilteredBrands([]);
+		setFilteredBrandList([]);
+		// 명령형 프로그래밍 방식으로 모든 인풋의 체크 상태 초기화
+		const checkboxes = productFilterListRef.current.querySelectorAll('input');
+		checkboxes.forEach((checkbox) => {
+			if (checkbox.checked) {
+				checkbox.checked = false;
+			}
+		});
+	};
 
 	useEffect(() => {
 		async function getProducts() {
@@ -80,41 +80,40 @@ function Category() {
 			  });
 
 	return (
-		<main className="m-auto mt-6 flex max-w-[1980px] px-2">
-			<ProductCategory />
+		<>
+			<Helmet>
+				<title>Man Categories - M Concept</title>
+			</Helmet>
+			<main className="m-auto mt-6 flex max-w-[1980px] px-2">
+				<ProductCategory />
 
-			<section className="w-4/5">
-				<nav className="mb-6 text-xs">
-					<ul className="flex flex-row">
-						<li>
-							<button type="button">HOME ＞ </button>
-						</li>
-						<li>
-							<button type="button">MEN</button>
-						</li>
-					</ul>
-				</nav>
+				<section className="w-4/5">
+					<nav className="mb-6 text-xs">
+						<ul className="flex flex-row">
+							<li>
+								<button type="button">HOME ＞ </button>
+							</li>
+							<li>
+								<button type="button">MEN</button>
+							</li>
+						</ul>
+					</nav>
 
-				<ProductFilterList
-          ref={productFilterListRef}
-          brands={brands}
-          onFilter={handleChangeFilter}
-          onAssign={handleAssignFilter}
-          onReset={handleResetFilteredBrandList} 
-        />
+					<ProductFilterList ref={productFilterListRef} brands={brands} onFilter={handleChangeFilter} onAssign={handleAssignFilter} onReset={handleResetFilteredBrandList} />
 
-				<div className="product-quantity border-t-2 border-black py-4 text-left">
-					<span className="text-sm font-light text-black">
-						<em className="a11y text-mlg font-normal not-italic">{filteredProducts.length}</em> 개의 상품
-					</span>
+					<div className="product-quantity border-t-2 border-black py-4 text-left">
+						<span className="text-sm font-light text-black">
+							<em className="a11y text-mlg font-normal not-italic">{filteredProducts.length}</em> 개의 상품
+						</span>
 
-					<ProductSort />
-				</div>
+						<ProductSort />
+					</div>
 
-				<ProductsItems data={filteredProducts} />
-				<ProductPageNation />
-			</section>
-		</main>
+					<ProductsItems data={filteredProducts} />
+					<ProductPageNation />
+				</section>
+			</main>
+		</>
 	);
 }
 

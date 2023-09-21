@@ -10,7 +10,7 @@ export function useProducts() {
   async function getProductList() {
     try {
       setStatus('loading');
-      const productItems = await pb.collection('products').getFullList();
+      const productItems = await pb.collection('products').getList(1, 12);
       setData(productItems);
       setStatus('success');
     } catch (error) {
