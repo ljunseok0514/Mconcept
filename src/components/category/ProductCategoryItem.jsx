@@ -11,7 +11,7 @@ const categories = [
 	{
 		id: '2',
 		title: '팬츠',
-		items: ['VIEW ALL PANTS', '슬랙스', '쇼츠', '치노', '스웻'],
+		items: ['VIEW ALL PANTS', '슬랙스', '쇼츠', '치노', '조거'],
 	},
 	{
 		id: '3',
