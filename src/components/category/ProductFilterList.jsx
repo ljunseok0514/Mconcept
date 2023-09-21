@@ -1,5 +1,4 @@
-import pb from '@/api/pocketbase';
-import {forwardRef, useEffect, useState} from 'react';
+import {forwardRef, useState} from 'react';
 import {PrimaryButton, SecondaryButton} from '@/components/category/ProductFilterButton';
 import {ProductFilterBrand, ProductFilterPrice, ProductFilterBenefit, ProductFilterColor, ProductFilterDiscount} from '@/components/category/ProductFilter';
 
@@ -7,7 +6,7 @@ import {ProductFilterBrand, ProductFilterPrice, ProductFilterBenefit, ProductFil
  *  ProductFilterList component
  * */
 
-function ProductFilterList({brands, onFilter, onAssign, onReset}, ref) {
+function ProductFilterList({brands, color, onFilter, onAssign, onReset}, ref) {
 	const [activeFilter, setActiveFilter] = useState('BRAND');
 
 	return (
@@ -27,11 +26,6 @@ function ProductFilterList({brands, onFilter, onAssign, onReset}, ref) {
 					<li>
 						<button type="button" onClick={() => setActiveFilter('BRAND')} style={{color: activeFilter === 'BRAND' ? '#fa5500' : 'initial'}}>
 							BRAND
-						</button>
-					</li>
-					<li>
-						<button type="button" onClick={() => setActiveFilter('PRICE')} style={{color: activeFilter === 'PRICE' ? '#fa5500' : 'initial'}}>
-							PRICE
 						</button>
 					</li>
 					<li>
@@ -59,20 +53,23 @@ function ProductFilterList({brands, onFilter, onAssign, onReset}, ref) {
 							<li key={brandName} className="flex pl-4">
 								{activeFilter === 'BRAND' && <ProductFilterBrand brandName={brandName} onFilter={onFilter} />}
 							</li>
-							{/* <li key={price} className="flex pl-4">
-								{activeFilter === 'PRICE' && <ProductFilterPrice brandName={price} onFilter={onFilter} />}
+
+							{/* <li key={benefit} className="flex pl-4">
+								{activeFilter === 'BENEFIT' && <ProductFilterBenefit brandName={benefit} onFilter={onFilter} />}
 							</li>
-							<li key={benefit} className="flex pl-4">
-								{activeFilter === 'PRICE' && <ProductFilterBenefit brandName={benefit} onFilter={onFilter} />}
-							</li>
-							<li key={color} className="flex pl-4">
-								{activeFilter === 'PRICE' && <ProductFilterColor brandName={color} onFilter={onFilter} />}
-							</li>
+
 							<li key={discount} className="flex pl-4">
-								{activeFilter === 'PRICE' && <ProductFilterDiscount brandName={discount} onFilter={onFilter} />}
+								{activeFilter === 'DISCOUNT' && <ProductFilterDiscount brandName={discount} onFilter={onFilter} />}
 							</li> */}
 						</>
 					))}
+
+					{color.map((color) => (
+						<li key={color} className="flex pl-4">
+							{activeFilter === 'COLOR' && <ProductFilterColor colorName={color} onFilter={onFilter} />}
+						</li>
+					))}
+					
 				</ul>
 
 				<div role="group" className="button text-center">
