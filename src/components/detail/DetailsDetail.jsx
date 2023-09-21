@@ -30,7 +30,7 @@ function DetailsDetail({data}) {
 					<a href="#detail" className="detailTabBtnOn py-4 text-center text-mlg">
 						DETAIL
 					</a>
-					<a href="#review" className="detailTabBtn02 py-4 text-center text-mlg">
+					<a href="#review" className="detailTabBtn02 removeLine py-4 text-center text-mlg">
 						REVIEW (55)
 					</a>
 					<a href="#question" className="detailTabBtn03 py-4 text-center text-mlg">

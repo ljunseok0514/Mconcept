@@ -8,43 +8,25 @@ import star from '../../assets/images/detail/star.png';
 import tooltip from '../../assets/images/detail/tooltip.png';
 import {getProductsImage} from '@/utils/getProductsImage';
 
-// function ZoomLens() {
-// const [imageSrc, setImageSrc] = useState('image.jpg');
-// const [zoomedArea, setZoomedArea] = useState(null);
+function DetailsProducts({data, image}) {
+	const [zoom, setZoom] = useState(false);
+	const [position, setPosition] = useState({x: 0, y: 0});
 
-// function handleImageClick(event) {
-//   const { offsetX, offsetY } = event.nativeEvent;
-//   // 여기서 offsetX와 offsetY는 클릭한 위치의 좌표입니다.
+	function handleMouseOver(e) {
+		const {left, top} = e.target.getBoundingClientRect();
+		setPosition({x: e.clientX - left, y: e.clientY - top});
+		setZoom(true);
+	}
 
-//   // 확대할 범위 설정
-//   const zoomFactor = 2;
-//   const originalWidth = event.target.clientWidth;
-//   const originalHeight = event.target.clientHeight;
+	function handleMouseMove(e) {
+		const {left, top} = e.target.getBoundingClientRect();
+		setPosition({x: e.clientX - left, y: e.clientY - top});
+	}
 
-//   // 확대할 좌상단 점 계산
-//   const topLeftX = Math.max(0, offsetX - originalWidth / (2 * zoomFactor));
-//   const topLeftY = Math.max(0, offsetY - originalHeight / (2 * zoomFactor));
+	function handleMouseOut() {
+		setZoom(false);
+	}
 
-//   // 확대할 우하단 점 계산
-//   const bottomRightX = Math.min(originalWidth, offsetX + originalWidth / (2 * zoomFactor));
-//   const bottomRightY = Math.min(originalHeight, offsetY + originalHeight / (2 * zoomFactor));
-
-//   // 선택한 영역 크롭
-//   const canvas = document.createElement('canvas');
-//   canvas.width = bottomRightX - topLeftX;
-// 	canvas.height= bottomRightY - topLeftY;
-// 	const context=canvas.getContext("2d");
-// 	context.drawImage(event.target,topLeftX,topLeftY,bottomRightX-topLeftX,bottomRightY-topLeftY,
-//                     0,0,bottomRightX-topLeftX,bottomRightY-topLeftY);
-
-// 	// 크롭된 이미지 데이터 URL 생성
-// 	const croppedImageURL=canvas.toDataURL();
-
-// 	// 크롭된 이미지 출력
-//   setZoomedArea(croppedImageURL);
-// }
-
-function DetailsProducts({data}) {
 	const {id} = useParams();
 
 	useEffect(() => {
@@ -71,7 +53,13 @@ function DetailsProducts({data}) {
 									{zoomedArea && <img src={thumbnail01} alt="=" />}
 								</div> */}
 
-					<img src={getProductsImage(data, 'photo')} alt={data.name} key={data.id} className="mb-5 w-[525px]" />
+					<div className="zoom-lens-container" onMouseOver={handleMouseOver} onMouseMove={handleMouseMove} onMouseOut={handleMouseOut}>
+						<img src={getProductsImage(data, 'photo')} alt={data.name} key={data.id} className="mb-5 w-[525px]" />
+
+						{zoom && <div className="lens" style={{backgroundImage: `url(${image})`, backgroundPosition: `${position.x}px ${position.y}px`}} />}
+					</div>
+
+					{/* <img src={getProductsImage(data, 'photo')} alt={data.name} key={data.id} className="mb-5 w-[525px]" /> */}
 				</div>
 
 				<div className="w-[660px]">

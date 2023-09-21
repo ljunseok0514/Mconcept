@@ -11,7 +11,7 @@ function formatNumber(number) {
 function ProductInfo({item, style = ''}) {
 	return (
 		<>
-			<Link to={'/products/${item.id}'}>
+			<Link to={`/products/${item.id}`}>
 				<motion.div className="img" whileHover={{opacity: 0.8}}>
 					<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} />
 				</motion.div>
