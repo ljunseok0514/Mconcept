@@ -6,12 +6,11 @@ import { formatNumber } from '@/utils/formatNumber';
 
 
 function ProductInfo({item, style = ''}) {
-
 	return (
 		<>
 			<Link to={`/products/${item.id}`}>
-				<motion.div className="img"	whileHover={{ opacity : 0.8}}>
-					<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id}/>
+				<motion.div className="img" whileHover={{opacity: 0.8}}>
+					<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} />
 				</motion.div>
 
 				<div className="relative">
@@ -43,5 +42,3 @@ function ProductInfo({item, style = ''}) {
 }
 
 export default ProductInfo;
-
-
