@@ -27,7 +27,7 @@ function App() {
 				<AuthProvider>
 					<QueryClientProvider client={queryClient}>
 						<div className="App">
-							<Suspense fallback={<Spinner size={200} message="페이지 로딩 중..." />}>
+							<Suspense fallback={<Spinner size={150} message="페이지 로딩 중..." />}>
 								<RouterProvider router={router} />
 							</Suspense>
 						</div>

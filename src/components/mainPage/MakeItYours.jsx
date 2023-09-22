@@ -2,7 +2,6 @@ import pb from '@/api/pocketbase';
 import ProductInfo from '@/components/common/ProductInfo';
 import Spinner from '@/components/common/Spinner';
 import {useQuery} from '@tanstack/react-query';
-import {useEffect, useState} from 'react';
 import {Autoplay, Navigation} from 'swiper/modules';
 import {Swiper, SwiperSlide} from 'swiper/react';
 

@@ -1,13 +1,14 @@
 import pb from '@/api/pocketbase';
+import {formatNumber} from '@/utils/formatNumber';
 import {getProductsImage} from '@/utils/getProductsImage';
 import {motion} from 'framer-motion';
 import {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import close from '/public/common/popup_close.svg';
-import {formatNumber} from '@/utils/formatNumber';
-import { Link } from 'react-router-dom';
+import Spinner from './Spinner';
 
 function ShoppingHistoryPopup({isOpen, setIsOpen}) {
-	const [items, setItems] = useState([]);
+	const [items, setItems] = useState(null);
 	const [isHovered, setIsHovered] = useState(null);
 
 	useEffect(() => {
@@ -21,7 +22,6 @@ function ShoppingHistoryPopup({isOpen, setIsOpen}) {
 				try {
 					// 각 아이템에 대해 서버에서 데이터 불러오기
 					const response = await pb.collection('products').getOne(id);
-					console.log(response);
 					fetchedItems.push(response);
 				} catch (error) {
 					console.error('Error fetching item data:', error);
@@ -64,7 +64,7 @@ function ShoppingHistoryPopup({isOpen, setIsOpen}) {
 			localStorage.setItem('recentlyViewed', JSON.stringify(currentHistory.filter((item) => item !== id)));
 		}
 	};
-
+	
 	return (
 		<>
 			<div className="fixed left-0 top-0 z-[102] h-full w-full bg-[rgba(0,0,0,0.2)]" onClick={closeModal}>
@@ -79,24 +79,33 @@ function ShoppingHistoryPopup({isOpen, setIsOpen}) {
 					className="z-[103] float-right h-full w-1/4 transform bg-white pt-2"
 					onClick={stopPropagation}
 				>
-					<button className="float-right mt-3 h-12 w-12 hover:scale-105 active:scale-75" onClick={closeModal}>
-						<img src={close} alt="닫기" className="h-full w-full" />
-					</button>
-					<h2 className="p-4 text-2xl font-bold">SHOPPING HISTORY</h2>
+					<div className='border-b-2 mx-4'>
+						<button className="float-right mt-3 h-12 w-12 hover:scale-105 active:scale-75" onClick={closeModal}>
+							<img src={close} alt="닫기" className="h-full w-full" />
+						</button>
+						<h2 className="p-4 text-2xl font-bold">SHOPPING HISTORY</h2>
+					</div>
 
-					<ul className="m-3 border-t-2 px-3 py-6 ">
-						{items.length > 0 ? (
+					<ul className="my-9 mx-2 px-3 overflow-auto h-[calc(100vh-120px)]">
+						{!items ? (
+							<Spinner size={130}/>
+						) : items.length > 0 ? (
 							items?.map((item) => (
 								<li key={item.id} onMouseEnter={() => setIsHovered(item.id)} onMouseLeave={() => setIsHovered(null)}>
 									<Link to={`/products/${item.id}`} className="mb-6 flex justify-stretch gap-4 hover:bg-gray-100">
 										<div>
-											<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} className="h-28 w-24" />
+											<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} className="h-28 w-24 rounded-md" />
 										</div>
 										<dl className="relative flex w-full flex-col gap-3 py-2">
 											{isHovered === item.id && (
-												<button onClick={(event) => {event.preventDefault();
-													event.stopPropagation();handleDelete(item.id);}} 
-													className="absolute right-3 top-2 rounded-lg border p-3 hover:bg-gray-200 active:scale-95">
+												<button
+													onClick={(event) => {
+														event.preventDefault();
+														event.stopPropagation();
+														handleDelete(item.id);
+													}}
+													className="absolute right-3 top-2 rounded-lg border p-3 hover:bg-gray-200 active:scale-95"
+												>
 													삭제
 												</button>
 											)}
@@ -111,7 +120,7 @@ function ShoppingHistoryPopup({isOpen, setIsOpen}) {
 								</li>
 							))
 						) : (
-							<div className='text-lg'>최근 본 상품이 없습니다.</div>
+							<div className="text-lg">최근 본 상품이 없습니다.</div>
 						)}
 					</ul>
 				</motion.div>
