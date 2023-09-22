@@ -4,7 +4,7 @@ import AuthProvider from '@/contexts/Auth';
 import {Toaster} from 'react-hot-toast';
 import {HelmetProvider} from 'react-helmet-async';
 import {Suspense} from 'react';
-import Spinner from '@/components/Spinner';
+import Spinner from '@/components/common/Spinner';
 
 function App() {
 	return (
