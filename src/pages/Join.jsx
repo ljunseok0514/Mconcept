@@ -230,7 +230,7 @@ function Join() {
 					</div>
 					<form onSubmit={handleRegister}>
 						<table summary="회원가입 정보 기입 표" className="mb-[60px] w-[100%] table-fixed border-separate border-spacing-0 border-b-[1px] border-t-[2px] border-solid border-[#171717]">
-							<caption className="sr-only">회원가입 양식</caption>
+							{/* <caption className="sr-only">회원가입 양식</caption> */}
 							<colgroup className="table-column-group">
 								<col className="w-[295px]" />
 								<col />

@@ -56,14 +56,14 @@ function GlobalSearch() {
 						</li>
 					)}
 					{!isAuth && (
-						<NavLink to={'login'}>
-							<li>
+						<li>
+							<NavLink to={'login'}>
 								<button className="block w-[64px] text-center" type="button">
 									<img className="inline-block h-[30px] w-[30px]" src={login} alt="loginIcon" />
 									<strong className="block text-[12px]">LOGIN</strong>
 								</button>
-							</li>
-						</NavLink>
+							</NavLink>
+						</li>
 					)}
 					<li>
 						<a href="#" className="block w-[64px] text-center">
