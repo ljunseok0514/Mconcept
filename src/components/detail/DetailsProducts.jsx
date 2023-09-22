@@ -2,14 +2,15 @@ import pb from '@/api/pocketbase';
 import {useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 
-// import mybrand from '../../assets/images/detail/bg_heart.png';
-// import share from '../../assets/images/detail/share.png';
+import mybrand from '../../assets/images/detail/bg_heart.png';
+import share from '../../assets/images/detail/share.png';
 import star from '../../assets/images/detail/star.png';
 import tooltip from '../../assets/images/detail/tooltip.png';
 import {getProductsImage} from '@/utils/getProductsImage';
 import gift from '../../assets/images/detail/ico_prod_gift.svg';
 import heartoff from '../../assets/images/detail/ico_prod_heart_off.svg';
 import hearton from '../../assets/images/detail/ico_prod_heart_on.svg';
+import plusIcon from '../../assets/images/detail/bg_plus.gif';
 
 function DetailsProducts({data}) {
 	// const [zoom, setZoom] = useState(false);
@@ -80,8 +81,8 @@ function DetailsProducts({data}) {
 					<img src={getProductsImage(data, 'photo')} alt={data.name} key={data.id} className="mb-5 w-[525px]" />
 				</div>
 
-				<div className="w-[660px]">
-					<div className="relative border-b-2 border-black">
+				<div className="relative w-[660px]">
+					<div className="border-b-2 border-black">
 						<h4 className="mb-4 text-[24px] font-medium">{data.brand}</h4>
 						<p className="mb-5 text-base font-normal">{data.name}</p>
 						<ul className="mb-5 flex flex-row">
@@ -124,31 +125,42 @@ function DetailsProducts({data}) {
 								<span>카카오페이로 신한카드 10만원 이상 결제 시 5천원 즉시할인</span>
 							</dd>
 						</dl>
-						<button className="text-sm text-[#333] underline">추가혜택 더보기 &#62;</button>
+						<button className="absolute right-0 text-sm text-[#333] underline">추가혜택 더보기 &#62;</button>
 					</div>
 
 					<div className="py-5">
 						<dl className="mb-4">
 							<dt className="float-left w-[125px] py-2 text-[13px]">무이자 할부</dt>
-							<dd className="py-2 text-sm text-grey-800">최대 6개월&#40;12,483원 X 6개월&#41;</dd>
-							<dt className="float-left w-[125px] bg-red-300 py-2 text-[13px]">포인트 적립</dt>
-							<dd className="py-2 text-sm text-grey-800">749 p 적립</dd>
+							<dd className="flex flex-row py-2 ">
+								<span className="mt-[1px] text-sm text-grey-800">최대 6개월&#40;12,483원 X 6개월&#41;</span>
+								<button className="ml-2 flex flex-row border border-[#959595]">
+									<p className="px-2 py-[1px] text-sm">카드안내</p>
+									<img src={plusIcon} alt="" />
+								</button>
+							</dd>
+							<dt className="float-left w-[125px] py-2 text-[13px]">포인트 적립</dt>
+							<dd className="flex flex-row py-2 ">
+								<span className="mt-[1px] text-sm text-grey-800">749 p 적립</span>
+								<button className="ml-2 flex flex-row border border-[#959595]">
+									<p className="px-2 py-[1px] text-sm">포인트안내</p>
+									<img src={plusIcon} alt="" />
+								</button>
+							</dd>
 						</dl>
-					</div>
 
-					<button className="text-sm text-[#333] underline">사이즈 가이드 &#62;</button>
+						<button className="absolute right-0 text-sm text-[#333] underline">사이즈 가이드 &#62;</button>
 
-					<div className="py-4">
-						<label>
-							<span className="inline-block w-[125px] text-[13px]">색상&#47;사이즈</span>
-
-							<select value={size} onChange={(e) => setSize(e.target.value)} className="w-[535px] bg-[#f2f2f2] px-5 py-3 text-base">
-								<option value="">선택해 주세요.</option>
-								<option value="s">Small</option>
-								<option value="m">Medium</option>
-								<option value="l">Large</option>
-							</select>
-						</label>
+						<div className="py-4">
+							<label>
+								<span className="inline-block w-[125px] text-[13px]">색상&#47;사이즈</span>
+								<select value={size} onChange={(e) => setSize(e.target.value)} className="w-[535px] bg-[#f2f2f2] px-5 py-3 text-base">
+									<option value="">선택해 주세요.</option>
+									<option value="s">Small</option>
+									<option value="m">Medium</option>
+									<option value="l">Large</option>
+								</select>
+							</label>
+						</div>
 					</div>
 
 					<ul className="flex flex-row justify-between py-[30px]">
@@ -171,22 +183,6 @@ function DetailsProducts({data}) {
 							</button>
 						</li>
 					</ul>
-
-					{/* 우측 버튼들 */}
-					{/* <div className="t-0 r-0 absolute flex flex-row">
-										<span>MY</span>
-										<img className="h-4 w-7" src={mybrand} alt="" />
-										<span>BRAND</span>
-									</div>
-									<button className="float-right">
-										<img src={share} alt="" />
-									</button> */}
-
-					{/* 관리자페이지 버튼 */}
-					{/* <div className="flex flex-row justify-between py-[30px]">
-							<button className="h-[70px] w-[320px] border border-black text-[20px]">수정</button>
-							<button className="h-[70px] w-[320px] bg-black text-[20px] text-white">삭제</button>
-						</div> */}
 				</div>
 			</section>
 		);

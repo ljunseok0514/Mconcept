@@ -37,13 +37,43 @@ function DetailsReview() {
 				</a>
 			</div>
 
+			{/* 리뷰 탭에서 사용하기 */}
+
+			<ul className="mb-4 flex flex-row">
+				<li className="mr-3 text-base text-grey-400">
+					<button onClick={() => handleTabClick('DETAIL')}>
+						<div style={activeTab === 'DETAIL' ? tabStyle : {}}>최신순</div>
+					</button>
+				</li>
+				<li className="mr-3 text-sm text-grey-400">|</li>
+				<li className="mr-3 text-base text-grey-400">
+					<button onClick={() => handleTabClick('REVIEW')}>
+						<div style={activeTab === 'REVIEW' ? tabStyle : {}}>평점 높은순</div>
+					</button>
+				</li>
+				<li className="mr-3 text-sm text-grey-400">|</li>
+				<li className="mr-3 text-base text-grey-400">
+					<button onClick={() => handleTabClick('Q&A')}>
+						<div style={activeTab === 'Q&A' ? tabStyle : {}}>평점 낮은순</div>
+					</button>
+				</li>
+				<li className="mr-3 text-sm text-grey-400">|</li>
+				<li className="mr-3 text-base text-grey-400">
+					<button onClick={() => handleTabClick('RETURN & DELIVERY')}>
+						<div style={activeTab === 'RETURN & DELIVERY' ? tabStyle : {}}>추천순</div>
+					</button>
+				</li>
+			</ul>
+
+			{/* <div className="mb-8 border-b-2 border-black"></div> */}
+			{/* 
 			<div>
 				<ul>
 					<li>상품 만족도 (55)</li>
 					<li>구매하신 분들의 상품에 대한 평점입니다.</li>
 					<li></li>
 				</ul>
-			</div>
+			</div> */}
 
 			<ul className="mb-16 flex flex-row justify-between">
 				<li>
@@ -71,36 +101,6 @@ function DetailsReview() {
 					<img src={review08} alt="" style={{width: '148px', height: '148px'}} />
 				</li>
 			</ul>
-
-			{/* 리뷰 탭에서 사용하기 */}
-
-			<ul className="mb-6 flex flex-row">
-				<li className="mr-3 text-base text-grey-400">
-					<button onClick={() => handleTabClick('DETAIL')}>
-						<div style={activeTab === 'DETAIL' ? tabStyle : {}}>최신순</div>
-					</button>
-				</li>
-				<li className="mr-3 text-sm text-grey-400">|</li>
-				<li className="mr-3 text-base text-grey-400">
-					<button onClick={() => handleTabClick('REVIEW')}>
-						<div style={activeTab === 'REVIEW' ? tabStyle : {}}>평점 높은순</div>
-					</button>
-				</li>
-				<li className="mr-3 text-sm text-grey-400">|</li>
-				<li className="mr-3 text-base text-grey-400">
-					<button onClick={() => handleTabClick('Q&A')}>
-						<div style={activeTab === 'Q&A' ? tabStyle : {}}>평점 낮은순</div>
-					</button>
-				</li>
-				<li className="mr-3 text-sm text-grey-400">|</li>
-				<li className="mr-3 text-base text-grey-400">
-					<button onClick={() => handleTabClick('RETURN & DELIVERY')}>
-						<div style={activeTab === 'RETURN & DELIVERY' ? tabStyle : {}}>추천순</div>
-					</button>
-				</li>
-			</ul>
-
-			<div className="border-b-2 border-black"></div>
 		</section>
 	);
 }
