@@ -11,7 +11,7 @@ function CategoryWomen() {
 				<li className="depth2 mb-[12px] text-[14px]">아우터</li>
 				<li>
 					<a href="/" className="overflow-hidden text-ellipsis text-[13px] uppercase leading-[16px] text-[#7b7b7b]">
-						자켓
+						자켓www
 					</a>
 				</li>
 				<li>

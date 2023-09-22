@@ -4,6 +4,7 @@ import {LoginInput} from '@/components/login/LoginInput';
 import {useAuth} from '@/contexts/Auth';
 import debounce from '@/utils/debounce';
 import {useState} from 'react';
+import {Helmet} from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import {NavLink, useLocation, useNavigate} from 'react-router-dom';
 
@@ -65,6 +66,9 @@ function Login() {
 
 	return (
 		<>
+			<Helmet>
+				<title>Login | M CONCEPT</title>
+			</Helmet>
 			<section className="mx-[auto] w-[1240px]">
 				<h1 className=" mb-[42px] mt-[60px] text-center text-[41px]">LOGIN</h1>
 				<h2 className="sr-only">로그인 정보 입력</h2>
