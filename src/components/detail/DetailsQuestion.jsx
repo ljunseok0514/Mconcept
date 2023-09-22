@@ -1,4 +1,4 @@
-import lock from '@/assets/images/detai';
+import lock from '@/assets/images/detail/lock.png';
 import '@/styles/detail.css';
 
 function DetailsQuestion() {
