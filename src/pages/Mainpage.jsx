@@ -1,12 +1,11 @@
 import popup1 from '@/assets/images/mainPage/main_popup_1.png';
 import popup2 from '@/assets/images/mainPage/main_popup_2.png';
-import PopUp from '@/components/PopUp';
+import PopUp from '@/components/mainPage/PopUp';
 import EventBanner from '@/components/mainPage/EventBanner';
 import MainArticle from '@/components/mainPage/MainArticle';
 import MakeItYours from '@/components/mainPage/MakeItYours';
-import StickyScroll from '@/components/mainPage/StickyScroll';
 import StyleStory from '@/components/mainPage/StyleStory';
-import {Helmet} from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 
 const popup = [
 	{ 

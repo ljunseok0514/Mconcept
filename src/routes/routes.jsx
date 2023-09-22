@@ -1,10 +1,11 @@
-import RootLayout from '@/layout/RootLayout';
-import Category from '@/pages/Category';
-import Details from '@/pages/Details';
-import Join from '@/pages/Join';
-import Login from '@/pages/Login';
-import Mainpage from '@/pages/Mainpage';
 import {Route, createBrowserRouter, createRoutesFromElements} from 'react-router-dom';
+import {lazy} from 'react';
+const Mainpage = lazy(() => import('@/pages/Mainpage'));
+const RootLayout = lazy(() => import('@/layout/RootLayout'));
+const Category = lazy(() => import('@/pages/Category'));
+const Details = lazy(() => import('@/pages/Details'));
+const Join = lazy(() => import('@/pages/Join'));
+const Login = lazy(() => import('@/pages/Login'));
 
 const router = createBrowserRouter(
 	createRoutesFromElements(

@@ -2,7 +2,8 @@ import pb from '@/api/pocketbase';
 import {useEffect, useState} from 'react';
 import {Autoplay, Navigation} from 'swiper/modules';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import ProductInfo from '../ProductInfo';
+import ProductInfo from '@/components/common/ProductInfo';
+import Spinner from '@/components/common/Spinner';
 
 const style = ['text-left', 'ml-1', 'ml-2'];
 
@@ -53,7 +54,7 @@ function MakeItYours() {
 									);
 								})
 						) : (
-							<div>ERROR</div>
+							<Spinner />
 						)}
 					</Swiper>
 					<div className="swiper-button-prev" id="preNavi"></div>
