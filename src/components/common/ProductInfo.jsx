@@ -1,9 +1,8 @@
+import {CelebrityLabel, CouponLabel, NewSeasonLabel, OnlyLabel} from '@/components/category/ProductLabel';
+import {formatNumber} from '@/utils/formatNumber';
 import {getProductsImage} from '@/utils/getProductsImage';
-import { CelebrityLabel, CouponLabel, NewSeasonLabel, OnlyLabel } from '@/components/category/ProductLabel';
-import {motion} from "framer-motion";
-import { Link } from 'react-router-dom';
-import { formatNumber } from '@/utils/formatNumber';
-
+import {motion} from 'framer-motion';
+import {Link} from 'react-router-dom';
 
 function ProductInfo({item, style = ''}) {
 	return (

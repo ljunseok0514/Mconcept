@@ -1,27 +1,37 @@
 import pb from '@/api/pocketbase';
+import ProductInfo from '@/components/common/ProductInfo';
+import Spinner from '@/components/common/Spinner';
+import {useQuery} from '@tanstack/react-query';
 import {useEffect, useState} from 'react';
 import {Autoplay, Navigation} from 'swiper/modules';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import ProductInfo from '@/components/common/ProductInfo';
-import Spinner from '@/components/common/Spinner';
 
 const style = ['text-left', 'ml-1', 'ml-2'];
 
-function MakeItYours() {
-	const [data, setData] = useState([]);
+const getProducts = async () => {
+	return await pb.collection('products').getFullList();
+};
 
-	useEffect(() => {
-		async function getProducts() {
-			try {
-				const readRecordList = await pb.collection('products').getFullList();
-				setData(readRecordList);
-			} catch (error) {
-				console.log(error);
-				throw new Error('error');
-			}
-		}
-		getProducts();
-	}, []);
+function MakeItYours() {
+	const {isLoading, data, isError, error} = useQuery({
+		queryKey: ['products'],
+		queryFn: getProducts,
+		retry: 2,
+		refetchOnWindowFocus: false,
+		refetchOnReconnect: false,
+	});
+
+	if (isLoading) {
+		return (
+			<div className="grid h-full place-content-center">
+				<Spinner size={160} />
+			</div>
+		);
+	}
+
+	if (isError) {
+		return <div role="alert">{error.toString()}</div>;
+	}
 
 	return (
 		<>
@@ -48,7 +58,7 @@ function MakeItYours() {
 								?.filter((item) => item.main == true)
 								.map((item) => {
 									return (
-										<SwiperSlide key={item.id} >
+										<SwiperSlide key={item.id}>
 											<ProductInfo item={item} style={style} />
 										</SwiperSlide>
 									);
