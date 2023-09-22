@@ -13,6 +13,7 @@ import DetailsBeauty from '../components/detail/DetailsBeauty';
 import DetailsReview from '../components/detail/DetailsReview';
 import DetailsQuestion from '../components/detail/DetailsQuestion';
 import DetailsDelivery from '../components/detail/DetailsDelivery';
+import {Helmet} from 'react-helmet';
 
 // 자바스크립트 적용 확인해보기
 // document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -113,6 +114,9 @@ function Details() {
 	if (data) {
 		return (
 			<div className="relative mx-auto mb-[200px] w-[1240px]">
+				<Helmet>
+					<title>Details - M Concept</title>
+				</Helmet>
 				<DetailsNav />
 				<DetailsProducts data={data} />
 				<DetailsWvProject />
