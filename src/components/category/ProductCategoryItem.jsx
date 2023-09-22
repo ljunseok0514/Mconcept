@@ -25,7 +25,6 @@ const categories = [
 	},
 ];
 
-
 function ProductCategoryItem() {
     const [activeItem, setActiveItem] = useState(null);
 

@@ -173,11 +173,9 @@ function Join() {
 	};
 
 	const handleDebounceInput = debounce(handleInput, 200);
+
 	//이벤트 정보 토글버튼
 	const [isEventChecked, setEventIsChecked] = useState(false);
-	const handleEventCheckboxChange = () => {
-		setEventIsChecked(!isEventChecked);
-	};
 
 	//전체동의합니다 체크박스 토글
 	const [isAllChecked, setAllIsChecked] = useState(false);
@@ -297,7 +295,7 @@ function Join() {
 										<div className="input_button agree-all_box relative mr-[50px] inline-block">
 											<input
 												checked={isEventChecked}
-												onChange={handleEventCheckboxChange}
+												onChange={handleCheckboxChange(setEventIsChecked)}
 												className="absolute left-0 top-0 z-[1] h-[25px] w-[25px] opacity-0"
 												type="checkbox"
 												id="agree-all"
@@ -305,9 +303,10 @@ function Join() {
 											/>
 											<label
 												htmlFor="agree-all"
-												className={`${
-													isEventChecked ? 'before:bg-[left_-30px_top_-30px]' : 'before:bg-[left_-30px_top_0px]'
-												}  before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] before:bg-[left_0px_top_-30px]`}
+												className={`
+											
+											  before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] 
+												${isEventChecked ? 'before:bg-[left_-30px_top_-30px]' : 'before:bg-[left_0px_top_-30px]	'}`}
 											>
 												수신
 											</label>
@@ -315,7 +314,7 @@ function Join() {
 										<div className="input_button disagree-all_box relative mr-[50px] inline-block">
 											<input
 												checked={isEventChecked}
-												onChange={handleEventCheckboxChange}
+												onChange={handleCheckboxChange(setEventIsChecked)}
 												className="absolute left-0 top-0 z-[1] h-[25px] w-[25px] opacity-0"
 												type="checkbox"
 												id="disagree-all"
@@ -324,8 +323,8 @@ function Join() {
 											<label
 												htmlFor="disagree-all"
 												className={`${
-													isEventChecked ? 'before:bg-[left_-30px_top_0px]' : 'before:bg-[left_-30px_top_-30px]'
-												}  before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] before:bg-[left_0px_top_-30px]`}
+													isEventChecked ? 'before:bg-[left_0px_top_-30px]	' : 'before:bg-[left_-30px_top_-30px]'
+												}  before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')]`}
 											>
 												비수신
 											</label>
