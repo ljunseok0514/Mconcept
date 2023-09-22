@@ -1,38 +1,38 @@
 import pb from '@/api/pocketbase';
 import {formatNumber} from '@/utils/formatNumber';
 import {getProductsImage} from '@/utils/getProductsImage';
+import {useQuery} from '@tanstack/react-query';
 import {motion} from 'framer-motion';
 import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import close from '/public/common/popup_close.svg';
 import Spinner from './Spinner';
+import close from '/public/common/popup_close.svg';
+
+const fetchItems = async () => {
+	return await pb.collection('products').getFullList();
+};
 
 function ShoppingHistoryPopup({isOpen, setIsOpen}) {
 	const [items, setItems] = useState(null);
 	const [isHovered, setIsHovered] = useState(null);
 
+	const currentHistory = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+
+	const {data, isError, error} = useQuery({
+		queryKey: ['products'],
+		queryFn: fetchItems,
+		retry: 2,
+		refetchOnWindowFocus: false,
+		refetchOnReconnect: false,
+	});
+
 	useEffect(() => {
-		// 로컬 스토리지에서 데이터 가져오기
-		const currentHistory = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+		if (data) {
+			const filterdData = data.filter((item) => currentHistory.includes(item.id));
 
-		const fetchItems = async () => {
-			let fetchedItems = [];
-
-			for (let id of currentHistory) {
-				try {
-					// 각 아이템에 대해 서버에서 데이터 불러오기
-					const response = await pb.collection('products').getOne(id);
-					fetchedItems.push(response);
-				} catch (error) {
-					console.error('Error fetching item data:', error);
-				}
-			}
-
-			setItems(fetchedItems.reverse());
-		};
-
-		fetchItems();
-	}, []);
+			setItems(filterdData);
+		}
+	}, data);
 
 	useEffect(() => {
 		// 컴포넌트가 마운트되면 body의 overflow를 hidden으로 설정하여 스크롤 제거
@@ -64,7 +64,16 @@ function ShoppingHistoryPopup({isOpen, setIsOpen}) {
 			localStorage.setItem('recentlyViewed', JSON.stringify(currentHistory.filter((item) => item !== id)));
 		}
 	};
-	
+
+	if (error) {
+		return (
+			<div role="alert">
+				<h2>{error.type}</h2>
+				<p>{error.message}</p>
+			</div>
+		);
+	}
+
 	return (
 		<>
 			<div className="fixed left-0 top-0 z-[102] h-full w-full bg-[rgba(0,0,0,0.2)]" onClick={closeModal}>
@@ -79,16 +88,16 @@ function ShoppingHistoryPopup({isOpen, setIsOpen}) {
 					className="z-[103] float-right h-full w-1/4 transform bg-white pt-2"
 					onClick={stopPropagation}
 				>
-					<div className='border-b-2 mx-4'>
+					<div className="mx-4 border-b-2">
 						<button className="float-right mt-3 h-12 w-12 hover:scale-105 active:scale-75" onClick={closeModal}>
 							<img src={close} alt="닫기" className="h-full w-full" />
 						</button>
 						<h2 className="p-4 text-2xl font-bold">SHOPPING HISTORY</h2>
 					</div>
 
-					<ul className="my-9 mx-2 px-3 overflow-auto h-[calc(100vh-120px)]">
+					<ul className="mx-2 my-9 h-[calc(100vh-120px)] overflow-auto px-3">
 						{!items ? (
-							<Spinner size={130}/>
+							<Spinner size={130} />
 						) : items.length > 0 ? (
 							items?.map((item) => (
 								<li key={item.id} onMouseEnter={() => setIsHovered(item.id)} onMouseLeave={() => setIsHovered(null)}>
