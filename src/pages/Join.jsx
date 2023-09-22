@@ -219,7 +219,7 @@ function Join() {
 	return (
 		<>
 			<Helmet>
-				<title>Join - M Concept</title>
+				<title>Join | M CONCEPT</title>
 			</Helmet>
 			<section className="join_container">
 				<h2 className="subTitle relative min-w-[1240px] pb-[36px] pt-[55px] text-center text-[44px] uppercase">join member</h2>
@@ -230,13 +230,14 @@ function Join() {
 					</div>
 					<form onSubmit={handleRegister}>
 						<table summary="회원가입 정보 기입 표" className="mb-[60px] w-[100%] table-fixed border-separate border-spacing-0 border-b-[1px] border-t-[2px] border-solid border-[#171717]">
-							{/* <caption className="sr-only">회원가입 양식</caption> */}
+							<caption className="sr-only">회원가입 양식</caption>
 							<colgroup className="table-column-group">
 								<col className="w-[295px]" />
 								<col />
 							</colgroup>
 							<tbody className="table-row-group align-middle ">
 								<tr>
+									<th className="sr-only hidden">배너 th</th>
 									<td colSpan="2" className="p-[0]">
 										<div className="table h-[48px] w-[100%] bg-[#ff6160] text-center text-[#fff]">
 											<strong className="table-cell align-middle text-[20px]">

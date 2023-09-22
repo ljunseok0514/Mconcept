@@ -20,7 +20,7 @@ function GlobalSearch() {
 		<>
 			<div className="global_search relative mx-auto h-[88px] max-w-[1920px] bg-[#fff] pr-[20px]">
 				<NavLink to={'/'} className="symbol absolute left-[20px] top-[32px]">
-					<img src={logo} alt="M CONCEPT 홈" />
+					<img src={logo} alt="M CONCEPT 홈" className="h-[100%] w-[100%]" />
 				</NavLink>
 
 				<div className="top_search absolute left-[50%] top-[9px] z-[101] h-[70px] w-[392px] translate-x-[-50%] bg-[#fff] py-[16px] pl-[11px] pr-[15px] after:absolute after:block after:h-[1px] after:w-[360px] after:bg-[#000] after:content-['']">

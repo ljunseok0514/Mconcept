@@ -67,7 +67,7 @@ function Login() {
 	return (
 		<>
 			<Helmet>
-				<title>Login - M Concept</title>
+				<title>Login | M CONCEPT</title>
 			</Helmet>
 			<section className="mx-[auto] w-[1240px]">
 				<h1 className=" mb-[42px] mt-[60px] text-center text-[41px]">LOGIN</h1>

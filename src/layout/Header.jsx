@@ -7,7 +7,7 @@ function Header() {
 	return (
 		<>
 			<header className="mx-auto max-w-[1920px]">
-				<img src={banner} alt="배너" className="w-[100%]" />
+				<img src={banner} alt="배너" className="h-[100%] w-[100%]" />
 				<GlobalSearch />
 				<Nav />
 			</header>
