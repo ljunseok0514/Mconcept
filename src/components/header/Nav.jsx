@@ -10,8 +10,19 @@ import CategoryBeauty from './CategoryBeauty';
 import CategoryLife from './CategoryLife';
 import {NavLink} from 'react-router-dom';
 import NavList from './NavList';
+import {useState} from 'react';
 
 function Nav() {
+	const [catagoryIsVisible, setcatagoryVisible] = useState(false);
+
+	//통합 마우스 핸들러
+	const handleMouseOver = (setVisible) => () => {
+		setVisible((isVisible) => !isVisible);
+	};
+	const handleMouseOut = (setVisible) => () => {
+		setVisible((isVisible) => !isVisible);
+	};
+
 	return (
 		<nav className="relative left-[0] right-[0] top-[0] z-[100] min-w-[1280px] max-w-[1920px] border-b-[1px] border-solid border-[#e9e9e9] bg-[#fff]">
 			<div className="global_nav_wrap mx-auto h-[57px] max-w-[1920px] px-[20px]">
@@ -78,56 +89,59 @@ function Nav() {
 						</li>
 					</ul>
 				</div>
-				{/* <div className="catagory_btn">
+				<div className="catagory_btn" onMouseOver={handleMouseOver(setcatagoryVisible)} onMouseOut={handleMouseOut(setcatagoryVisible)}>
+					{/* onMouseOver={handleMouseOver(setcatagoryVisible)} onMouseOut={handleMouseOut(setcatagoryVisible)} */}
 					<a
-						className="absolute top-[0px] block w-[176px] overflow-hidden border-[1px] border-solid border-[#e9e9e9] pl-[14px] text-left text-[14px] leading-[46px] after:absolute after:right-[17px] after:top-[50%] after:mt-[-6px] after:block after:h-[12px] after:w-[12px] after:bg-[url('../../public/header/icon_catArrowOpen.svg')] after:bg-auto after:bg-center after:bg-no-repeat after:content-['']"
-						href="/"
+						className=" absolute top-[0px] block w-[176px] overflow-hidden border-[1px] border-solid border-[#e9e9e9] pl-[14px] text-left text-[14px] leading-[46px] after:absolute after:right-[17px] after:top-[50%] after:mt-[-6px] after:block after:h-[12px] after:w-[12px] after:bg-[url('../../public/header/icon_catArrowOpen.svg')] after:bg-auto after:bg-center after:bg-no-repeat after:content-['']"
+						href="#"
 					>
 						CATEGORY
 					</a>
-					<div className="second_nav absolute left-[0] right-[0] top-[47px] z-[99px] cursor-default border-t-[1px] border-solid border-[#e9e9e9] bg-[#fff]">
+					<div className={`${catagoryIsVisible ? '' : 'hidden'} second_nav absolute left-[0] right-[0] top-[47px] z-[99px] cursor-default border-t-[1px] border-solid border-[#e9e9e9] bg-[#fff]`}>
 						<div className="second_nav_cont after:content[''] relative mx-[auto] my-[0] min-h-[324px] w-[100%] max-w-[1920px] pb-[30px] pl-[20px] pr-[0] pt-[16px] text-left before:absolute before:left-[21px] before:top-[-2.5px] before:block before:h-[5px] before:w-[174px] before:bg-[#fff] before:content-[''] after:invisible after:clear-both after:block after:h-[0]">
 							<div className="category_wrap relative float-left pt-[14px]">
 								<div className="category_men flex w-[1232px] flex-wrap content-start pl-[170px]">
 									<a
-										href="/"
-										className="absolute left-[0] top-[0px] h-[47px] w-[170px] pl-[15px] text-[17px] uppercase leading-[47px]  after:absolute after:right-[17px] after:top-[50%] after:mt-[-5px] after:block after:h-[10px] after:w-[9px] after:bg-[url('../../public/header/icon_arrowRight.svg')] after:bg-auto after:bg-center after:bg-no-repeat after:content-['']"
+										href="#"
+										className={`absolute  left-[0] top-[0px] h-[47px] w-[170px] pl-[15px] text-[17px] uppercase leading-[47px] `}
+										// after:absolute  after:right-[17px] after:top-[50%] after:mt-[-5px] after:block after:h-[10px] after:w-[9px] after:bg-[url('../../public/header/icon_arrowRight.svg')] after:bg-auto after:bg-center after:bg-no-repeat after:content-['']
 									>
 										men
 									</a>
+
 									<CategoryMen />
 								</div>
-								<div className="category_women flex w-[1232px] flex-wrap content-start pl-[170px]">
+								{/* <div className="category_women flex w-[1232px] flex-wrap content-start pl-[170px]">
 									<a
-										href="/"
+										href="#"
 										className="absolute left-[0] top-[47px] h-[47px] w-[170px] pl-[15px] text-[17px] uppercase leading-[47px] after:absolute  after:right-[17px] after:top-[50%] after:mt-[-5px] after:block after:hidden after:h-[10px] after:w-[9px] after:bg-[url('../../public/header/icon_arrowRight.svg')] after:bg-auto after:bg-center after:bg-no-repeat after:content-['']"
 									>
 										women
 									</a>
 									<CategoryWomen />
-								</div>
-								<div className="category_beauty flex w-[1232px] flex-wrap content-start pl-[170px]">
+								</div> */}
+								{/* <div className="category_beauty flex w-[1232px] flex-wrap content-start pl-[170px]">
 									<a
-										href="/"
+										href="#"
 										className="absolute left-[0] top-[94px] h-[47px] w-[170px] pl-[15px] text-[17px] uppercase leading-[47px] after:absolute  after:right-[17px] after:top-[50%] after:mt-[-5px] after:block after:hidden after:h-[10px] after:w-[9px] after:bg-[url('../../public/header/icon_arrowRight.svg')] after:bg-auto after:bg-center after:bg-no-repeat after:content-['']"
 									>
 										beauty
 									</a>
 									<CategoryBeauty />
-								</div>
-								<div className="category_beauty flex w-[1232px] flex-wrap content-start pl-[170px]">
+								</div> */}
+								{/* <div className="category_beauty flex w-[1232px] flex-wrap content-start pl-[170px]">
 									<a
-										href="/"
+										href="#"
 										className="absolute left-[0] top-[141px] h-[47px] w-[170px] pl-[15px] text-[17px] uppercase leading-[47px] after:absolute  after:right-[17px] after:top-[50%] after:mt-[-5px] after:block after:hidden after:h-[10px] after:w-[9px] after:bg-[url('../../public/header/icon_arrowRight.svg')] after:bg-auto after:bg-center after:bg-no-repeat after:content-['']"
 									>
 										life
 									</a>
 									<CategoryLife />
-								</div>
+								</div> */}
 							</div>
 						</div>
 					</div>
-				</div> */}
+				</div>
 			</div>
 		</nav>
 	);
