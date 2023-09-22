@@ -1,5 +1,5 @@
 import {getProductsImage} from '@/utils/getProductsImage';
-import { CelebrityLabel, CouponLabel, NewSeasonLabel, OnlyLabel } from './category/ProductLabel';
+import { CelebrityLabel, CouponLabel, NewSeasonLabel, OnlyLabel } from '@/components/category/ProductLabel';
 import {motion} from "framer-motion";
 import { Link } from 'react-router-dom';
 import { formatNumber } from '@/utils/formatNumber';

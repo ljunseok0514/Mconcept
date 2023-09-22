@@ -95,7 +95,8 @@ function ShoppingHistoryPopup({isOpen, setIsOpen}) {
 										<dl className="relative flex w-full flex-col gap-3 py-2">
 											{isHovered === item.id && (
 												<button onClick={(event) => {event.preventDefault();
-													event.stopPropagation();handleDelete(item.id);}} className="absolute right-3 top-2 rounded-lg border p-3 hover:bg-gray-200 active:scale-95">
+													event.stopPropagation();handleDelete(item.id);}} 
+													className="absolute right-3 top-2 rounded-lg border p-3 hover:bg-gray-200 active:scale-95">
 													삭제
 												</button>
 											)}
