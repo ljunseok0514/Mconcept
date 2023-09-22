@@ -7,24 +7,17 @@ import { Link } from 'react-router-dom';
  *  ProductFilterList component
  * */
 
-function ProductFilterList({colors, onFilter, onAssign, onReset}, ref) {
-	const [activeFilter, setActiveFilter] = useState('COLOR');
+function ProductFilterList({brands, onFilter, onAssign, onReset}, ref) {
+	const [activeFilter, setActiveFilter] = useState('BRAND');
 
 	return (
 		<>
 			<div className="flex justify-between border-y-[1px] border-l-grey-200 bg-[#fbfbfb] px-6 py-4 text-lg font-semibold">
 				<h4 className="filter-button">
 					FILTER
-					<button
-						className="float-right ml-4 mt-[6.5px] h-[11px] w-[11px]"
-						style={{
-							background: `url('../../public/common/sprīt.png') 0 -60px no-repeat`,
-						}}
-						type="button"
-					></button>
 				</h4>
 				<ul className="filter-nav flex gap-24">
-				<Link to="/categoryBrand">
+					<Link to="/categoryBrand">
 						<button type="button" onClick={() => setActiveFilter('BRAND')} style={{color: activeFilter === 'BRAND' ? '#fa5500' : 'initial'}}>
 							BRAND
 						</button>
@@ -50,10 +43,12 @@ function ProductFilterList({colors, onFilter, onAssign, onReset}, ref) {
 
 			<div ref={ref} className="bg-[#fbfbfb] p-8">
 				<ul className="brand mb-8 flex flex-wrap border border-grey-100 bg-white px-4 py-6">
-					{colors.map((colors) => (
-						<li key={colors} className="flex pl-4">
-							{activeFilter === 'COLOR' && <ProductFilterColor colorName={colors} onFilter={onFilter} />}
-						</li>
+					{brands.map((brandName) => (
+						<>
+							<li key={brandName} className="flex pl-4">
+								{activeFilter === 'BRAND' && <ProductFilterBrand brandName={brandName} onFilter={onFilter} />}
+							</li>
+						</>
 					))}
 				</ul>
 
@@ -67,3 +62,13 @@ function ProductFilterList({colors, onFilter, onAssign, onReset}, ref) {
 }
 
 export default forwardRef(ProductFilterList);
+
+{
+	/* <li key={benefit} className="flex pl-4">
+								{activeFilter === 'BENEFIT' && <ProductFilterBenefit brandName={benefit} onFilter={onFilter} />}
+							</li>
+
+							<li key={discount} className="flex pl-4">
+								{activeFilter === 'DISCOUNT' && <ProductFilterDiscount brandName={discount} onFilter={onFilter} />}
+							</li> */
+}
