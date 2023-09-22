@@ -24,7 +24,7 @@ function Nav() {
 						</li>
 
 						<NavList listTitle="NEW" />
-						<NavList listTitle="MEN" link="category" />
+						<NavList listTitle="MEN" link="categoryBrand" />
 						<NavList listTitle="WOMEN" />
 						<NavList listTitle="BEAUTY" />
 						<NavList listTitle="LIFE" />
