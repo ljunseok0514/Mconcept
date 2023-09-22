@@ -6,8 +6,8 @@ import {ProductFilterBrand, ProductFilterPrice, ProductFilterBenefit, ProductFil
  *  ProductFilterList component
  * */
 
-function ProductFilterList({brands, color, onFilter, onAssign, onReset}, ref) {
-	const [activeFilter, setActiveFilter] = useState('BRAND');
+function ProductFilterList({colors, onFilter, onAssign, onReset}, ref) {
+	const [activeFilter, setActiveFilter] = useState('COLOR');
 
 	return (
 		<>
@@ -49,28 +49,11 @@ function ProductFilterList({brands, color, onFilter, onAssign, onReset}, ref) {
 
 			<div ref={ref} className="bg-[#fbfbfb] p-8">
 				<ul className="brand mb-8 flex flex-wrap border border-grey-100 bg-white px-4 py-6">
-					{brands.map((brandName) => (
-						<>
-							<li key={brandName} className="flex pl-4">
-								{activeFilter === 'BRAND' && <ProductFilterBrand brandName={brandName} onFilter={onFilter} />}
-							</li>
-
-							{/* <li key={benefit} className="flex pl-4">
-								{activeFilter === 'BENEFIT' && <ProductFilterBenefit brandName={benefit} onFilter={onFilter} />}
-							</li>
-
-							<li key={discount} className="flex pl-4">
-								{activeFilter === 'DISCOUNT' && <ProductFilterDiscount brandName={discount} onFilter={onFilter} />}
-							</li> */}
-						</>
-					))}
-
-					{/* {color.map((color) => (
-						<li key={color} className="flex pl-4">
-							{activeFilter === 'COLOR' && <ProductFilterColor colorName={color} onFilter={onFilter} />}
+					{colors.map((colors) => (
+						<li key={colors} className="flex pl-4">
+							{activeFilter === 'COLOR' && <ProductFilterColor colorName={colors} onFilter={onFilter} />}
 						</li>
-					))} */}
-					
+					))}
 				</ul>
 
 				<div role="group" className="button text-center">

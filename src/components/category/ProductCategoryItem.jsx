@@ -3,7 +3,7 @@ import '../../styles/category.css';
 
 // 카테고리 및 아이템 데이터
 const categories = [
-	{
+	{	
 		id: '1',
 		title: '아우터',
 		items: ['VIEW ALL OUTER', '자켓', '점퍼', '패딩', '코트'],
@@ -11,7 +11,7 @@ const categories = [
 	{
 		id: '2',
 		title: '팬츠',
-		items: ['VIEW ALL PANTS', '슬랙스', '쇼츠', '치노', '스웻'],
+		items: ['VIEW ALL PANTS', '슬랙스', '쇼츠', '치노', '조거'],
 	},
 	{
 		id: '3',
@@ -26,38 +26,47 @@ const categories = [
 ];
 
 function ProductCategoryItem() {
-	const [activeItem, setActiveItem] = useState(null);
+    const [activeItem, setActiveItem] = useState(null);
 
-	return (
-		<>
-			{categories.map((category, index) => (
-				<div key={index} className="my-4 px-2 text-sm leading-8">
-					<a className="text-lg font-bold" href="#">
-						<button
-							className="float-right mr-2 mt-3 block h-[9px] w-[9px]"
-							style={{
-								backgroundImage: `url("https://static.wconcept.co.kr/web/images/common/spr-common.png")`,
-								backgroundPositionX: '0',
-								backgroundPositionY: '-60px',
-								backgroundRepeat: 'no-repeat',
-							}}
-						></button>
-						<dl key={`${index}-title`} onClick={() => setActiveItem(category.title)} className={activeItem === category.title ? 'item-active' : ''}>
-							<dt className="sr-only" aria-label="제목"></dt>
-							<button>{category.title}</button>
-						</dl>
-					</a>
+    return (
+        <>
+            {categories.map((category, index) => (
+                <div key={index} className="px-2 text-sm leading-8 my-4">
+                    <a className="text-lg font-bold" href="#">
+                        <button
+                            className="float-right mr-2 mt-3 block h-[9px] w-[9px]"
+                            style={{
+                                backgroundImage:
+                                    `url("https://static.wconcept.co.kr/web/images/common/spr-common.png")`,
+                                backgroundPositionX: "0",
+                                backgroundPositionY: "-60px",
+                                backgroundRepeat: "no-repeat",
+                            }}
+                        ></button>
+                        <dl 
+                            key={`${index}-title`} 
+                            onClick={() => setActiveItem(category.title)} 
+                            className={activeItem === category.title ? "item-active" : ""}
+                        >
+                            <dt className="sr-only" aria-label="제목"></dt>
+                            <dd>{category.title}</dd>
+                        </dl>
+                    </a>
 
-					{category.items.map((item, id) => (
-						<dl key={`${index}-${id}`} onClick={() => setActiveItem(item)} className={activeItem === item ? 'item-active' : ''}>
-							<dt className="sr-only" aria-label="부제목"></dt>
-							<button>{item}</button>
-						</dl>
-					))}
-				</div>
-			))}
-		</>
-	);
+                    {category.items.map((item, id) => (
+                        <dl 
+                            key={`${index}-${id}`} 
+                            onClick={() => setActiveItem(item)} 
+                            className={activeItem === item ? "item-active" : ""}
+                        >
+	                        <dt className="sr-only" aria-label="부제목"></dt>
+	                        <dd>{item}</dd>
+	                    </dl>
+	                ))}
+                </div>
+            ))}
+        </>
+    );
 }
 
 export default ProductCategoryItem;

@@ -1,5 +1,6 @@
 import RootLayout from '@/layout/RootLayout';
 import Category from '@/pages/Category';
+import CategoryColor from '@/pages/CategoryColor';
 import Details from '@/pages/Details';
 import Join from '@/pages/Join';
 import Login from '@/pages/Login';
@@ -14,6 +15,7 @@ const router = createBrowserRouter(
 			<Route path="login" element={<Login />} />
 			<Route path="products/:id" element={<Details />} />
 			<Route path="category" element={<Category />} />
+			<Route path="categorycolor" element={<CategoryColor />} />
 		</Route>,
 	),
 );
