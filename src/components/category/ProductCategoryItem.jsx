@@ -83,9 +83,13 @@ function ProductCategoryItem() {
 						<Link to={`/categoryBrand/${category.eitems && category.eitems[id]}`} key={`${index}-${id}`} onClick={() => setActiveItem(item)}>
 							<dl>
 								<dt className="sr-only" aria-label="부제목"></dt>
+<<<<<<< HEAD
 								<motion.dd className={`item ml-2 ${activeItem === item ? 'item-active' : ''} ${isItemsVisible[index] ? '' : 'hidden'}`} whileHover={{opacity: 0.9}}>
 									{item}
 								</motion.dd>
+=======
+								<dd className='ml-2 hover:scale-110'>{item}</dd>
+>>>>>>> develop
 							</dl>
 						</Link>
 					))}
