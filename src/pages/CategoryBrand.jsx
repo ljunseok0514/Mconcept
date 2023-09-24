@@ -59,7 +59,6 @@ function CategoryBrand() {
 
   useEffect(() => {
     if (data) {
-			console.log('정상실행');
       const brandList = Array.from(
         new Set(data.map((product) => product.brand))
       );
@@ -69,7 +68,6 @@ function CategoryBrand() {
   }, data);
 
 	if (isLoading) {
-		console.log('로딩중');
 		return (
 			<div className="grid h-full place-content-center">
 				<Spinner size={160} />
@@ -78,7 +76,6 @@ function CategoryBrand() {
 	}
 
 	if (error) {
-		console.log('에러에러');
 		return (
 			<div role="alert">
 				<h2>{error.type}</h2>
@@ -135,6 +132,7 @@ function CategoryBrand() {
           </div>
 
           <ProductsItems data={filteredProducts} />
+
         </section>
       </main>
     </>
