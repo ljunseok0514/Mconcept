@@ -13,7 +13,7 @@ import DetailsBeauty from '../components/detail/DetailsBeauty';
 import DetailsReview from '../components/detail/DetailsReview';
 import DetailsQuestion from '../components/detail/DetailsQuestion';
 import DetailsDelivery from '../components/detail/DetailsDelivery';
-import {Helmet} from 'react-helmet';
+import {Helmet} from 'react-helmet-async';
 
 // 자바스크립트 적용 확인해보기
 // document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -66,7 +66,6 @@ function Details() {
 				const readProduct = await pb.collection('products').getOne(id);
 
 				setData(readProduct);
-				console.log(data);
 			} catch (error) {
 				if (!(error instanceof ClientResponseError)) {
 					console.error(error);

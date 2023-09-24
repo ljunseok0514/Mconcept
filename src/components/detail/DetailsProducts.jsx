@@ -2,8 +2,6 @@ import pb from '@/api/pocketbase';
 import {useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 
-import mybrand from '../../assets/images/detail/bg_heart.png';
-import share from '../../assets/images/detail/share.png';
 import star from '../../assets/images/detail/star.png';
 import tooltip from '../../assets/images/detail/tooltip.png';
 import {getProductsImage} from '@/utils/getProductsImage';
@@ -13,24 +11,6 @@ import hearton from '../../assets/images/detail/ico_prod_heart_on.svg';
 import plusIcon from '../../assets/images/detail/bg_plus.gif';
 
 function DetailsProducts({data}) {
-	// const [zoom, setZoom] = useState(false);
-	// const [position, setPosition] = useState({x: 0, y: 0});
-
-	// function handleMouseOver(e) {
-	// 	const {left, top} = e.target.getBoundingClientRect();
-	// 	setPosition({x: e.clientX - left, y: e.clientY - top});
-	// 	setZoom(true);
-	// }
-
-	// function handleMouseMove(e) {
-	// 	const {left, top} = e.target.getBoundingClientRect();
-	// 	setPosition({x: e.clientX - left, y: e.clientY - top});
-	// }
-
-	// function handleMouseOut() {
-	// 	setZoom(false);
-	// }
-
 	const {id} = useParams();
 
 	const [size, setSize] = useState('');
@@ -60,24 +40,12 @@ function DetailsProducts({data}) {
 				}
 			}
 		}
-		// getProduct();
 	}, []);
 
 	if (data) {
 		return (
 			<section className="flex-rows mb-10 flex">
 				<div className="mr-[55px]">
-					{/* <div>
-									<img src={thumbnail01} alt="" onClick={handleImageClick} />
-									{zoomedArea && <img src={thumbnail01} alt="=" />}
-								</div> */}
-
-					{/* <div className="zoom-lens-container" onMouseOver={handleMouseOver} onMouseMove={handleMouseMove} onMouseOut={handleMouseOut}>
-						<img src={getProductsImage(data, 'photo')} alt={data.name} key={data.id} className="mb-5 w-[525px]" />
-
-						{zoom && <div className="lens" style={{backgroundImage: `url(${image})`, backgroundPosition: `${position.x}px ${position.y}px`}} />}
-					</div> */}
-
 					<img src={getProductsImage(data, 'photo')} alt={data.name} key={data.id} className="mb-5 w-[525px]" />
 				</div>
 
