@@ -21,11 +21,9 @@ function Login() {
 		e.preventDefault();
 
 		const {email, password} = formState;
-		console.log(email);
-		console.log(password);
+
 		try {
 			const response = await pb.collection('users').authWithPassword(email, password);
-			console.log(response);
 
 			if (!state) {
 				navigate('/');
