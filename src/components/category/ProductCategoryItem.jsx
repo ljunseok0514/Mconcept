@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import '../../styles/category.css';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 // 카테고리 및 아이템 데이터
 const categories = [
@@ -9,14 +9,14 @@ const categories = [
 		title: '아우터',
 		entit: 'outer',
 		items: ['자켓', '점퍼', '패딩', '코트'],
-		eitems: ['jacket', 'jumper', 'padding', 'coat']
+		eitems: ['jacket', 'jumper', 'padding', 'coat'],
 	},
 	{
 		id: '2',
 		title: '팬츠',
 		entit: 'pants',
 		items: ['슬랙스', '쇼츠', '치노', '조거'],
-		eitems: ['slacks', 'shorts', 'chinos', 'jogger']
+		eitems: ['slacks', 'shorts', 'chinos', 'jogger'],
 	},
 	{
 		id: '3',
@@ -48,7 +48,7 @@ function ProductCategoryItem() {
 							aria-label="플러스"
 							className="float-right mr-2 mt-3 block h-[9px] w-[9px]"
 							style={{
-								backgroundImage: `url("../../public/common/sprīt.png")`,
+								backgroundImage: `url("../../public/common/sprīte01.png")`,
 								backgroundPositionX: '0',
 								backgroundPositionY: '-60px',
 								backgroundRepeat: 'no-repeat',
@@ -67,7 +67,7 @@ function ProductCategoryItem() {
 						<Link to={`${category.eitems && category.eitems[id]}`} key={`${index}-${id}`} onClick={() => setActiveItem(item)} className={activeItem === item ? 'item-active' : ''}>
 							<dl>
 								<dt className="sr-only" aria-label="부제목"></dt>
-								<dd className='ml-2'>{item}</dd>
+								<dd className="ml-2">{item}</dd>
 							</dl>
 						</Link>
 					))}
