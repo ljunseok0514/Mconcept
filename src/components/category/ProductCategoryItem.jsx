@@ -36,9 +36,9 @@ const categories = [
 ];
 
 function ProductCategoryItem() {
-    const [activeItem, setActiveItem] = useState(null);
-    const [isItemsVisible, setIsItemsVisible] = useState({0: true});
-    const [buttonStyles, setButtonStyles] = useState({0: '-30px'});
+	const [activeItem, setActiveItem] = useState(null);
+	const [isItemsVisible, setIsItemsVisible] = useState({0: true});
+	const [buttonStyles, setButtonStyles] = useState({0: '-30px'});
 
 	const handleButtonClick = (index) => {
 		setIsItemsVisible((prevState) => ({
@@ -69,15 +69,14 @@ function ProductCategoryItem() {
 							}}
 							onClick={() => handleButtonClick(index)}
 						></button>
-						{/* 카테고리 제목에 링크를 추가합니다 */}
-						<Link to={`/categoryBrand/${category.entit}`} onClick={() => setActiveItem(category.title)}>
-							<dl key={`${index}-title`}>
-								<dt className="sr-only" aria-label="제목"></dt>
-								<dd className={`item ${activeItem === category.title ? 'item-active' : ''}`}>{category.title}</dd>
-							</dl>
-						</Link>
 					</a>
-
+					{/* 카테고리 제목에 링크를 추가합니다 */}
+					<Link className="text-lg font-bold" to={`/categoryBrand/${category.entit}`} onClick={() => setActiveItem(category.title)}>
+						<dl key={`${index}-title`}>
+							<dt className="sr-only" aria-label="제목"></dt>
+							<dd className={`item ${activeItem === category.title ? 'item-active' : ''}`}>{category.title}</dd>
+						</dl>
+					</Link>
 					{/* 카테고리 부제목에 링크를 추가합니다 */}
 					{category.items.map((item, id) => (
 						<Link to={`/categoryBrand/${category.eitems && category.eitems[id]}`} key={`${index}-${id}`} onClick={() => setActiveItem(item)}>

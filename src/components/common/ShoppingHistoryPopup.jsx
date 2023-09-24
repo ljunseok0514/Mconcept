@@ -5,7 +5,7 @@ import {useQuery} from '@tanstack/react-query';
 import {motion} from 'framer-motion';
 import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import Spinner from './Spinner';
+import Spinner from '@/components/common/Spinner';
 import close from '/public/common/popup_close.svg';
 
 const fetchItems = async () => {

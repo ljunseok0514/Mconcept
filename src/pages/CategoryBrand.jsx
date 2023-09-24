@@ -59,14 +59,13 @@ function CategoryBrand() {
 
   useEffect(() => {
     if (data) {
-			console.log('정상실행');
       const brandList = Array.from(
         new Set(data.map((product) => product.brand))
       );
       setBrands(brandList);
       setProducts(data);
     }
-  }, data);
+  }, [data]);
 
 	if (isLoading) {
 		console.log('로딩중');
