@@ -1,5 +1,5 @@
-import popup1 from '@/assets/images/mainPage/main_popup_1.png';
-import popup2 from '@/assets/images/mainPage/main_popup_2.png';
+import popup1 from '@/assets/images/mainPage/main_popup_1.webp';
+import popup2 from '@/assets/images/mainPage/main_popup_2.webp';
 import EventBanner from '@/components/mainPage/EventBanner';
 import MainArticle from '@/components/mainPage/MainArticle';
 import MakeItYours from '@/components/mainPage/MakeItYours';
@@ -26,7 +26,7 @@ function Mainpage() {
 	return (
 		<>
 			<Helmet>
-				<title>Home - M Concept</title>
+				<title>HOME | M CONCEPT</title>
 			</Helmet>
 			<div className="mx-auto max-w-[1920px]">
 				<MainArticle />
