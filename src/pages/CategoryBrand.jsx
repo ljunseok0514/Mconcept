@@ -49,7 +49,7 @@ function CategoryBrand() {
     });
   };
 
-  const { isLoading, data, isError, error } = useQuery({
+  const { isLoading, data, isError, error } = useQuery({//
     queryKey: ['products'],
     queryFn: getProducts,
     retry: 2,
@@ -57,7 +57,7 @@ function CategoryBrand() {
     refetchOnReconnect: false,
   });
 
-  useEffect(() => {
+  useEffect(() => {//
     if (data) {
       const brandList = Array.from(
         new Set(data.map((product) => product.brand))
