@@ -60,9 +60,8 @@ function ProductCategoryItem() {
 							id="button"
 							type="button"
 							aria-label="플러스"
-							className="float-right mr-2 mt-3 block h-[9px] w-[9px]"
+							className="float-right mr-2 mt-3 block h-[9px] w-[9px] bg-sprite01"
 							style={{
-								backgroundImage: `url("../../public/common/sprīt.png")`,
 								backgroundPositionX: buttonStyles[index] || '0',
 								backgroundPositionY: '-60px',
 								backgroundRepeat: 'no-repeat',
@@ -82,7 +81,9 @@ function ProductCategoryItem() {
 						<Link to={`/categoryBrand/${category.eitems && category.eitems[id]}`} key={`${index}-${id}`} onClick={() => setActiveItem(item)}>
 							<dl>
 								<dt className="sr-only" aria-label="부제목"></dt>
-								<dd className="ml-2 hover:scale-110">{item}</dd>
+								<motion.dd className={`item ml-2 ${activeItem === item ? 'item-active' : ''} ${isItemsVisible[index] ? '' : 'hidden'}`} whileHover={{opacity: 0.9}}>
+									{item}
+								</motion.dd>
 							</dl>
 						</Link>
 					))}

@@ -3,7 +3,6 @@ import {lazy} from 'react';
 const Mainpage = lazy(() => import('@/pages/Mainpage'));
 const RootLayout = lazy(() => import('@/layout/RootLayout'));
 const CategoryBrand = lazy(() => import('@/pages/CategoryBrand'));
-const CategoryColor = lazy(() => import('@/pages/CategoryColor'));
 const CategoryOuter = lazy(() => import('@/pages/CategoryOuter'));
 const CategoryJacket = lazy(() => import('@/pages/CategoryJacket'));
 const CategoryJumper = lazy(() => import('@/pages/CategoryJumper'));
