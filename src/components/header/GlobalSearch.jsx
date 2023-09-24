@@ -1,11 +1,11 @@
 import {useAuth} from '@/contexts/Auth';
-import join from '../../../public/header/icon_join.png';
-import login from '../../../public/header/icon_login.png';
-import logout from '../../../public/header/icon_logout.svg';
-import my from '../../../public/header/icon_my.png';
-import shopping from '../../../public/header/icon_shopping.png';
-import logo from '../../../public/header/logo.png';
 import {NavLink, useNavigate} from 'react-router-dom';
+import join from '/public/header/icon_join.png';
+import login from '/public/header/icon_login.png';
+import logout from '/public/header/icon_logout.svg';
+import my from '/public/header/icon_my.png';
+import shopping from '/public/header/icon_shopping.png';
+import logo from '/public/header/logo.png';
 
 function GlobalSearch() {
 	const {isAuth, signOut} = useAuth();
@@ -31,11 +31,7 @@ function GlobalSearch() {
 						maxLength={80}
 						autoComplete="off"
 					/>
-					<button
-						type="submit"
-						className="btn_search bg-top-[9px] h-[44px] w-[25px] bg-[url('../../public/header/icon_search.png')] bg-auto bg-center bg-no-repeat align-middle"
-						aria-label="검색버튼"
-					></button>
+					<button type="submit" className="btn_search bg-top-[9px] bg-icon_search h-[44px] w-[25px] bg-auto bg-center bg-no-repeat align-middle" aria-label="검색버튼"></button>
 				</div>
 				<ul className="utility float-right mr-[-17px] flex pt-[26px]">
 					{!isAuth && (
