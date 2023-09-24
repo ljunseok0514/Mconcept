@@ -83,7 +83,7 @@ function CategoryColor() {
 	return (
 		<>
 			<Helmet>
-				<title>Man Categories - M Concept</title>
+				<title>Man Category - M Concept</title>
 			</Helmet>
 			<main className="m-auto mt-6 flex max-w-[1980px] px-2">
 				<ProductCategory />
@@ -102,7 +102,7 @@ function CategoryColor() {
 					</div>
 
 					<ProductsItems data={filteredProducts} />
-					<ProductPageNation />
+					{/* <ProductPageNation /> */}
 				</section>
 			</main>
 		</>

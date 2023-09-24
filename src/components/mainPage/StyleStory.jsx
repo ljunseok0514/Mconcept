@@ -1,8 +1,8 @@
-import story1 from '@/assets/images/mainPage/main_story_1.png';
-import story2 from '@/assets/images/mainPage/main_story_2.png';
-import story3 from '@/assets/images/mainPage/main_story_3.png';
-import story4 from '@/assets/images/mainPage/main_story_4.png';
-import {motion} from "framer-motion";
+import story1 from '@/assets/images/mainPage/main_story_1.webp';
+import story2 from '@/assets/images/mainPage/main_story_2.webp';
+import story3 from '@/assets/images/mainPage/main_story_3.webp';
+import story4 from '@/assets/images/mainPage/main_story_4.webp';
+import {motion} from 'framer-motion';
 
 const storyList = [
 	{
@@ -16,9 +16,9 @@ const storyList = [
 		description: `GLOBAL SPORTS BRANDS \n 24H POP-UP SALE`,
 	},
 	{
-		title: 'KEYWORD : F/W MAKEUP',
+		title: 'THANKS GIVING PRESENT',
 		img: story3,
-		description: `성큼 다가온 가을, 키워드로 만나보는 23 F/W 메이크업 트렌드!\n나만의 메이크업 트렌드 아이템을 최대 70% 세일 혜택으로 만나보세요.`,
+		description: `부담은 적게, 감동은 크게! 센스있게 알찬 구성으로 준비한 기획세트 \n 최대 83% 할인에 15% 쿠폰 혜택을 놓치지 마세요!`,
 	},
 	{
 		title: 'EXCLUSIVE KNITWEAR',
@@ -30,32 +30,27 @@ const storyList = [
 function StyleStory() {
 	return (
 		<>
-		<section className='mb-32'>
-		<h2 className="mb-8 text-center text-[54px] font-thin">STYLE STORY</h2>
-			<ul className="flex justify-between gap-5">
-				{storyList.map((item) => {
-					return (
-						<li key={item.title}>
-							<a href="">
-								<figure>
-									<motion.img src={item.img} alt={item.title} 
-									whileHover={{ scale: 1.05 }}
-									whileTap={{ scale: 1.02 }}
-									drag="x"
-									dragConstraints={{ left: -100, right: 100 }}
-									/>
-									<dl>
-										<dt aria-label="제목"></dt>
-										<dd className="my-6 text-center text-2xl font-semibold">{item.title}</dd>
-										<dt aria-label="설명"></dt>
-										<dd className="text-center text-base text-gray-500 whitespace-pre-line">{item.description}</dd>
-									</dl>
-								</figure>
-							</a>
-						</li>
-					);
-				})}
-			</ul>
+			<section className="mb-32">
+				<h2 className="mb-8 text-center text-[54px] font-thin">STYLE STORY</h2>
+				<ul className="flex justify-between gap-10 mx-2 px-2">
+					{storyList.map((item) => {
+						return (
+							<li key={item.title}>
+								<a href="#">
+									<figure>
+										<motion.img src={item.img} alt={item.title} whileHover={{scale: 1.05}} whileTap={{scale: 1.02}} drag="x" dragConstraints={{left: -100, right: 100}} className='w-full h-full'/>
+										<dl>
+											<dt aria-label="제목"></dt>
+											<dd className="my-6 text-center text-2xl font-semibold">{item.title}</dd>
+											<dt aria-label="설명"></dt>
+											<dd className="whitespace-pre-line text-center text-base text-gray-500">{item.description}</dd>
+										</dl>
+									</figure>
+								</a>
+							</li>
+						);
+					})}
+				</ul>
 			</section>
 		</>
 	);

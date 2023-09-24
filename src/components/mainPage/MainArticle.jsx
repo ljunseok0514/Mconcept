@@ -1,19 +1,27 @@
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import main1 from '@/assets/images/mainPage/main_banner_1.png';
-import main2 from '@/assets/images/mainPage/main_banner_2.png';
-import main3 from '@/assets/images/mainPage/main_banner_3.png';
-import main4 from '@/assets/images/mainPage/main_banner_4.png';
-import main5 from '@/assets/images/mainPage/main_banner_5.png';
-import main6 from '@/assets/images/mainPage/main_banner_6.png';
+import main1 from '@/assets/images/mainPage/main_banner_1.webp';
+import main2 from '@/assets/images/mainPage/main_banner_2.webp';
+import main3 from '@/assets/images/mainPage/main_banner_3.webp';
+import main4 from '@/assets/images/mainPage/main_banner_4.webp';
+import main5 from '@/assets/images/mainPage/main_banner_5.webp';
+import main6 from '@/assets/images/mainPage/main_banner_6.webp';
+import main7 from '@/assets/images/mainPage/main_banner_7.webp';
+import main8 from '@/assets/images/mainPage/main_banner_8.webp';
+import main9 from '@/assets/images/mainPage/main_banner_9.webp';
+import main10 from '@/assets/images/mainPage/main_banner_10.webp';
+import main11 from '@/assets/images/mainPage/main_banner_11.webp';
+import main12 from '@/assets/images/mainPage/main_banner_12.webp';
+import main13 from '@/assets/images/mainPage/main_banner_13.webp';
+
 import '@/styles/swiper.css';
 import {useRef} from 'react';
-import {FaPlay, FaPause} from 'react-icons/fa';
+import {FaPause, FaPlay} from 'react-icons/fa';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import {Autoplay, Navigation, Pagination} from 'swiper/modules';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {Pagination, Navigation, Autoplay} from 'swiper/modules';
 
-const mainBanner = [main1, main2, main3, main4, main5, main6];
+const mainBanner = [main1, main2, main3, main4, main5, main6, main7, main8, main9, main10, main11, main12, main13];
 
 function MainArticle() {
 	const swiperRef = useRef(null);
@@ -39,7 +47,7 @@ function MainArticle() {
 
 	return (
 		<>
-			<section className="mb-[5rem]">
+			<section className="mb-32">
 				<article className="relative h-full">
 					<Swiper
 						ref={swiperRef}
@@ -66,7 +74,7 @@ function MainArticle() {
 							return (
 								<SwiperSlide key={item}>
 									<a href="#">
-										<img src={item} alt="" />
+										<img src={item} alt="" className='w-full h-full'/>
 									</a>
 								</SwiperSlide>
 							);
@@ -74,13 +82,15 @@ function MainArticle() {
 						{/* 이전, 다음 버튼 */}
 						<div className="swiper-button-prev" id="pnavi"></div>
 						<div className="swiper-button-next" id="nnavi"></div>
-						{/* 일시정지, 재생 버튼 */}
-						<button onClick={handlePause} className="swiperPause">
+						{/* 일시정지 버튼 */}
+						<button onClick={handlePause} className="swiperPause" aria-label="일시정지">
 							<FaPause className="faPause" />
 						</button>
-						<button onClick={handlePlay} className="swiperPlay">
+						{/* 재생 버튼  */}
+						<button onClick={handlePlay} className="swiperPlay" aria-label="재생">
 							<FaPlay className="faPlay" />
 						</button>
+						{/* 타이머 */}
 						<div className="autoplay-progress" slot="container-end">
 							<svg viewBox="0 0 48 48" ref={progressCircle}>
 								<circle cx="24" cy="24" r="20"></circle>

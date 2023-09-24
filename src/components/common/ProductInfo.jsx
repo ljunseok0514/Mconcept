@@ -1,16 +1,15 @@
+import {CelebrityLabel, CouponLabel, NewSeasonLabel, OnlyLabel} from '@/components/category/ProductLabel';
+import {formatNumber} from '@/utils/formatNumber';
 import {getProductsImage} from '@/utils/getProductsImage';
-import { CelebrityLabel, CouponLabel, NewSeasonLabel, OnlyLabel } from '@/components/category/ProductLabel';
-import {motion} from "framer-motion";
-import { Link } from 'react-router-dom';
-import { formatNumber } from '@/utils/formatNumber';
-
+import {motion} from 'framer-motion';
+import {Link} from 'react-router-dom';
 
 function ProductInfo({item, style = ''}) {
 	return (
 		<>
 			<Link to={`/products/${item.id}`}>
 				<motion.div className="img" whileHover={{opacity: 0.8}}>
-					<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} />
+					<img src={getProductsImage(item, 'photo')} alt={item.name} key={item.id} className='w-full h-full'/>
 				</motion.div>
 
 				<div className="relative">

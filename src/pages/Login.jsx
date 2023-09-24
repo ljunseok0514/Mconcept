@@ -4,6 +4,7 @@ import {LoginInput} from '@/components/login/LoginInput';
 import {useAuth} from '@/contexts/Auth';
 import debounce from '@/utils/debounce';
 import {useState} from 'react';
+import {Helmet} from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import {NavLink, useLocation, useNavigate} from 'react-router-dom';
 
@@ -20,11 +21,9 @@ function Login() {
 		e.preventDefault();
 
 		const {email, password} = formState;
-		console.log(email);
-		console.log(password);
+
 		try {
 			const response = await pb.collection('users').authWithPassword(email, password);
-			console.log(response);
 
 			if (!state) {
 				navigate('/');
@@ -65,6 +64,9 @@ function Login() {
 
 	return (
 		<>
+			<Helmet>
+				<title>Login | M CONCEPT</title>
+			</Helmet>
 			<section className="mx-[auto] w-[1240px]">
 				<h1 className=" mb-[42px] mt-[60px] text-center text-[41px]">LOGIN</h1>
 				<h2 className="sr-only">로그인 정보 입력</h2>
@@ -93,7 +95,7 @@ function Login() {
 								<input checked={isChecked} onChange={handleCheckboxChange} className="absolute left-[0] top-[0] z-[1] h-[25px] w-[25px] opacity-0" type="checkbox" id="saveEmail" name="saveEmail" />
 								<label
 									htmlFor="saveEmail"
-									className={` relative block pl-[35px] text-left text-[14px] leading-[25px] before:absolute before:left-0 before:top-0 before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] before:bg-no-repeat before:content-['']
+									className={` relative block pl-[35px] text-left text-[14px] leading-[25px] before:absolute before:left-0 before:top-0 before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīte02.png')] before:bg-no-repeat before:content-['']
 									${isChecked ? 'before:bg-[left_-30px_top_0px]' : ''}`}
 								>
 									이메일 아이디 저장

@@ -159,7 +159,7 @@ function Join() {
 			emailVisibility: true,
 		});
 
-		navigate('/');
+		navigate('joinComplete');
 	};
 
 	const handleInput = (e) => {
@@ -219,7 +219,7 @@ function Join() {
 	return (
 		<>
 			<Helmet>
-				<title>Join - M Concept</title>
+				<title>Join | M CONCEPT</title>
 			</Helmet>
 			<section className="join_container">
 				<h2 className="subTitle relative min-w-[1240px] pb-[36px] pt-[55px] text-center text-[44px] uppercase">join member</h2>
@@ -237,8 +237,9 @@ function Join() {
 							</colgroup>
 							<tbody className="table-row-group align-middle ">
 								<tr>
+									<th className="sr-only hidden">배너 th</th>
 									<td colSpan="2" className="p-[0]">
-										<div className="table h-[48px] w-[100%] bg-[#ff6160] text-center text-[#fff]">
+										<div className="table h-[48px] w-[100%] bg-[#B30300] text-center text-[#fff]">
 											<strong className="table-cell align-middle text-[20px]">
 												회원으로 가입하시면 즉시 사용가능한
 												<span>10%</span>
@@ -305,7 +306,7 @@ function Join() {
 												htmlFor="agree-all"
 												className={`
 											
-											  before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] 
+											  before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīte02.png')] 
 												${isEventChecked ? 'before:bg-[left_-30px_top_-30px]' : 'before:bg-[left_0px_top_-30px]	'}`}
 											>
 												수신
@@ -324,7 +325,7 @@ function Join() {
 												htmlFor="disagree-all"
 												className={`${
 													isEventChecked ? 'before:bg-[left_0px_top_-30px]	' : 'before:bg-[left_-30px_top_-30px]'
-												}  before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')]`}
+												}  before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīte02.png')]`}
 											>
 												비수신
 											</label>
@@ -348,7 +349,7 @@ function Join() {
 									htmlFor="checkAll2"
 									className={`${
 										isAllChecked ? 'before:bg-[left_-30px_top_0px]' : ''
-									} before:-content[''] relative mt-[5px] block pl-[35px] text-[14px] leading-[25px] text-[#666] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')]`}
+									} before:-content[''] relative mt-[5px] block pl-[35px] text-[14px] leading-[25px] text-[#666] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīte02.png')]`}
 								>
 									<em className="text-[16px] not-italic	">전체동의합니다.</em>
 									<br />
@@ -370,7 +371,7 @@ function Join() {
 										/>
 										<label
 											htmlFor="checkAgree5"
-											className={` before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] ${
+											className={` before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīte02.png')] ${
 												isAgeChecked ? 'before:bg-[left_-30px_top_0px]' : ''
 											}`}
 										>
@@ -390,7 +391,7 @@ function Join() {
 										/>
 										<label
 											htmlFor="checkAgree4"
-											className={` before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] 
+											className={` before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīte02.png')] 
 											 ${isAgreementChecked ? 'before:bg-[left_-30px_top_0px]' : ''} `}
 										>
 											이용약관 동의 (필수)
@@ -418,7 +419,7 @@ function Join() {
 										/>
 										<label
 											htmlFor="checkAgree2"
-											className={` before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] ${
+											className={` before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīte02.png')] ${
 												isInfoChecked ? 'before:bg-[left_-30px_top_0px]' : ''
 											} `}
 										>
@@ -447,7 +448,7 @@ function Join() {
 										/>
 										<label
 											htmlFor="checkAgree3"
-											className={` before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīt_2.png')] ${
+											className={` before:-content[''] relative block pl-[35px] text-[14px] leading-[25px] text-[#333] before:absolute before:left-[0] before:top-[0] before:block before:h-[25px] before:w-[25px] before:bg-[url('../../public/common/sprīte02.png')] ${
 												isInfoUseChecked ? 'before:bg-[left_-30px_top_0px]' : ''
 											} `}
 										>

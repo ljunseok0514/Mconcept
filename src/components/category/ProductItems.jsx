@@ -1,12 +1,11 @@
-import pb from '@/api/pocketbase';
-import {useEffect, useState} from 'react';
-import ProductInfo from '../ProductInfo';
+import ProductInfo from '@/components/common/ProductInfo';
+
 
 /**
  *  ProductItems component
  * */
 
-const style = ['text-left', 'ml-1', 'ml-2'];
+const style = ['text-left', 'ml-1', 'float-right'];
 
 function ProductItems({data}) {
 	return (
