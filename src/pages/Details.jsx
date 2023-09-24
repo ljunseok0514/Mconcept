@@ -115,7 +115,7 @@ function Details() {
 		return (
 			<div className="relative mx-auto mb-[200px] w-[1240px]">
 				<Helmet>
-					<title>Details - M Concept</title>
+					<title>상세페이지 | M CONCEPT</title>
 				</Helmet>
 				<DetailsNav />
 				<DetailsProducts data={data} />
