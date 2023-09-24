@@ -57,13 +57,15 @@ function CategoryBrand() {
 		refetchOnReconnect: false,
 	});
 
-	useEffect(() => {
-		if (data) {
-			const brandList = Array.from(new Set(data.map((product) => product.brand)));
-			setBrands(brandList);
-			setProducts(data);
-		}
-	}, [data]);
+  useEffect(() => {
+    if (data) {
+      const brandList = Array.from(
+        new Set(data.map((product) => product.brand))
+      );
+      setBrands(brandList);
+      setProducts(data);
+    }
+  }, [data]);
 
 	// if (isLoading) {
 	// 	return (
