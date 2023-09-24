@@ -26,7 +26,6 @@ const router = createBrowserRouter(
 			<Route path="login" element={<Login />} />
 			<Route path="products/:id" element={<Details />} />
 			<Route path="categoryBrand" element={<CategoryBrand />} />
-			<Route path="categoryColor" element={<CategoryColor />} />
 			<Route path="categoryBrand/outer" element={<CategoryOuter />} />
 			<Route path="jacket" element={<CategoryJacket />} />
 			<Route path="jumper" element={<CategoryJumper />} />
