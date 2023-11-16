@@ -11,16 +11,26 @@ import CategoryLife from './CategoryLife';
 import {NavLink} from 'react-router-dom';
 import NavList from './NavList';
 import {useState} from 'react';
+import {useEffect} from 'react';
+import pb from '@/api/pocketbase';
+import {useNavigate} from 'react-router-dom';
+import {useRef} from 'react';
 
 function Nav() {
-	const [catagoryIsVisible, setcatagoryVisible] = useState(false);
+	const router = useNavigate();
+	const [catagoryIsVisible, setCategoryVisible] = useState(false);
+	const [data, setData] = useState();
 
 	//통합 마우스 핸들러
-	const handleMouseOver = (setVisible) => () => {
-		setVisible((isVisible) => !isVisible);
+	const handleMouseOver = () => {
+		setCategoryVisible(true);
 	};
-	const handleMouseOut = (setVisible) => () => {
-		setVisible((isVisible) => !isVisible);
+	const handleMouseOut = () => {
+		setCategoryVisible(false);
+	};
+	const handleClick = (path) => {
+		router(path);
+		setCategoryVisible(false);
 	};
 
 	return (
@@ -89,8 +99,8 @@ function Nav() {
 						</li>
 					</ul>
 				</div>
-				<div className="catagory_btn" onMouseOver={handleMouseOver(setcatagoryVisible)} onMouseOut={handleMouseOut(setcatagoryVisible)}>
-					{/* onMouseOver={handleMouseOver(setcatagoryVisible)} onMouseOut={handleMouseOut(setcatagoryVisible)} */}
+				<div className="catagory_btn block" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+					{/* onMouseOver={handleMouseOver(setCategoryVisible)} onMouseOut={handleMouseOut(setCategoryVisible)} */}
 					<a
 						className=" absolute top-[0px] block w-[176px] overflow-hidden border-[1px] border-solid border-[#e9e9e9] pl-[14px] text-left text-[14px] leading-[46px] after:absolute after:right-[17px] after:top-[50%] after:mt-[-6px] after:block after:h-[12px] after:w-[12px] after:bg-[url('../../public/header/icon_catArrowOpen.svg')] after:bg-auto after:bg-center after:bg-no-repeat after:content-['']"
 						href="#"
@@ -99,8 +109,8 @@ function Nav() {
 					</a>
 					<div
 						className={`${
-							catagoryIsVisible ? '' : 'hidden'
-						} second_nav absolute left-[0] right-[0] top-[47px] z-[99px] cursor-default border-t-[1px] border-solid border-[#e9e9e9] bg-[#fff]  shadow-[0_10px_28px_0px_rgba(0,0,0,0.12)]`}
+							catagoryIsVisible ? 'visible	' : 'hidden'
+						}  second_nav absolute left-[0] right-[0] top-[47px] z-[99px] cursor-default border-t-[1px] border-solid border-[#e9e9e9] bg-[#fff]  shadow-[0_10px_28px_0px_rgba(0,0,0,0.12)]`}
 						// shadow-[0_16px_22px_0_rgb(0,0,0/12%)]
 					>
 						<div className="second_nav_cont after:content[''] relative mx-[auto] my-[0] min-h-[324px] w-[100%] max-w-[1920px] pb-[30px] pl-[20px] pr-[0] pt-[16px] text-left before:absolute before:left-[21px] before:top-[-2.5px] before:block before:h-[5px] before:w-[174px] before:bg-[#fff] before:content-[''] after:invisible after:clear-both after:block after:h-[0]">
@@ -114,7 +124,7 @@ function Nav() {
 										men
 									</a>
 
-									<CategoryMen />
+									<CategoryMen handleClick={handleClick} />
 								</div>
 								{/* <div className="category_women flex w-[1232px] flex-wrap content-start pl-[170px]">
 									<a

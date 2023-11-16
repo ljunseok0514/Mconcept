@@ -5,6 +5,10 @@ import cate_luxuryzone from '../../../public//header/cate_luxuryzone.jpeg';
 import cate_manneiProductPic from '../../../public//header/cate_manneiProductPic.jpeg';
 import {Fragment} from 'react';
 import {NavLink} from 'react-router-dom';
+import {getProductsImage} from '@/utils/getProductsImage';
+import {useEffect} from 'react';
+import {useState} from 'react';
+import pb from '@/api/pocketbase';
 
 const catagoryList = [
 	{
@@ -14,22 +18,22 @@ const catagoryList = [
 			{
 				itemTitle: '자켓',
 				id: crypto.randomUUID(),
-				link: 'login',
+				link: 'categoryBrand/jacket',
 			},
 			{
 				itemTitle: '점퍼',
 				id: crypto.randomUUID(),
-				link: 'login',
+				link: 'categoryBrand/jumper',
 			},
 			{
 				itemTitle: '패딩',
 				id: crypto.randomUUID(),
-				link: 'login',
+				link: 'categoryBrand/padding',
 			},
 			{
 				itemTitle: '코트',
 				id: crypto.randomUUID(),
-				link: 'login',
+				link: 'categoryBrand/coat',
 			},
 		],
 	},
@@ -134,18 +138,42 @@ const catagoryList = [
 				id: crypto.randomUUID(),
 				link: 'login',
 			},
-			{
-				itemTitle: '베스트',
-				id: crypto.randomUUID(),
-				link: 'login',
-			},
 		],
 	},
 ];
 
-function CategoryMen() {
+// const getProducts = async () => {
+// 	return await pb.collection('products').getFullList();
+// };
+
+function CategoryMen({handleClick}) {
+	// const [data, setData] = useState();
+
+	//---------------------- pb이미지불러오기 테스트코드
+	// const handleClick = useEffect(() => {
+	// 	async function getProducts() {
+	// 		try {
+	// 			const readProduct = await pb.collection('products').getOne('yx8ss1rsqzlllmh');
+	// 			console.log(readProduct);
+
+	// 			setData(readProduct);
+	// 		} catch (error) {
+	// 			if (!(error instanceof ClientResponseError)) {
+	// 				console.error(error);
+	// 			}
+	// 		}
+	// 	}
+	// 	getProducts();
+	// }, []);
+	//---------------------- pb이미지불러오기 테스트코드
+
 	return (
 		<>
+			{/* test bring image */}
+			{/* <div className="img relative h-[117px] w-[88px] after:absolute after:left-[0] after:top-[0] after:block after:h-[100%] after:w-[100%]  after:bg-[#00000008] after:content-['']">
+				{data && <img src={getProductsImage(data, 'photo')} className=" w-[100%]" alt={data.name} key={data.id}></img>}
+			</div> */}
+			{/* test bring image */}
 			{catagoryList.map((item) => (
 				<ul key={item.id} className="block w-[177px] pl-[30px] pr-[20px]">
 					<li className="depth2 mb-[12px] ">
@@ -155,9 +183,14 @@ function CategoryMen() {
 					</li>
 					{item.categoryItem.map((item) => (
 						<li key={item.id}>
-							<NavLink to={item.link} className="overflow-hidden text-ellipsis text-[13px] uppercase leading-[16px] text-[#7b7b7b] hover:text-[#000]">
+							<span
+								onClick={() => {
+									handleClick(item.link);
+								}}
+								className="cursor-pointer overflow-hidden text-ellipsis text-[13px] uppercase leading-[16px] text-[#7b7b7b] hover:text-[#000]"
+							>
 								{item.itemTitle}
-							</NavLink>
+							</span>
 						</li>
 					))}
 				</ul>
@@ -204,6 +237,7 @@ function CategoryMen() {
 				<div className="product">
 					<a href="#" className="flex align-middle">
 						<div className="img relative h-[117px] w-[88px] after:absolute after:left-[0] after:top-[0] after:block after:h-[100%] after:w-[100%]  after:bg-[#00000008] after:content-['']">
+							{/* <img src={getProductsImage(item, 'photo')} className=" w-[100%]" alt={item.name} key={item.id}></img> */}
 							<img src={cate_manneiProductPic} className=" w-[100%]  " alt="ProductPic"></img>
 						</div>
 						<div className="text w-[128px] pl-[10px] pt-[4px]">

@@ -36,34 +36,32 @@ function GlobalSearch() {
 				<ul className="utility float-right mr-[-17px] flex pt-[26px]">
 					{!isAuth && (
 						<li>
-							<NavLink to={'join'} className="block w-[64px] text-center">
-								<img className="inline-block h-[30px] w-[30px]" src={join} alt="joinIcon" />
-								<strong className="block text-[12px]">JOIN</strong>
+							<NavLink to={'join'} className="block w-[64px]  text-center">
+								<img className="inline-block h-[30px] w-[30px]" src={join} alt="JOIN page" />
+								<strong className="text-weight block text-[12px] font-bold uppercase">JOIN</strong>
 							</NavLink>
 						</li>
 					)}
 
 					{isAuth && (
 						<li>
-							<button onClick={handleSignOut} className="block w-[64px] text-center" type="button">
-								<img src={logout} className="inline-block h-[30px] w-[30px]" alt="logout" />
+							<a onClick={handleSignOut} className="block w-[64px] text-center">
+								<img src={logout} className="inline-block h-[30px] w-[30px]" alt="" />
 								<strong className="block text-[12px]">LOGOUT</strong>
-							</button>
+							</a>
 						</li>
 					)}
 					{!isAuth && (
 						<li>
-							<NavLink to={'login'}>
-								<button className="block w-[64px] text-center" type="button">
-									<img className="inline-block h-[30px] w-[30px]" src={login} alt="loginIcon" />
-									<strong className="block text-[12px]">LOGIN</strong>
-								</button>
+							<NavLink to={'login'} className="block w-[64px] text-center">
+								<img className="inline-block h-[30px] w-[30px]" src={login} alt="" />
+								<strong className="block text-[12px]">LOGIN</strong>
 							</NavLink>
 						</li>
 					)}
 					<li>
 						<a href="#" className="block w-[64px] text-center">
-							<img className="inline-block h-[30px] w-[30px]" src={my} alt="myIcon" />
+							<img className="inline-block h-[30px] w-[30px]" src={my} alt="" />
 							<strong className="block text-[12px]">MY</strong>
 						</a>
 					</li>

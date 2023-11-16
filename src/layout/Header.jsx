@@ -7,7 +7,7 @@ function Header() {
 	return (
 		<>
 			<header className="mx-auto max-w-[1920px]">
-				<img src={banner} alt="배너" className="h-[100%] w-[100%]" />
+				<img src={banner} alt="가을 쇼핑의 A to Z 어텀샵! 전 상품 10% 쿠폰" className="h-[100%] w-[100%]" />
 				<GlobalSearch />
 				<Nav />
 			</header>
